@@ -93,7 +93,7 @@ BEGIN
             VALUE "FileDescription", "A new Flutter project." "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "TradeyPlus-WebCms" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 TradeyPlus-WebCms. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 TradeyPlus-WebCms. All rights reserved." "\0"
             VALUE "OriginalFilename", "tradey_plus_web_cms.exe" "\0"
             VALUE "ProductName", "TradeyPlus-WebCms" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

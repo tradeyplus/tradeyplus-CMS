@@ -11,6 +11,7 @@ import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
@@ -98,12 +99,130 @@ class _MyAppState extends State<MyApp> {
       ],
       theme: ThemeData(
         brightness: Brightness.light,
+        useMaterial3: false,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
+        useMaterial3: false,
       ),
       themeMode: _themeMode,
       routerConfig: _router,
+    );
+  }
+}
+
+class NavBarPage extends StatefulWidget {
+  NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
+
+  final String? initialPage;
+  final Widget? page;
+
+  @override
+  _NavBarPageState createState() => _NavBarPageState();
+}
+
+/// This is the private State class that goes with NavBarPage.
+class _NavBarPageState extends State<NavBarPage> {
+  String _currentPageName = 'Main_Home';
+  late Widget? _currentPage;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentPageName = widget.initialPage ?? _currentPageName;
+    _currentPage = widget.page;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final tabs = {
+      'Main_Home': MainHomeWidget(),
+      'Main_customerList': MainCustomerListWidget(),
+      'Company_Entry': CompanyEntryWidget(),
+      'Main_profilePage': MainProfilePageWidget(),
+    };
+    final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
+
+    return Scaffold(
+      body: _currentPage ?? tabs[_currentPageName],
+      bottomNavigationBar: Visibility(
+        visible: responsiveVisibility(
+          context: context,
+          tabletLandscape: false,
+          desktop: false,
+        ),
+        child: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (i) => setState(() {
+            _currentPage = null;
+            _currentPageName = tabs.keys.toList()[i];
+          }),
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          selectedItemColor: FlutterFlowTheme.of(context).primary,
+          unselectedItemColor: FlutterFlowTheme.of(context).secondaryText,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          type: BottomNavigationBarType.fixed,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.dashboard_outlined,
+                size: 24.0,
+              ),
+              activeIcon: Icon(
+                Icons.dashboard_rounded,
+                size: 32.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                'xdxbdj20' /* home */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.people_alt_outlined,
+                size: 24.0,
+              ),
+              activeIcon: Icon(
+                Icons.people_alt,
+                size: 32.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                '3ourv2w9' /* customerList */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.insert_drive_file_outlined,
+                size: 24.0,
+              ),
+              activeIcon: Icon(
+                Icons.insert_drive_file_rounded,
+                size: 32.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                'txrqj8re' /* company_Entry */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.settings_outlined,
+                size: 24.0,
+              ),
+              activeIcon: Icon(
+                Icons.settings,
+                size: 32.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                'o3dp9tss' /* profile */,
+              ),
+              tooltip: '',
+            )
+          ],
+        ),
+      ),
     );
   }
 }

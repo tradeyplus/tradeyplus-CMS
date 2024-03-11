@@ -123,6 +123,16 @@ class UsersRecord extends FirestoreRecord {
   DateTime? get dob => _dob;
   bool hasDob() => _dob != null;
 
+  // "payment_status" field.
+  PaymentStatus? _paymentStatus;
+  PaymentStatus? get paymentStatus => _paymentStatus;
+  bool hasPaymentStatus() => _paymentStatus != null;
+
+  // "last_read_notification" field.
+  DateTime? _lastReadNotification;
+  DateTime? get lastReadNotification => _lastReadNotification;
+  bool hasLastReadNotification() => _lastReadNotification != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -147,6 +157,9 @@ class UsersRecord extends FirestoreRecord {
     _investmentPeriod = castToType<int>(snapshotData['investment_period']);
     _yieldPeriod = castToType<int>(snapshotData['yield_period']);
     _dob = snapshotData['dob'] as DateTime?;
+    _paymentStatus =
+        deserializeEnum<PaymentStatus>(snapshotData['payment_status']);
+    _lastReadNotification = snapshotData['last_read_notification'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -204,6 +217,8 @@ Map<String, dynamic> createUsersRecordData({
   int? investmentPeriod,
   int? yieldPeriod,
   DateTime? dob,
+  PaymentStatus? paymentStatus,
+  DateTime? lastReadNotification,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -228,6 +243,8 @@ Map<String, dynamic> createUsersRecordData({
       'investment_period': investmentPeriod,
       'yield_period': yieldPeriod,
       'dob': dob,
+      'payment_status': paymentStatus,
+      'last_read_notification': lastReadNotification,
     }.withoutNulls,
   );
 
@@ -263,7 +280,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.balance == e2?.balance &&
         e1?.investmentPeriod == e2?.investmentPeriod &&
         e1?.yieldPeriod == e2?.yieldPeriod &&
-        e1?.dob == e2?.dob;
+        e1?.dob == e2?.dob &&
+        e1?.paymentStatus == e2?.paymentStatus &&
+        e1?.lastReadNotification == e2?.lastReadNotification;
   }
 
   @override
@@ -288,7 +307,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.balance,
         e?.investmentPeriod,
         e?.yieldPeriod,
-        e?.dob
+        e?.dob,
+        e?.paymentStatus,
+        e?.lastReadNotification
       ]);
 
   @override
