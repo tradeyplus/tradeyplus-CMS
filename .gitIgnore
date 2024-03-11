@@ -1,0 +1,32 @@
+# Miscellaneous
+*.log
+*.sqlite
+*.sqlite3
+*.iml
+.DS_Store
+.packages
+.pubspec.lock
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.vscode/
+.idea/
+
+# Build files
+/build/
+.dart_tool/
+
+# Dependencies
+/packages/
+.pub/
+
+# Flutter specific
+/.metadata
+.flutter-plugins
+.flutter-plugins-dependencies
+*.flutter-plugins
+*.flutter-plugins-dependencies
+
+# IDE (IntelliJ IDEA)
+.idea/
+*.iml
