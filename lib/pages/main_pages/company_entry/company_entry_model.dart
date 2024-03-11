@@ -1,10 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
-import '/components/sample_file_download/sample_file_download_widget.dart';
-import '/components/upload_page/upload_page_widget.dart';
-import '/components/web_nav/web_nav_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
+import '/components/used_com/log_page/log_page_widget.dart';
+import '/components/used_com/sample_file_download/sample_file_download_widget.dart';
+import '/components/used_com/upload_page/upload_page_widget.dart';
+import '/components/used_com/web_nav/web_nav_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -17,11 +17,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -31,18 +28,6 @@ class CompanyEntryModel extends FlutterFlowModel<CompanyEntryWidget> {
   ///  Local state fields for this page.
 
   bool selectedbulk = true;
-
-  Color? selectedfilledbulk = Color(4281355695);
-
-  Color? selectedtextbulk = Color(4294967295);
-
-  Color? selectedtextmonthly = Color(4279571998);
-
-  Color? selectedfilledmonthly = Color(4294967295);
-
-  Color? selectedshadowbulk;
-
-  Color? selectedshadowmonth;
 
   ///  State fields for stateful widgets in this page.
 
@@ -87,14 +72,19 @@ class CompanyEntryModel extends FlutterFlowModel<CompanyEntryWidget> {
   UsersRecord? investorDoc;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   InvestmentDataRecord? createdInvesmntdata;
+  // Model for logPage component.
+  late LogPageModel logPageModel;
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     webNavModel = createModel(context, () => WebNavModel());
     uploadPageModel = createModel(context, () => UploadPageModel());
+    logPageModel = createModel(context, () => LogPageModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     webNavModel.dispose();
@@ -114,6 +104,7 @@ class CompanyEntryModel extends FlutterFlowModel<CompanyEntryWidget> {
     profitRatioController?.dispose();
 
     uploadPageModel.dispose();
+    logPageModel.dispose();
   }
 
   /// Action blocks are added here.

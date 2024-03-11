@@ -8,8 +8,8 @@ import 'modal_create_project_widget.dart' show ModalCreateProjectWidget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
@@ -49,11 +49,13 @@ class ModalCreateProjectModel
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     projectNameControllerValidator = _projectNameControllerValidator;
     descriptionControllerValidator = _descriptionControllerValidator;
   }
 
+  @override
   void dispose() {
     projectNameFocusNode?.dispose();
     projectNameController?.dispose();

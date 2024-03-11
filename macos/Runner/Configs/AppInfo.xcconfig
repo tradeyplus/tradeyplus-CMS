@@ -11,4 +11,4 @@ PRODUCT_NAME = TradeyPlus-WebCms
 PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.crmapp
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2022 TradeyPlus-WebCms. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2024 TradeyPlus-WebCms. All rights reserved.

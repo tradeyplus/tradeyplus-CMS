@@ -81,13 +81,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? MainHomeWidget() : AuthLoginWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : AuthLoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? MainHomeWidget() : AuthLoginWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : AuthLoginWidget(),
           routes: [
             FFRoute(
               name: 'auth_Login',
@@ -102,21 +102,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Main_Home',
               path: 'mainHome',
-              builder: (context, params) => MainHomeWidget(
-                selectedNav: params.getParam('selectedNav', ParamType.int),
-              ),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Main_Home')
+                  : MainHomeWidget(
+                      selectedNav:
+                          params.getParam('selectedNav', ParamType.int),
+                    ),
             ),
             FFRoute(
               name: 'Main_customerList',
               path: 'mainCustomerList',
-              builder: (context, params) => MainCustomerListWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Main_customerList')
+                  : MainCustomerListWidget(),
             ),
             FFRoute(
               name: 'Main_profilePage',
               path: 'mainProfilePage',
-              builder: (context, params) => MainProfilePageWidget(
-                selectedNav: params.getParam('selectedNav', ParamType.int),
-              ),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Main_profilePage')
+                  : MainProfilePageWidget(
+                      selectedNav:
+                          params.getParam('selectedNav', ParamType.int),
+                    ),
             ),
             FFRoute(
               name: 'userDetails',
@@ -146,7 +154,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Company_Entry',
               path: 'companyEntry',
-              builder: (context, params) => CompanyEntryWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Company_Entry')
+                  : CompanyEntryWidget(),
             ),
             FFRoute(
               name: 'Bulk_Data',
@@ -325,6 +335,7 @@ class FFRoute {
           return null;
         },
         pageBuilder: (context, state) {
+          fixStatusBarOniOS16AndBelow(context);
           final ffParams = FFParameters(state, asyncParams);
           final page = ffParams.hasFutures
               ? FutureBuilder(
