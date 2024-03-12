@@ -13,6 +13,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -6665,14 +6666,29 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         }(),
                                                                       ));
 
-                                                                  GoRouter.of(
-                                                                          context)
-                                                                      .prepareAuthEvent();
-                                                                  await authManager
-                                                                      .signOut();
-                                                                  GoRouter.of(
-                                                                          context)
-                                                                      .clearRedirectLocation();
+                                                                  _model.out =
+                                                                      await queryUsersRecordOnce(
+                                                                    queryBuilder:
+                                                                        (usersRecord) =>
+                                                                            usersRecord.where(
+                                                                      'email',
+                                                                      isEqualTo:
+                                                                          currentUserEmail,
+                                                                    ),
+                                                                    singleRecord:
+                                                                        true,
+                                                                  ).then((s) =>
+                                                                          s.firstOrNull);
+
+                                                                  await _model
+                                                                      .out!
+                                                                      .reference
+                                                                      .update(
+                                                                          createUsersRecordData(
+                                                                    userRef: _model
+                                                                        .out
+                                                                        ?.reference,
+                                                                  ));
 
                                                                   await LogRecord
                                                                       .collection
@@ -6690,6 +6706,17 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         logUserId:
                                                                             currentUserUid,
                                                                       ));
+                                                                  GoRouter.of(
+                                                                          context)
+                                                                      .prepareAuthEvent();
+                                                                  await authManager
+                                                                      .signOut();
+                                                                  GoRouter.of(
+                                                                          context)
+                                                                      .clearRedirectLocation();
+
+                                                                  setState(
+                                                                      () {});
                                                                 },
                                                       text: FFLocalizations.of(
                                                               context)
