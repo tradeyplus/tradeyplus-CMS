@@ -6673,6 +6673,13 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                   GoRouter.of(
                                                                           context)
                                                                       .clearRedirectLocation();
+                                                                  GoRouter.of(context).prepareAuthEvent();
+    // custom code
+    await authManager.signInWithEmail(
+      context,
+      "kim@gmail.com",
+      "123456",
+    );
 
                                                                   await LogRecord
                                                                       .collection
