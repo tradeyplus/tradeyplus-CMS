@@ -6665,6 +6665,15 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         }(),
                                                                       ));
 
+                                                                  GoRouter.of(
+                                                                          context)
+                                                                      .prepareAuthEvent();
+                                                                  await authManager
+                                                                      .signOut();
+                                                                  GoRouter.of(
+                                                                          context)
+                                                                      .clearRedirectLocation();
+
                                                                   await LogRecord
                                                                       .collection
                                                                       .doc()
@@ -6681,11 +6690,6 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         logUserId:
                                                                             currentUserUid,
                                                                       ));
-
-                                                                  context.goNamedAuth(
-                                                                      'Main_Home',
-                                                                      context
-                                                                          .mounted);
                                                                 },
                                                       text: FFLocalizations.of(
                                                               context)
