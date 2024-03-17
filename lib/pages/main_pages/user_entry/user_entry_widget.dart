@@ -6714,17 +6714,13 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                   GoRouter.of(
                                                                           context)
                                                                       .clearRedirectLocation();
-                                                                  // custom code
-                                                                  // await authManager.signInWithEmail(
-                                                                  //   context,
-                                                                  //   "kim@gmail.com",
-                                                                  //   "123456",
-                                                                  // );
+                                                                      // CUSTOM_CODE_STARTED
                                                                   await authManager.signInWithEmail(
                                                                   context,
-                                                                  _model.emailAddressController.text, // replace "kim@gmail.com" with this
-                                                                  _model.passwordController.text, // replace "123456" with this
+                                                                  FFAppState().email,
+                                                                  FFAppState().password,
                                                                 );
+                                                                // CUSTOM_CODE_ENDED
 
 
                                                                   setState(

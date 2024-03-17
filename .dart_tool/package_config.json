@@ -939,51 +939,51 @@
     },
     {
       "name": "url_launcher",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher-6.1.10",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher-6.2.5",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "3.2"
     },
     {
       "name": "url_launcher_android",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_android-6.0.27",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_android-6.3.0",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "url_launcher_ios",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_ios-6.1.4",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_ios-6.2.5",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "url_launcher_linux",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_linux-3.0.6",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_linux-3.1.1",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.0"
     },
     {
       "name": "url_launcher_macos",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_macos-3.0.7",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_macos-3.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.19"
     },
     {
       "name": "url_launcher_platform_interface",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_platform_interface-2.1.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "url_launcher_web",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_web-2.1.0",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_platform_interface-2.3.2",
       "packageUri": "lib/",
       "languageVersion": "3.1"
     },
     {
-      "name": "url_launcher_windows",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_windows-3.0.8",
+      "name": "url_launcher_web",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_web-2.2.3",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "url_launcher_windows",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/url_launcher_windows-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "uuid",
@@ -1076,7 +1076,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-03-17T20:00:32.942606Z",
+  "generated": "2024-03-17T20:51:19.723762Z",
   "generator": "pub",
   "generatorVersion": "3.3.0"
 }
