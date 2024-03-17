@@ -821,6 +821,11 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                             },
                                           );
 
+                                          setState(() {
+                                            FFAppState().email = '';
+                                            FFAppState().password = '';
+                                          });
+
                                           await LogRecord.collection
                                               .doc()
                                               .set(createLogRecordData(

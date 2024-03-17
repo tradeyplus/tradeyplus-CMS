@@ -317,6 +317,7 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
             logRecord.orderBy('log_time', descending: true),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      setState(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -331,6 +332,8 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
