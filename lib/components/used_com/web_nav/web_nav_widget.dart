@@ -63,28 +63,28 @@ class _WebNavWidgetState extends State<WebNavWidget> {
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(5.0, 25.0, 5.0, 0.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                    width: 100.0,
-                    height: 100.0,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-            ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset(
+                          'assets/images/logo.png',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
                   Container(
                     width: double.infinity,
                     height: 61.0,
@@ -257,14 +257,7 @@ class _WebNavWidgetState extends State<WebNavWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(
-                  0.0,
-                  valueOrDefault<double>(
-                    MediaQuery.sizeOf(context).height < 850.0 ? 126.0 : 161.0,
-                    0.0,
-                  ),
-                  0.0,
-                  0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 35.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
