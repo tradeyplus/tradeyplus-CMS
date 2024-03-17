@@ -604,6 +604,11 @@ class _ModalProfileDetailsWidgetState extends State<ModalProfileDetailsWidget>
                                         GoRouter.of(context)
                                             .clearRedirectLocation();
 
+                                        setState(() {
+                                          FFAppState().email = '';
+                                          FFAppState().password = '';
+                                        });
+
                                         await LogRecord.collection
                                             .doc()
                                             .set(createLogRecordData(

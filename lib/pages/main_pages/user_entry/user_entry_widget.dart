@@ -6671,9 +6671,9 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                     queryBuilder:
                                                                         (usersRecord) =>
                                                                             usersRecord.where(
-                                                                      'email',
+                                                                      'uid',
                                                                       isEqualTo:
-                                                                          currentUserEmail,
+                                                                          currentUserUid,
                                                                     ),
                                                                     singleRecord:
                                                                         true,

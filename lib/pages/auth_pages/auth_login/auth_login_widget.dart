@@ -921,6 +921,13 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                             return;
                                           }
 
+                                          setState(() {
+                                            FFAppState().email = _model
+                                                .emailAddressController.text;
+                                            FFAppState().password =
+                                                _model.passwordController.text;
+                                          });
+
                                           await LogRecord.collection
                                               .doc()
                                               .set(createLogRecordData(
