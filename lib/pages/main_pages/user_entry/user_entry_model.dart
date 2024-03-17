@@ -14,6 +14,7 @@ import '/flutter_flow/upload_data.dart';
 import 'user_entry_widget.dart' show UserEntryWidget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -242,6 +243,8 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
   FocusNode? noteCreatedFocusNode;
   TextEditingController? noteCreatedController;
   String? Function(BuildContext, String?)? noteCreatedControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  UsersRecord? out;
   // Model for logPage component.
   late LogPageModel logPageModel;
 
