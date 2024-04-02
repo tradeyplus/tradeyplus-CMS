@@ -10,6 +10,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'upload_page_model.dart';
 export 'upload_page_model.dart';
+import 'package:firebase_core/firebase_core.dart'; // Required for Firebase initialization
+import 'package:firebase_storage/firebase_storage.dart'; // For Firebase Storage
 
 class UploadPageWidget extends StatefulWidget {
   const UploadPageWidget({super.key});
@@ -343,6 +345,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                         logFirebaseEvent(
                                             'UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
                                         final selectedFiles = await selectFiles(
+                                          allowedExtensions: ['xlsx'],
                                           multiFile: false,
                                         );
                                         if (selectedFiles != null) {
@@ -357,6 +360,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                               'Uploading file...',
                                               showLoading: true,
                                             );
+                                            print(selectedFiles[0].storagePath);
                                             selectedUploadedFiles =
                                                 selectedFiles
                                                     .map((m) => FFUploadedFile(
@@ -391,6 +395,51 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                           }
                                         }
                                       },
+                                      // onPressed: () async {
+                                      //   logFirebaseEvent('UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
+                                      //   final selectedFiles = await selectFiles(
+                                      //     allowedExtensions: ['xlsx'],
+                                      //     multiFile: false,
+                                      //   );
+                                      //   if (selectedFiles != null && selectedFiles.isNotEmpty) {
+                                      //     setState(() => _model.isDataUploading = true);
+
+                                      //     try {
+                                      //       showUploadMessage(context, 'Uploading file...', showLoading: true);
+
+                                      //       for (var file in selectedFiles) {
+                                      //         String fileName = file.storagePath.split('/').last;
+                                      //         String firebaseStoragePath = 'uploads/$fileName';
+
+                                      //         // Inline upload logic
+                                      //         try {
+                                      //             var fileRef = FirebaseStorage.instance.ref().child(firebaseStoragePath);
+                                      //             print("File Reference: $fileRef");
+                                      //             await fileRef.putData(file.bytes);
+                                      //             String downloadUrl = await fileRef.getDownloadURL();
+                                      //             print("File uploaded: $fileName with URL: $downloadUrl");
+                                      //           // Handle the download URL as needed
+                                      //         } catch (e) {
+                                      //           print("Error uploading file: $e");
+                                      //           showUploadMessage(context, 'Failed to upload file', showLoading: false);
+                                      //           return; // Exit if any file fails to upload
+                                      //         }
+                                      //       }
+
+                                      //       showUploadMessage(context, 'All files uploaded successfully!', showLoading: false);
+                                      //     } catch (e) {
+                                      //       print("An error occurred during file upload: $e");
+                                      //       showUploadMessage(context, 'Error uploading files', showLoading: false);
+                                      //     } finally {
+                                      //       setState(() => _model.isDataUploading = false);
+                                      //       ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                                      //     }
+                                      //   } else {
+                                      //     print('No files selected');
+                                      //   }
+                                      // },
+
+
                                       text: FFLocalizations.of(context).getText(
                                         'yvm9kbwv' /* Browse File */,
                                       ),
