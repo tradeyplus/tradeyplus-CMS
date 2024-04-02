@@ -248,8 +248,6 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
   // Model for logPage component.
   late LogPageModel logPageModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     webNavModel = createModel(context, () => WebNavModel());
@@ -340,8 +338,4 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
 
     logPageModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

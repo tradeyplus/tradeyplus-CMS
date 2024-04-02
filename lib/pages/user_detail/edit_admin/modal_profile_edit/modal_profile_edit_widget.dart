@@ -142,7 +142,10 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                         BoxShadow(
                           blurRadius: 12.0,
                           color: Color(0x1E000000),
-                          offset: Offset(0.0, 5.0),
+                          offset: Offset(
+                            0.0,
+                            5.0,
+                          ),
                         )
                       ],
                       borderRadius: BorderRadius.circular(16.0),
@@ -158,7 +161,12 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                             FFLocalizations.of(context).getText(
                               'qs8serr4' /* Edit Profile */,
                             ),
-                            style: FlutterFlowTheme.of(context).headlineMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .headlineMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                         Padding(
@@ -168,7 +176,12 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                             FFLocalizations.of(context).getText(
                               'bvy3fs93' /* Below are your profile details */,
                             ),
-                            style: FlutterFlowTheme.of(context).labelMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                         Column(
@@ -293,7 +306,11 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            letterSpacing: 0.0,
+                                          ),
                                       elevation: 0.0,
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -326,16 +343,25 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                   text: containerUsersRecord.displayName,
                                 ),
                                 focusNode: _model.yourNameFocusNode,
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
                                     '99oumm34' /* Your Name */,
                                   ),
-                                  labelStyle:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).labelMedium,
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -373,7 +399,13 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                       EdgeInsetsDirectional.fromSTEB(
                                           20.0, 24.0, 20.0, 24.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                                minLines: null,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primary,
                                 validator: _model.yourNameControllerValidator
@@ -389,16 +421,25 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                   text: containerUsersRecord.note,
                                 ),
                                 focusNode: _model.noteFocusNode,
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
                                     '8gkrs3rw' /* Short Description */,
                                   ),
-                                  labelStyle:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).labelMedium,
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -436,7 +477,12 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                       EdgeInsetsDirectional.fromSTEB(
                                           20.0, 24.0, 20.0, 24.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                 maxLines: 4,
                                 minLines: 3,
                                 cursorColor:
@@ -474,8 +520,12 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                       () => _model.dropDownValue = val),
                                   width: double.infinity,
                                   height: 58.0,
-                                  textStyle:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                   hintText: FFLocalizations.of(context).getText(
                                     'r971lmjm' /* Please select... */,
                                   ),
@@ -523,7 +573,11 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                               'p1lquhce' /* The email associated with this... */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .labelMedium,
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           )),
                                         ),
                                         Padding(
@@ -534,7 +588,11 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                               child: Text(
                                             containerUsersRecord.email,
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyLarge,
+                                                .bodyLarge
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           )),
                                         ),
                                       ],
@@ -557,7 +615,11 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                               'fyuvtufe' /* Created On: */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .labelMedium,
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           )),
                                         ),
                                         Padding(
@@ -574,7 +636,11 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                                       .languageCode,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyLarge,
+                                                .bodyLarge
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           )),
                                         ),
                                       ],
@@ -611,8 +677,12 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    textStyle:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
                                     elevation: 0.0,
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -670,6 +740,7 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                               .override(
                                                 fontFamily: 'Inter',
                                                 color: Colors.white,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                         duration: Duration(milliseconds: 4000),
@@ -690,8 +761,12 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
-                                    textStyle:
-                                        FlutterFlowTheme.of(context).titleSmall,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,

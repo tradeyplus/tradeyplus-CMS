@@ -15,8 +15,6 @@ class NotificationModel extends FlutterFlowModel<NotificationWidget> {
   // Model for logPage component.
   late LogPageModel logPageModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     logPageModel = createModel(context, () => LogPageModel());
@@ -26,8 +24,4 @@ class NotificationModel extends FlutterFlowModel<NotificationWidget> {
   void dispose() {
     logPageModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

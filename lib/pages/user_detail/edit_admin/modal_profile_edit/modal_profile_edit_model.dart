@@ -42,8 +42,6 @@ class ModalProfileEditModel extends FlutterFlowModel<ModalProfileEditWidget> {
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -55,8 +53,4 @@ class ModalProfileEditModel extends FlutterFlowModel<ModalProfileEditWidget> {
     noteFocusNode?.dispose();
     noteController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -408,7 +408,12 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                 FFLocalizations.of(context).getText(
                                   '918p9oc4' /* Customer Name */,
                                 ),
-                                style: FlutterFlowTheme.of(context).labelMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                               ).animateOnPageLoad(
                                   animationsMap['textOnPageLoadAnimation1']!),
                               Padding(
@@ -420,7 +425,11 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                   ),
                                   textAlign: TextAlign.start,
                                   style: FlutterFlowTheme.of(context)
-                                      .headlineMedium,
+                                      .headlineMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation2']!),
                               ),
@@ -435,7 +444,10 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                 BoxShadow(
                                   blurRadius: 4.0,
                                   color: Color(0x2B000000),
-                                  offset: Offset(0.0, 2.0),
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
+                                  ),
                                 )
                               ],
                               shape: BoxShape.circle,
@@ -486,7 +498,12 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                               FFLocalizations.of(context).getText(
                                 '534e9fmv' /* High Profile */,
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ],
                         ),
@@ -504,7 +521,12 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                             FFLocalizations.of(context).getText(
                               'jindju5a' /* Title */,
                             ),
-                            style: FlutterFlowTheme.of(context).labelMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                           ).animateOnPageLoad(
                               animationsMap['textOnPageLoadAnimation3']!),
                           Padding(
@@ -515,7 +537,12 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                 'ouyjuyvf' /* Head of Procurement */,
                               ),
                               textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context).headlineSmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation4']!),
                           ),
@@ -533,7 +560,12 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                             FFLocalizations.of(context).getText(
                               '8viyn84n' /* Company */,
                             ),
-                            style: FlutterFlowTheme.of(context).labelMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                           ).animateOnPageLoad(
                               animationsMap['textOnPageLoadAnimation5']!),
                           Padding(
@@ -549,6 +581,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                   .override(
                                     fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context).primary,
+                                    letterSpacing: 0.0,
                                   ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation6']!),
@@ -569,7 +602,11 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                         FFLocalizations.of(context).getText(
                           'f6o8asym' /* Notes */,
                         ),
-                        style: FlutterFlowTheme.of(context).labelMedium,
+                        style:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation7']!),
                     ),
@@ -621,7 +658,11 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -633,7 +674,11 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelSmall,
+                                                        .labelSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                           ],
@@ -684,7 +729,11 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                       'yqm004xu' /* Lorem ipsum dolor sit amet, co... */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                                 Padding(
@@ -707,7 +756,11 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                             'v33uqxl2' /* 8 */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                       Padding(
@@ -718,7 +771,11 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                             'cn1mi2rc' /* Notes */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodySmall,
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                     ],
@@ -804,7 +861,13 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                             Padding(
                                                               padding:
@@ -822,7 +885,13 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -841,10 +910,13 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                                           .getText(
                                                         '5h4d8i39' /* a min ago */,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodySmall
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -881,7 +953,10 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
               BoxShadow(
                 blurRadius: 3.0,
                 color: Color(0x19000000),
-                offset: Offset(0.0, -2.0),
+                offset: Offset(
+                  0.0,
+                  -2.0,
+                ),
               )
             ],
             borderRadius: BorderRadius.only(
@@ -928,7 +1003,11 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      textStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Inter',
+                                letterSpacing: 0.0,
+                              ),
                       elevation: 0.0,
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).alternate,
@@ -960,7 +1039,11 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      textStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Inter',
+                                letterSpacing: 0.0,
+                              ),
                       elevation: 0.0,
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).alternate,

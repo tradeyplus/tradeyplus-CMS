@@ -96,7 +96,10 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                 FFLocalizations.of(context).getText(
                   'ao46xsuv' /* Add Members */,
                 ),
-                style: FlutterFlowTheme.of(context).headlineSmall,
+                style: FlutterFlowTheme.of(context).headlineSmall.override(
+                      fontFamily: 'Inter',
+                      letterSpacing: 0.0,
+                    ),
               ),
               actions: [],
               centerTitle: false,
@@ -166,8 +169,12 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                     textController: _model.textController!,
                                     options: options.toList(),
                                     onSelected: onSelected,
-                                    textStyle:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
                                     textHighlightStyle: TextStyle(),
                                     elevation: 4.0,
                                     optionBackgroundColor:
@@ -239,6 +246,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                           .labelLarge
                                           .override(
                                             fontFamily: 'Inter',
+                                            letterSpacing: 0.0,
                                             lineHeight: 0.5,
                                           ),
                                       enabledBorder: UnderlineInputBorder(
@@ -284,8 +292,13 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                           EdgeInsetsDirectional.fromSTEB(
                                               24.0, 20.0, 12.0, 20.0),
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
+                                    minLines: null,
                                     cursorColor:
                                         FlutterFlowTheme.of(context).primary,
                                     validator: _model.textControllerValidator
@@ -304,7 +317,11 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                           FFLocalizations.of(context).getText(
                             '5x8u4g0u' /* All Members */,
                           ),
-                          style: FlutterFlowTheme.of(context).labelMedium,
+                          style:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                       Padding(
@@ -355,7 +372,10 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x32000000),
-                                              offset: Offset(0.0, 2.0),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
                                             )
                                           ],
                                           borderRadius:
@@ -399,7 +419,13 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyLarge,
+                                                                .bodyLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                       Padding(
                                                         padding:
@@ -414,7 +440,13 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                               .email,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                     ],
@@ -450,6 +482,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                         fontFamily: 'Outfit',
                                                         color: Colors.white,
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),

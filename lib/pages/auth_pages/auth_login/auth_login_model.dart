@@ -54,8 +54,6 @@ class AuthLoginModel extends FlutterFlowModel<AuthLoginWidget> {
     return null;
   }
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     emailAddressControllerValidator = _emailAddressControllerValidator;
@@ -72,8 +70,4 @@ class AuthLoginModel extends FlutterFlowModel<AuthLoginWidget> {
     passwordFocusNode?.dispose();
     passwordController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

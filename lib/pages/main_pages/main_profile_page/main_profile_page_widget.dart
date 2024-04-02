@@ -166,7 +166,11 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                         ),
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
-                                            .displaySmall,
+                                            .displaySmall
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation']!),
                                     ),
@@ -223,7 +227,10 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                     blurRadius: 1.0,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
-                                    offset: Offset(0.0, 0.0),
+                                    offset: Offset(
+                                      0.0,
+                                      0.0,
+                                    ),
                                   )
                                 ],
                               ),
@@ -289,7 +296,11 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .headlineSmall,
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                           ),
@@ -309,6 +320,7 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                                                     context)
                                                                 .primary,
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -333,7 +345,11 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                       'fyxsf6vn' /* Account Settings */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                                 Padding(
@@ -365,7 +381,10 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                           BoxShadow(
                                             blurRadius: 3.0,
                                             color: Color(0x33000000),
-                                            offset: Offset(0.0, 1.0),
+                                            offset: Offset(
+                                              0.0,
+                                              1.0,
+                                            ),
                                           )
                                         ],
                                         borderRadius:
@@ -395,7 +414,11 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelLarge,
+                                                        .labelLarge
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                             Align(
@@ -463,7 +486,10 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                             BoxShadow(
                                               blurRadius: 3.0,
                                               color: Color(0x33000000),
-                                              offset: Offset(0.0, 1.0),
+                                              offset: Offset(
+                                                0.0,
+                                                1.0,
+                                              ),
                                             )
                                           ],
                                           borderRadius:
@@ -494,7 +520,11 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelLarge,
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                               Align(
@@ -538,6 +568,7 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                           fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
+                                          letterSpacing: 0.0,
                                         ),
                                     hideFlags: false,
                                     flagSize: 24.0,
@@ -672,6 +703,8 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                                                     : FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -777,6 +810,8 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                                                     : FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -854,7 +889,11 @@ class _MainProfilePageWidgetState extends State<MainProfilePageWidget>
                                               .secondaryBackground,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyMedium,
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           elevation: 0.0,
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)

@@ -120,7 +120,10 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                     BoxShadow(
                       blurRadius: 3.0,
                       color: Color(0x33000000),
-                      offset: Offset(0.0, 1.0),
+                      offset: Offset(
+                        0.0,
+                        1.0,
+                      ),
                     )
                   ],
                   borderRadius: BorderRadius.circular(16.0),
@@ -161,7 +164,11 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                                             '5tdm3cpv' /* Create Project */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .headlineMedium,
+                                              .headlineMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                       Padding(
@@ -172,7 +179,11 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                                             'vlg015ed' /* Please enter the information b... */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .labelLarge,
+                                              .labelLarge
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                     ],
@@ -246,7 +257,11 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelMedium,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                           ],
@@ -293,6 +308,7 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                                       fontFamily: 'Inter',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 enabledBorder: UnderlineInputBorder(
@@ -339,8 +355,13 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 24.0, 0.0, 24.0),
                               ),
-                              style:
-                                  FlutterFlowTheme.of(context).headlineMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                              minLines: null,
                               validator: _model.projectNameControllerValidator
                                   .asValidator(context),
                             ),
@@ -354,13 +375,21 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelLarge,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelLarge
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                 hintText: FFLocalizations.of(context).getText(
                                   'uqziqhmg' /* Description here... */,
                                 ),
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).labelLarge,
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .labelLarge
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -403,8 +432,14 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyLarge,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                               maxLines: 5,
+                              minLines: null,
                               validator: _model.descriptionControllerValidator
                                   .asValidator(context),
                             ),
@@ -431,7 +466,11 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium,
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,

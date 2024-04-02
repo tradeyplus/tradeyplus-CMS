@@ -1,3 +1,4 @@
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -56,7 +57,10 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x33000000),
-              offset: Offset(0.0, 2.0),
+              offset: Offset(
+                0.0,
+                2.0,
+              ),
             )
           ],
           borderRadius: BorderRadius.circular(16.0),
@@ -134,6 +138,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                           kBreakpointSmall
                                       ? 16.0
                                       : 25.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
@@ -150,6 +155,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                           kBreakpointSmall
                                       ? 8.0
                                       : 14.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -163,7 +169,10 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                         BoxShadow(
                           blurRadius: 4.0,
                           color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
+                          offset: Offset(
+                            0.0,
+                            2.0,
+                          ),
                         )
                       ],
                       borderRadius: BorderRadius.circular(9.0),
@@ -228,6 +237,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                     kBreakpointSmall
                                 ? 12.0
                                 : 14.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
                           ),
                       hintText: FFLocalizations.of(context).getText(
@@ -318,6 +328,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                                     kBreakpointSmall
                                                 ? 12.0
                                                 : 20.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                                 Text(
@@ -333,6 +344,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                                     kBreakpointSmall
                                                 ? 10.0
                                                 : 20.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                                 Align(
@@ -354,13 +366,8 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
+                                          var downloadUrls = <String>[];
                                           try {
-                                            showUploadMessage(
-                                              context,
-                                              'Uploading file...',
-                                              showLoading: true,
-                                            );
-                                            print(selectedFiles[0].storagePath);
                                             selectedUploadedFiles =
                                                 selectedFiles
                                                     .map((m) => FFUploadedFile(
@@ -370,27 +377,31 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                                           bytes: m.bytes,
                                                         ))
                                                     .toList();
+
+                                            downloadUrls = (await Future.wait(
+                                              selectedFiles.map(
+                                                (f) async => await uploadData(
+                                                    f.storagePath, f.bytes),
+                                              ),
+                                            ))
+                                                .where((u) => u != null)
+                                                .map((u) => u!)
+                                                .toList();
                                           } finally {
-                                            ScaffoldMessenger.of(context)
-                                                .hideCurrentSnackBar();
                                             _model.isDataUploading = false;
                                           }
                                           if (selectedUploadedFiles.length ==
-                                              selectedFiles.length) {
+                                                  selectedFiles.length &&
+                                              downloadUrls.length ==
+                                                  selectedFiles.length) {
                                             setState(() {
                                               _model.uploadedLocalFile =
                                                   selectedUploadedFiles.first;
+                                              _model.uploadedFileUrl =
+                                                  downloadUrls.first;
                                             });
-                                            showUploadMessage(
-                                              context,
-                                              'Success!',
-                                            );
                                           } else {
                                             setState(() {});
-                                            showUploadMessage(
-                                              context,
-                                              'Failed to upload file',
-                                            );
                                             return;
                                           }
                                         }
@@ -455,6 +466,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             .override(
                                               fontFamily: 'Inter',
                                               color: Colors.white,
+                                              letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(
@@ -482,128 +494,139 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).alternate,
-                      borderRadius: BorderRadius.circular(20.0),
-                      border: Border.all(
+                  if (_model.uploadedFileUrl != null &&
+                      _model.uploadedFileUrl != '')
+                    Container(
+                      decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).alternate,
+                        borderRadius: BorderRadius.circular(20.0),
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).alternate,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            30.0, 9.0, 30.0, 9.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    'assets/images/Excel_logo.png',
+                                    width: MediaQuery.sizeOf(context).width <
+                                            kBreakpointSmall
+                                        ? 25.0
+                                        : 50.0,
+                                    height: MediaQuery.sizeOf(context).width <
+                                            kBreakpointSmall
+                                        ? 25.0
+                                        : 50.0,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          '4syrj65e' /* my-Data.xlsx */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              fontSize:
+                                                  MediaQuery.sizeOf(context)
+                                                              .width <
+                                                          kBreakpointSmall
+                                                      ? 14.0
+                                                      : 20.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'ok78qct2' /* 120 KB of 120 KB • */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize:
+                                                  MediaQuery.sizeOf(context)
+                                                              .width <
+                                                          kBreakpointSmall
+                                                      ? 12.0
+                                                      : 14.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 20.0, 0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.all(3.0),
+                                        child: Icon(
+                                          Icons.check_circle,
+                                          color: FlutterFlowTheme.of(context)
+                                              .rising,
+                                          size:
+                                              MediaQuery.sizeOf(context).width <
+                                                      kBreakpointSmall
+                                                  ? 16.0
+                                                  : 24.0,
+                                        ),
+                                      ),
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'vrt8s1s8' /* Completed */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              fontSize:
+                                                  MediaQuery.sizeOf(context)
+                                                              .width <
+                                                          kBreakpointSmall
+                                                      ? 12.0
+                                                      : 14.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ].divide(SizedBox(width: 10.0)),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(30.0, 9.0, 30.0, 9.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/Excel_logo.png',
-                                  width: MediaQuery.sizeOf(context).width <
-                                          kBreakpointSmall
-                                      ? 25.0
-                                      : 50.0,
-                                  height: MediaQuery.sizeOf(context).width <
-                                          kBreakpointSmall
-                                      ? 25.0
-                                      : 50.0,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        '4syrj65e' /* my-Data.xlsx */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            fontSize: MediaQuery.sizeOf(context)
-                                                        .width <
-                                                    kBreakpointSmall
-                                                ? 14.0
-                                                : 20.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'ok78qct2' /* 120 KB of 120 KB • */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            fontSize: MediaQuery.sizeOf(context)
-                                                        .width <
-                                                    kBreakpointSmall
-                                                ? 12.0
-                                                : 14.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 20.0, 0.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.all(3.0),
-                                      child: Icon(
-                                        Icons.check_circle,
-                                        color:
-                                            FlutterFlowTheme.of(context).rising,
-                                        size: MediaQuery.sizeOf(context).width <
-                                                kBreakpointSmall
-                                            ? 16.0
-                                            : 24.0,
-                                      ),
-                                    ),
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'vrt8s1s8' /* Completed */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            fontSize: MediaQuery.sizeOf(context)
-                                                        .width <
-                                                    kBreakpointSmall
-                                                ? 12.0
-                                                : 14.0,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ].divide(SizedBox(width: 10.0)),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),

@@ -171,7 +171,7 @@
     },
     {
       "name": "dio",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/dio-5.4.1",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/dio-5.4.2+1",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     },
@@ -861,9 +861,9 @@
     },
     {
       "name": "sqflite_common",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/sqflite_common-2.5.3",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/sqflite_common-2.5.4",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.3"
     },
     {
       "name": "stack_trace",
@@ -1047,7 +1047,7 @@
     },
     {
       "name": "win32",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/win32-5.3.0",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/win32-5.4.0",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -1076,7 +1076,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-04-02T15:44:35.888003Z",
+  "generated": "2024-04-02T18:55:31.612956Z",
   "generator": "pub",
   "generatorVersion": "3.3.0"
 }

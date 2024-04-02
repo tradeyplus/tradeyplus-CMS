@@ -41,8 +41,6 @@ class MainHomeModel extends FlutterFlowModel<MainHomeWidget> {
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     webNavModel = createModel(context, () => WebNavModel());
@@ -55,8 +53,4 @@ class MainHomeModel extends FlutterFlowModel<MainHomeWidget> {
     webNavModel.dispose();
     profileModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

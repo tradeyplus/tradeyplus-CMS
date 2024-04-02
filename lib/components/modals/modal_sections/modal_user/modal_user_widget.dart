@@ -160,7 +160,10 @@ class _ModalUserWidgetState extends State<ModalUserWidget>
                   BoxShadow(
                     blurRadius: 12.0,
                     color: Color(0x33000000),
-                    offset: Offset(0.0, 7.0),
+                    offset: Offset(
+                      0.0,
+                      7.0,
+                    ),
                   )
                 ],
                 borderRadius: BorderRadius.circular(12.0),

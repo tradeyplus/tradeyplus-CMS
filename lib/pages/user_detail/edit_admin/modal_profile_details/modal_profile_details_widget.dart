@@ -148,7 +148,10 @@ class _ModalProfileDetailsWidgetState extends State<ModalProfileDetailsWidget>
                             BoxShadow(
                               blurRadius: 12.0,
                               color: Color(0x1E000000),
-                              offset: Offset(0.0, 5.0),
+                              offset: Offset(
+                                0.0,
+                                5.0,
+                              ),
                             )
                           ],
                           borderRadius: BorderRadius.circular(16.0),
@@ -164,8 +167,12 @@ class _ModalProfileDetailsWidgetState extends State<ModalProfileDetailsWidget>
                                 FFLocalizations.of(context).getText(
                                   'xt43uwzp' /* Profile Details */,
                                 ),
-                                style:
-                                    FlutterFlowTheme.of(context).headlineMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                             Padding(
@@ -175,7 +182,12 @@ class _ModalProfileDetailsWidgetState extends State<ModalProfileDetailsWidget>
                                 FFLocalizations.of(context).getText(
                                   '9ren6rbd' /* Below are your profile details */,
                                 ),
-                                style: FlutterFlowTheme.of(context).labelMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                             Padding(
@@ -250,7 +262,11 @@ class _ModalProfileDetailsWidgetState extends State<ModalProfileDetailsWidget>
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .displaySmall,
+                                                      .displaySmall
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   minFontSize: 27.0,
                                                 ),
                                                 Padding(
@@ -270,6 +286,7 @@ class _ModalProfileDetailsWidgetState extends State<ModalProfileDetailsWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -288,7 +305,11 @@ class _ModalProfileDetailsWidgetState extends State<ModalProfileDetailsWidget>
                                         '5bzj3jf4' /* Manage your account */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .labelMedium,
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                   Align(
@@ -410,6 +431,8 @@ class _ModalProfileDetailsWidgetState extends State<ModalProfileDetailsWidget>
                                                                     : FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -515,6 +538,8 @@ class _ModalProfileDetailsWidgetState extends State<ModalProfileDetailsWidget>
                                                                     : FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -571,6 +596,7 @@ class _ModalProfileDetailsWidgetState extends State<ModalProfileDetailsWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
+                                              letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(
@@ -635,7 +661,11 @@ class _ModalProfileDetailsWidgetState extends State<ModalProfileDetailsWidget>
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall,
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,

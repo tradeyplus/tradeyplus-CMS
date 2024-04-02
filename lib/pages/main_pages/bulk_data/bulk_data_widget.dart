@@ -276,6 +276,7 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                     .override(
                                       fontFamily: 'Inter',
                                       fontSize: 35.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -355,6 +356,7 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                           context)
                                                       .secondaryBackground,
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -400,6 +402,7 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                           context)
                                                       .primaryText,
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -479,6 +482,7 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                           .override(
                                             fontFamily: 'Inter',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
                                     ),
@@ -532,6 +536,7 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                             .override(
                                               fontFamily: 'Inter',
                                               color: Colors.white,
+                                              letterSpacing: 0.0,
                                             ),
                                         elevation: 5.0,
                                         borderSide: BorderSide(
@@ -569,7 +574,10 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                         BoxShadow(
                                           blurRadius: 3.0,
                                           color: Color(0x33000000),
-                                          offset: Offset(0.0, 1.0),
+                                          offset: Offset(
+                                            0.0,
+                                            1.0,
+                                          ),
                                         )
                                       ],
                                       borderRadius: BorderRadius.circular(16.0),
@@ -606,6 +614,7 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                         color:
                                                             Color(0xFF0C1E5B),
                                                         fontSize: 24.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
                                                       ),
@@ -629,8 +638,10 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                     BoxShadow(
                                                       blurRadius: 45.6,
                                                       color: Color(0x80FFFFFF),
-                                                      offset:
-                                                          Offset(-2.0, 16.0),
+                                                      offset: Offset(
+                                                        -2.0,
+                                                        16.0,
+                                                      ),
                                                       spreadRadius: 12.0,
                                                     )
                                                   ],
@@ -730,6 +741,8 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
                                                                             fontSize:
                                                                                 12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
                                                                           ),
@@ -758,6 +771,8 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                                             'Inter',
                                                                         fontSize:
                                                                             7.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -821,6 +836,8 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                                           'Inter',
                                                                       fontSize:
                                                                           8.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -945,6 +962,8 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                             fontSize:
                                                                                 12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
                                                                           ),
@@ -975,6 +994,8 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                                             .secondaryText,
                                                                         fontSize:
                                                                             7.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1030,7 +1051,10 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                   BoxShadow(
                                                     blurRadius: 3.0,
                                                     color: Color(0x34000000),
-                                                    offset: Offset(0.0, 1.0),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      1.0,
+                                                    ),
                                                   )
                                                 ],
                                                 borderRadius:
@@ -1126,6 +1150,8 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                                               FlutterFlowTheme.of(context).secondaryText,
                                                                           fontSize:
                                                                               12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -1158,6 +1184,8 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                                           .secondaryText,
                                                                       fontSize:
                                                                           10.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -1212,6 +1240,8 @@ class _BulkDataWidgetState extends State<BulkDataWidget>
                                                                   fontFamily:
                                                                       'Inter',
                                                                   fontSize: 7.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),

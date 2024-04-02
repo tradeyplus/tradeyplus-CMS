@@ -25,8 +25,6 @@ class MainProfilePageModel extends FlutterFlowModel<MainProfilePageWidget> {
   // Model for webNav component.
   late WebNavModel webNavModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     webNavModel = createModel(context, () => WebNavModel());
@@ -36,8 +34,4 @@ class MainProfilePageModel extends FlutterFlowModel<MainProfilePageWidget> {
   void dispose() {
     webNavModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

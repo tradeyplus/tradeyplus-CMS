@@ -58,8 +58,6 @@ class MainCustomerListModel extends FlutterFlowModel<MainCustomerListWidget> {
   // State field(s) for Usernosearch widget.
   final usernosearchController2 = FlutterFlowDataTableController<UsersRecord>();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     webNavModel = createModel(context, () => WebNavModel());
@@ -74,8 +72,4 @@ class MainCustomerListModel extends FlutterFlowModel<MainCustomerListWidget> {
     searchorderFocusNode?.dispose();
     searchorderController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

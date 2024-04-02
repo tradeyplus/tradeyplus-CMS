@@ -103,7 +103,12 @@ class _CreateCommentWidgetState extends State<CreateCommentWidget> {
                             FFLocalizations.of(context).getText(
                               'l2jlnhye' /* Create Note */,
                             ),
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                         Padding(
@@ -113,7 +118,12 @@ class _CreateCommentWidgetState extends State<CreateCommentWidget> {
                             FFLocalizations.of(context).getText(
                               'd6yfe8tj' /* Find members by searching belo... */,
                             ),
-                            style: FlutterFlowTheme.of(context).labelMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                         Padding(
@@ -138,8 +148,12 @@ class _CreateCommentWidgetState extends State<CreateCommentWidget> {
                                   FFLocalizations.of(context).getText(
                                     'p3rj5ra0' /* Ricky Rodriguez */,
                                   ),
-                                  style:
-                                      FlutterFlowTheme.of(context).titleLarge,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                             ],
@@ -156,8 +170,12 @@ class _CreateCommentWidgetState extends State<CreateCommentWidget> {
                               hintText: FFLocalizations.of(context).getText(
                                 '9gf6o5ss' /* Enter your note here... */,
                               ),
-                              hintStyle:
-                                  FlutterFlowTheme.of(context).labelLarge,
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .labelLarge
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context)
@@ -190,9 +208,14 @@ class _CreateCommentWidgetState extends State<CreateCommentWidget> {
                               contentPadding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 32.0, 20.0, 12.0),
                             ),
-                            style: FlutterFlowTheme.of(context).bodyLarge,
+                            style:
+                                FlutterFlowTheme.of(context).bodyLarge.override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                             textAlign: TextAlign.start,
                             maxLines: 4,
+                            minLines: null,
                             keyboardType: TextInputType.multiline,
                             validator: _model.shortBioControllerValidator
                                 .asValidator(context),
@@ -222,8 +245,12 @@ class _CreateCommentWidgetState extends State<CreateCommentWidget> {
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
-                                  textStyle:
-                                      FlutterFlowTheme.of(context).titleMedium,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,

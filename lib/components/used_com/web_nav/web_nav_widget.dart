@@ -57,7 +57,10 @@ class _WebNavWidgetState extends State<WebNavWidget> {
           boxShadow: [
             BoxShadow(
               color: FlutterFlowTheme.of(context).alternate,
-              offset: Offset(1.0, 0.0),
+              offset: Offset(
+                1.0,
+                0.0,
+              ),
             )
           ],
         ),

@@ -147,7 +147,10 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                       BoxShadow(
                         blurRadius: 12.0,
                         color: Color(0x1E000000),
-                        offset: Offset(0.0, 5.0),
+                        offset: Offset(
+                          0.0,
+                          5.0,
+                        ),
                       )
                     ],
                     borderRadius: BorderRadius.circular(16.0),
@@ -184,7 +187,11 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelLarge,
+                                                  .labelLarge
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -235,7 +242,12 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                                   24.0, 24.0, 0.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .titleLarge,
+                                            .titleLarge
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
+                                        minLines: null,
                                         cursorColor:
                                             FlutterFlowTheme.of(context)
                                                 .primary,
@@ -259,6 +271,7 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                             duration:
@@ -283,7 +296,11 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall,
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
@@ -326,6 +343,7 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                       .override(
                                         fontFamily: 'Inter',
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
@@ -343,7 +361,10 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                         blurRadius: 0.0,
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
-                                        offset: Offset(0.0, 1.0),
+                                        offset: Offset(
+                                          0.0,
+                                          1.0,
+                                        ),
                                       )
                                     ],
                                     borderRadius: BorderRadius.circular(0.0),
@@ -373,7 +394,11 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .labelMedium,
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -418,7 +443,10 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .alternate,
-                                              offset: Offset(0.0, 1.0),
+                                              offset: Offset(
+                                                0.0,
+                                                1.0,
+                                              ),
                                             )
                                           ],
                                           borderRadius:
@@ -451,7 +479,11 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .labelMedium,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                               ),
@@ -506,7 +538,10 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .alternate,
-                                              offset: Offset(0.0, 1.0),
+                                              offset: Offset(
+                                                0.0,
+                                                1.0,
+                                              ),
                                             )
                                           ],
                                           borderRadius:
@@ -539,7 +574,11 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .labelMedium,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                               ),
@@ -591,7 +630,11 @@ class _CommandPaletteWidgetState extends State<CommandPaletteWidget>
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelMedium,
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ),

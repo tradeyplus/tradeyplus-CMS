@@ -63,7 +63,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
           FFLocalizations.of(context).getText(
             '20uycztj' /* Edit Profile */,
           ),
-          style: FlutterFlowTheme.of(context).titleLarge,
+          style: FlutterFlowTheme.of(context).titleLarge.override(
+                fontFamily: 'Inter',
+                letterSpacing: 0.0,
+              ),
         ),
         actions: [],
         centerTitle: false,

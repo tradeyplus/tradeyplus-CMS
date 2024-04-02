@@ -173,6 +173,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                   kBreakpointSmall
                                               ? 21.0
                                               : 35.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               );
@@ -228,7 +229,10 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              offset: Offset(0.0, 1.0),
+                                              offset: Offset(
+                                                0.0,
+                                                1.0,
+                                              ),
                                             )
                                           ],
                                           borderRadius: BorderRadius.only(
@@ -263,6 +267,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                               kBreakpointSmall
                                                           ? 14.0
                                                           : 16.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -303,7 +308,10 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              offset: Offset(0.0, 1.0),
+                                              offset: Offset(
+                                                0.0,
+                                                1.0,
+                                              ),
                                             )
                                           ],
                                           borderRadius: BorderRadius.only(
@@ -339,6 +347,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                               kBreakpointSmall
                                                           ? 14.0
                                                           : 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -438,6 +447,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                             kBreakpointSmall
                                                         ? 12.0
                                                         : 14.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                         ),
@@ -471,7 +481,10 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x33000000),
-                                              offset: Offset(0.0, 2.0),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
                                             )
                                           ],
                                           borderRadius:
@@ -518,6 +531,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                           kBreakpointSmall
                                                                       ? 18.0
                                                                       : 25.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
@@ -545,6 +560,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                           kBreakpointSmall
                                                                       ? 12.0
                                                                       : 14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -600,6 +617,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -635,6 +654,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                           hintText:
                                                                               FFLocalizations.of(context).getText(
@@ -645,6 +665,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                           enabledBorder:
                                                                               OutlineInputBorder(
@@ -692,7 +713,13 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                               Color(0xFFEDF1F7),
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                        minLines:
+                                                                            null,
                                                                         keyboardType:
                                                                             TextInputType.number,
                                                                         validator: _model
@@ -735,6 +762,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -781,6 +810,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                       fontFamily: 'Inter',
                                                                                       fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       lineHeight: 1.5,
                                                                                     ),
                                                                                 hintText: FFLocalizations.of(context).getText(
@@ -789,6 +819,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                 hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                       fontFamily: 'Inter',
                                                                                       fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       lineHeight: 1.5,
                                                                                     ),
                                                                                 enabledBorder: OutlineInputBorder(
@@ -822,7 +853,11 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                 filled: true,
                                                                                 fillColor: Color(0xFFEDF1F7),
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Inter',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.number,
                                                                               validator: _model.pointsControllerValidator.asValidator(context),
                                                                               inputFormatters: [
@@ -875,6 +910,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -942,6 +979,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                   fontFamily: 'Inter',
                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
                                                                                   fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                             hintText:
                                                                                 FFLocalizations.of(context).getText(
@@ -1009,6 +1047,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1041,6 +1081,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         hintText:
                                                                             FFLocalizations.of(context).getText(
@@ -1051,6 +1092,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         enabledBorder:
                                                                             OutlineInputBorder(
@@ -1114,7 +1156,11 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
+                                                                      minLines:
+                                                                          null,
                                                                       maxLength:
                                                                           8,
                                                                       maxLengthEnforcement:
@@ -1180,6 +1226,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1207,11 +1255,13 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   lineHeight: 1.5,
                                                                                 ),
                                                                             hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   lineHeight: 1.5,
                                                                                 ),
                                                                             enabledBorder:
@@ -1251,8 +1301,14 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             fillColor:
                                                                                 Color(0xFFEDF1F7),
                                                                           ),
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                          minLines:
+                                                                              null,
                                                                           maxLength:
                                                                               2,
                                                                           buildCounter: (context, {required currentLength, required isFocused, maxLength}) =>
@@ -1293,6 +1349,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                   headerTextStyle: FlutterFlowTheme.of(context).headlineLarge.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontSize: 32.0,
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w600,
                                                                                       ),
                                                                                   pickerBackgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1358,6 +1415,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
                                                                                         fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1397,6 +1455,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1439,6 +1499,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                                 lineHeight: 1.5,
                                                                               ),
                                                                           hintText:
@@ -1450,6 +1511,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                                 lineHeight: 1.5,
                                                                               ),
                                                                           enabledBorder:
@@ -1502,7 +1564,10 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
+                                                                        minLines:
+                                                                            null,
                                                                         maxLength:
                                                                             2,
                                                                         buildCounter: (context,
@@ -1565,6 +1630,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1613,6 +1680,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                 'Inter',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryText,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                       hintText:
                                                                           FFLocalizations.of(context)
@@ -1683,6 +1752,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1740,6 +1811,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         hintText:
                                                                             FFLocalizations.of(context).getText(
@@ -2013,6 +2085,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                   .override(
                                                     fontFamily: 'Inter',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(

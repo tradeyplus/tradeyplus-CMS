@@ -141,7 +141,10 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
           FFLocalizations.of(context).getText(
             '3hcuc8v6' /* Forgot Password */,
           ),
-          style: FlutterFlowTheme.of(context).titleLarge,
+          style: FlutterFlowTheme.of(context).titleLarge.override(
+                fontFamily: 'Inter',
+                letterSpacing: 0.0,
+              ),
         ),
         actions: [],
         centerTitle: false,
@@ -165,7 +168,10 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                   FFLocalizations.of(context).getText(
                     'sjjd1jb9' /* Don't remember your password? ... */,
                   ),
-                  style: FlutterFlowTheme.of(context).labelMedium,
+                  style: FlutterFlowTheme.of(context).labelMedium.override(
+                        fontFamily: 'Inter',
+                        letterSpacing: 0.0,
+                      ),
                 ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
               ),
               Padding(
@@ -179,11 +185,19 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                     labelText: FFLocalizations.of(context).getText(
                       'tzm5opaa' /* Email Address */,
                     ),
-                    labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                    labelStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              fontFamily: 'Inter',
+                              letterSpacing: 0.0,
+                            ),
                     hintText: FFLocalizations.of(context).getText(
                       'uvsotzng' /* Please enter a valid email... */,
                     ),
-                    hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                    hintStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              fontFamily: 'Inter',
+                              letterSpacing: 0.0,
+                            ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).alternate,
@@ -217,7 +231,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                     contentPadding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Inter',
+                        letterSpacing: 0.0,
+                      ),
+                  minLines: null,
                   cursorColor: FlutterFlowTheme.of(context).primary,
                   validator: _model.emailAddressControllerValidator
                       .asValidator(context),
@@ -258,6 +276,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Inter',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: BorderSide(
