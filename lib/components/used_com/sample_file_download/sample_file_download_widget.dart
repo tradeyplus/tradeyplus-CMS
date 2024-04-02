@@ -81,7 +81,10 @@ class _SampleFileDownloadWidgetState extends State<SampleFileDownloadWidget> {
                       BoxShadow(
                         blurRadius: 12.0,
                         color: Color(0x33000000),
-                        offset: Offset(0.0, 7.0),
+                        offset: Offset(
+                          0.0,
+                          7.0,
+                        ),
                       )
                     ],
                     borderRadius: BorderRadius.circular(12.0),
@@ -155,7 +158,10 @@ class _SampleFileDownloadWidgetState extends State<SampleFileDownloadWidget> {
                               BoxShadow(
                                 blurRadius: 4.0,
                                 color: Color(0x33000000),
-                                offset: Offset(0.0, 2.0),
+                                offset: Offset(
+                                  0.0,
+                                  2.0,
+                                ),
                               )
                             ],
                             borderRadius: BorderRadius.circular(8.0),
@@ -228,6 +234,7 @@ class _SampleFileDownloadWidgetState extends State<SampleFileDownloadWidget> {
                                           .override(
                                             fontFamily: 'Inter',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 3.0,
                                       borderSide: BorderSide(

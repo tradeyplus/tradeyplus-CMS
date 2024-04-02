@@ -47,8 +47,6 @@ class ModalCreateProjectModel
     return null;
   }
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     projectNameControllerValidator = _projectNameControllerValidator;
@@ -63,8 +61,4 @@ class ModalCreateProjectModel
     descriptionFocusNode?.dispose();
     descriptionController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

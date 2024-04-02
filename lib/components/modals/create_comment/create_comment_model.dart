@@ -14,8 +14,6 @@ class CreateCommentModel extends FlutterFlowModel<CreateCommentWidget> {
   TextEditingController? shortBioController;
   String? Function(BuildContext, String?)? shortBioControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -24,8 +22,4 @@ class CreateCommentModel extends FlutterFlowModel<CreateCommentWidget> {
     shortBioFocusNode?.dispose();
     shortBioController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

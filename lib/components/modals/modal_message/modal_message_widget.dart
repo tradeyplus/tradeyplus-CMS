@@ -167,7 +167,10 @@ class _ModalMessageWidgetState extends State<ModalMessageWidget>
                       BoxShadow(
                         blurRadius: 12.0,
                         color: Color(0x33000000),
-                        offset: Offset(0.0, 7.0),
+                        offset: Offset(
+                          0.0,
+                          7.0,
+                        ),
                       )
                     ],
                     borderRadius: BorderRadius.circular(12.0),
@@ -186,7 +189,12 @@ class _ModalMessageWidgetState extends State<ModalMessageWidget>
                           FFLocalizations.of(context).getText(
                             'wa4vkne2' /* Congratulations! */,
                           ),
-                          style: FlutterFlowTheme.of(context).headlineSmall,
+                          style: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .override(
+                                fontFamily: 'Inter',
+                                letterSpacing: 0.0,
+                              ),
                         ).animateOnPageLoad(
                             animationsMap['textOnPageLoadAnimation1']!),
                         Padding(
@@ -196,7 +204,12 @@ class _ModalMessageWidgetState extends State<ModalMessageWidget>
                             FFLocalizations.of(context).getText(
                               '3hf2ocig' /* Now that a contract has been g... */,
                             ),
-                            style: FlutterFlowTheme.of(context).labelLarge,
+                            style: FlutterFlowTheme.of(context)
+                                .labelLarge
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                           ).animateOnPageLoad(
                               animationsMap['textOnPageLoadAnimation2']!),
                         ),
@@ -221,8 +234,12 @@ class _ModalMessageWidgetState extends State<ModalMessageWidget>
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).accent1,
-                                    textStyle:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
                                     elevation: 0.0,
                                     borderSide: BorderSide(
                                       color:
@@ -259,8 +276,12 @@ class _ModalMessageWidgetState extends State<ModalMessageWidget>
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
-                                    textStyle:
-                                        FlutterFlowTheme.of(context).titleSmall,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,

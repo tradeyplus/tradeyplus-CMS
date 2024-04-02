@@ -64,7 +64,10 @@ class _EditProfilePhotoWidgetState extends State<EditProfilePhotoWidget> {
                   BoxShadow(
                     blurRadius: 4.0,
                     color: Color(0x33000000),
-                    offset: Offset(0.0, 2.0),
+                    offset: Offset(
+                      0.0,
+                      2.0,
+                    ),
                   )
                 ],
                 borderRadius: BorderRadius.circular(16.0),
@@ -99,7 +102,11 @@ class _EditProfilePhotoWidgetState extends State<EditProfilePhotoWidget> {
                                     '6bnefz1c' /* Change Photo */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .headlineMedium,
+                                      .headlineMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Padding(
@@ -109,8 +116,12 @@ class _EditProfilePhotoWidgetState extends State<EditProfilePhotoWidget> {
                                   FFLocalizations.of(context).getText(
                                     'yaxe7q8v' /* Upload a new photo below in or... */,
                                   ),
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Align(
@@ -296,7 +307,11 @@ class _EditProfilePhotoWidgetState extends State<EditProfilePhotoWidget> {
                                               .secondaryBackground,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyMedium,
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           elevation: 0.0,
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -343,7 +358,11 @@ class _EditProfilePhotoWidgetState extends State<EditProfilePhotoWidget> {
                                               .primary,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .titleSmall,
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,

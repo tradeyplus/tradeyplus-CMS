@@ -17,8 +17,6 @@ class ModalWelcomeModel extends FlutterFlowModel<ModalWelcomeWidget> {
   // Model for main_Logo_Small component.
   late MainLogoSmallModel mainLogoSmallModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     mainLogoSmallModel = createModel(context, () => MainLogoSmallModel());
@@ -28,8 +26,4 @@ class ModalWelcomeModel extends FlutterFlowModel<ModalWelcomeWidget> {
   void dispose() {
     mainLogoSmallModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

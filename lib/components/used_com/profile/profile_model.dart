@@ -18,15 +18,9 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   // Stores action output result for [Firestore Query - Query a collection] action in Stack widget.
   LogRecord? recentnotification;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {}
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -321,6 +321,7 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                       kBreakpointSmall
                                                   ? 21.0
                                                   : 35.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -351,7 +352,10 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                           BoxShadow(
                                             blurRadius: 3.0,
                                             color: Color(0x33000000),
-                                            offset: Offset(0.0, 1.0),
+                                            offset: Offset(
+                                              0.0,
+                                              1.0,
+                                            ),
                                           )
                                         ],
                                         borderRadius:
@@ -740,6 +744,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 10.0
                                                                               : 12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -772,6 +778,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .rising,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -921,6 +929,11 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                     0.0),
                                                         child: Text(
                                                           mainCustomerListUsersRecordList
+                                                              .where((e) =>
+                                                                  e.userRole !=
+                                                                  UserRole
+                                                                      .ADMINISTRATOR)
+                                                              .toList()
                                                               .length
                                                               .toString(),
                                                           style: FlutterFlowTheme
@@ -1157,6 +1170,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                                 kBreakpointSmall
                                                                             ? 10.0
                                                                             : 12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.bold,
                                                                       ),
@@ -1193,6 +1208,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                             kBreakpointSmall
                                                                         ? 10.0
                                                                         : 14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -1228,7 +1245,10 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                       BoxShadow(
                                         blurRadius: 3.0,
                                         color: Color(0x33000000),
-                                        offset: Offset(0.0, 1.0),
+                                        offset: Offset(
+                                          0.0,
+                                          1.0,
+                                        ),
                                       )
                                     ],
                                     borderRadius: BorderRadius.circular(18.0),
@@ -1269,6 +1289,7 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                 kBreakpointSmall
                                                             ? 21.0
                                                             : 35.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -1466,7 +1487,11 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                                 kBreakpointSmall
                                                                             ? 12.0
                                                                             : 18.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
+                                                                  minLines:
+                                                                      null,
                                                                   validator: _model
                                                                       .searchorderControllerValidator
                                                                       .asValidator(
@@ -1549,7 +1574,13 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .titleSmall,
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         elevation: 3.0,
                                                         borderSide: BorderSide(
                                                           color: Colors
@@ -1670,6 +1701,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                                 kBreakpointSmall
                                                                             ? 12.0
                                                                             : 16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1700,6 +1733,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                                 kBreakpointSmall
                                                                             ? 12.0
                                                                             : 16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1730,6 +1765,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                                 kBreakpointSmall
                                                                             ? 12.0
                                                                             : 16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1760,6 +1797,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                                 kBreakpointSmall
                                                                             ? 12.0
                                                                             : 16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1790,6 +1829,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                                 kBreakpointSmall
                                                                             ? 12.0
                                                                             : 16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1820,6 +1861,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                                 kBreakpointSmall
                                                                             ? 12.0
                                                                             : 16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1858,6 +1901,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                               kBreakpointSmall
                                                                           ? 10.0
                                                                           : 14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                               Text(
@@ -1873,6 +1918,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                               kBreakpointSmall
                                                                           ? 10.0
                                                                           : 14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                               Text(
@@ -1888,6 +1935,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                               kBreakpointSmall
                                                                           ? 10.0
                                                                           : 14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                               Text(
@@ -1903,6 +1952,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                               kBreakpointSmall
                                                                           ? 10.0
                                                                           : 14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                               Text(
@@ -1923,6 +1974,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                               kBreakpointSmall
                                                                           ? 10.0
                                                                           : 14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                               FlutterFlowIconButton(
@@ -2078,6 +2131,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                             kBreakpointSmall
                                                                         ? 12.0
                                                                         : 16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -2106,6 +2161,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                             kBreakpointSmall
                                                                         ? 12.0
                                                                         : 16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -2134,6 +2191,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                             kBreakpointSmall
                                                                         ? 12.0
                                                                         : 16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -2163,6 +2222,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                             kBreakpointSmall
                                                                         ? 12.0
                                                                         : 16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -2192,6 +2253,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                             kBreakpointSmall
                                                                         ? 12.0
                                                                         : 16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -2221,6 +2284,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                             kBreakpointSmall
                                                                         ? 12.0
                                                                         : 16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -2259,6 +2324,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                           kBreakpointSmall
                                                                       ? 10.0
                                                                       : 14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           Text(
@@ -2275,6 +2342,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                           kBreakpointSmall
                                                                       ? 10.0
                                                                       : 14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           Text(
@@ -2291,6 +2360,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                           kBreakpointSmall
                                                                       ? 10.0
                                                                       : 14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           Text(
@@ -2307,6 +2378,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                           kBreakpointSmall
                                                                       ? 10.0
                                                                       : 14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           Text(
@@ -2328,6 +2401,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                           kBreakpointSmall
                                                                       ? 10.0
                                                                       : 14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           FlutterFlowIconButton(
@@ -2455,6 +2530,7 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               elevation: 3.0,
                                               borderSide: BorderSide(

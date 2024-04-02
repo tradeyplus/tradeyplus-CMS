@@ -20,8 +20,6 @@ class ModalUserModel extends FlutterFlowModel<ModalUserWidget> {
   // Model for user_Details_main component.
   late UserDetailsMainModel userDetailsMainModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     userDetailsMainModel = createModel(context, () => UserDetailsMainModel());
@@ -31,8 +29,4 @@ class ModalUserModel extends FlutterFlowModel<ModalUserWidget> {
   void dispose() {
     userDetailsMainModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

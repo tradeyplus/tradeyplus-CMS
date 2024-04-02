@@ -105,8 +105,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'Main_Home')
                   : MainHomeWidget(
-                      selectedNav:
-                          params.getParam('selectedNav', ParamType.int),
+                      selectedNav: params.getParam(
+                        'selectedNav',
+                        ParamType.int,
+                      ),
                     ),
             ),
             FFRoute(
@@ -122,15 +124,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'Main_profilePage')
                   : MainProfilePageWidget(
-                      selectedNav:
-                          params.getParam('selectedNav', ParamType.int),
+                      selectedNav: params.getParam(
+                        'selectedNav',
+                        ParamType.int,
+                      ),
                     ),
             ),
             FFRoute(
               name: 'userDetails',
               path: 'userDetails',
               builder: (context, params) => UserDetailsWidget(
-                showBack: params.getParam('showBack', ParamType.bool),
+                showBack: params.getParam(
+                  'showBack',
+                  ParamType.bool,
+                ),
               ),
             ),
             FFRoute(
@@ -148,7 +155,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'userEntry',
               builder: (context, params) => UserEntryWidget(
                 userRef: params.getParam(
-                    'userRef', ParamType.DocumentReference, false, ['users']),
+                  'userRef',
+                  ParamType.DocumentReference,
+                  false,
+                  ['users'],
+                ),
               ),
             ),
             FFRoute(
@@ -283,6 +294,7 @@ class FFParameters {
     ParamType type, [
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   ]) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -296,8 +308,13 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList,
-        collectionNamePath: collectionNamePath);
+    return deserializeParam<T>(
+      param,
+      type,
+      isList,
+      collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
+    );
   }
 }
 

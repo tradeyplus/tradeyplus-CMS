@@ -383,6 +383,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                             return 32.0;
                                           }
                                         }(),
+                                        letterSpacing: 0.0,
                                       ),
                                 ).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation1']!),
@@ -416,6 +417,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                               return 16.0;
                                             }
                                           }(),
+                                          letterSpacing: 0.0,
                                         ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textOnPageLoadAnimation2']!),
@@ -467,6 +469,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                                       return 16.0;
                                                     }
                                                   }(),
+                                                  letterSpacing: 0.0,
                                                 ),
                                             errorStyle:
                                                 FlutterFlowTheme.of(context)
@@ -478,6 +481,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                                                   context)
                                                               .error,
                                                       fontSize: 10.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -549,7 +553,9 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                                     return 16.0;
                                                   }
                                                 }(),
+                                                letterSpacing: 0.0,
                                               ),
+                                          minLines: null,
                                           keyboardType:
                                               TextInputType.emailAddress,
                                           cursorColor:
@@ -612,6 +618,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                                       return 16.0;
                                                     }
                                                   }(),
+                                                  letterSpacing: 0.0,
                                                 ),
                                             errorStyle:
                                                 FlutterFlowTheme.of(context)
@@ -623,6 +630,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                                                   context)
                                                               .error,
                                                       fontSize: 10.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -713,7 +721,9 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                                     return 16.0;
                                                   }
                                                 }(),
+                                                letterSpacing: 0.0,
                                               ),
+                                          minLines: null,
                                           cursorColor:
                                               FlutterFlowTheme.of(context)
                                                   .primary,
@@ -804,6 +814,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                                   return 16.0;
                                                 }
                                               }(),
+                                              letterSpacing: 0.0,
                                             ),
                                         elevation: 0.0,
                                         borderSide: BorderSide(
@@ -892,6 +903,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                                             return 16.0;
                                                           }
                                                         }(),
+                                                        letterSpacing: 0.0,
                                                       ),
                                               elevation: 0.0,
                                               borderSide: BorderSide(
@@ -981,6 +993,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                                     return 18.0;
                                                   }
                                                 }(),
+                                                letterSpacing: 0.0,
                                               ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(

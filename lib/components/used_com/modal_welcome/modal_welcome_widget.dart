@@ -202,7 +202,10 @@ class _ModalWelcomeWidgetState extends State<ModalWelcomeWidget>
                       BoxShadow(
                         blurRadius: 12.0,
                         color: Color(0x33000000),
-                        offset: Offset(0.0, 7.0),
+                        offset: Offset(
+                          0.0,
+                          7.0,
+                        ),
                       )
                     ],
                     borderRadius: BorderRadius.circular(12.0),
@@ -237,7 +240,12 @@ class _ModalWelcomeWidgetState extends State<ModalWelcomeWidget>
                           FFLocalizations.of(context).getText(
                             '00flvi93' /* Congratulations! */,
                           ),
-                          style: FlutterFlowTheme.of(context).headlineMedium,
+                          style: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                letterSpacing: 0.0,
+                              ),
                         ).animateOnPageLoad(
                             animationsMap['textOnPageLoadAnimation1']!),
                         Padding(
@@ -247,7 +255,12 @@ class _ModalWelcomeWidgetState extends State<ModalWelcomeWidget>
                             FFLocalizations.of(context).getText(
                               'fmzceh74' /* A new contract has been genera... */,
                             ),
-                            style: FlutterFlowTheme.of(context).labelMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                           ).animateOnPageLoad(
                               animationsMap['textOnPageLoadAnimation2']!),
                         ),
@@ -298,6 +311,7 @@ class _ModalWelcomeWidgetState extends State<ModalWelcomeWidget>
                                               .override(
                                                 fontFamily: 'Inter',
                                                 color: Colors.white,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                         duration: Duration(milliseconds: 4000),
@@ -322,6 +336,7 @@ class _ModalWelcomeWidgetState extends State<ModalWelcomeWidget>
                                         .override(
                                           fontFamily: 'Inter',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 0.0,
                                     borderSide: BorderSide(

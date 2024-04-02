@@ -416,6 +416,7 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                     kBreakpointSmall
                                                 ? 21.0
                                                 : 35.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ).animateOnPageLoad(
@@ -504,8 +505,10 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                   .primary
                                                               : Color(
                                                                   0x1A000000),
-                                                          offset:
-                                                              Offset(2.0, 2.0),
+                                                          offset: Offset(
+                                                            2.0,
+                                                            2.0,
+                                                          ),
                                                         )
                                                       ],
                                                       borderRadius:
@@ -564,6 +567,8 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                               .secondaryText,
                                                                       fontSize:
                                                                           18.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -639,6 +644,7 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                                 fontFamily: 'Inter',
                                                                                 color: _model.selectedCard == 'TradeyPlus' ? FlutterFlowTheme.of(context).secondaryBackground : FlutterFlowTheme.of(context).secondaryText,
                                                                                 fontSize: 15.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.bold,
                                                                               ),
                                                                         ),
@@ -659,7 +665,13 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                       ],
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -764,8 +776,10 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                   .primary
                                                               : Color(
                                                                   0x1A000000),
-                                                          offset:
-                                                              Offset(4.0, 4.0),
+                                                          offset: Offset(
+                                                            4.0,
+                                                            4.0,
+                                                          ),
                                                         )
                                                       ],
                                                       borderRadius:
@@ -895,6 +909,7 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                               fontFamily: 'Inter',
                                                                               color: _model.selectedCard == 'Private Stock' ? FlutterFlowTheme.of(context).secondaryBackground : FlutterFlowTheme.of(context).secondaryText,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
                                                                             ),
                                                                       ),
@@ -915,7 +930,13 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                     ],
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ),
@@ -1024,8 +1045,10 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                   .primary
                                                               : Color(
                                                                   0x1A000000),
-                                                          offset:
-                                                              Offset(4.0, 4.0),
+                                                          offset: Offset(
+                                                            4.0,
+                                                            4.0,
+                                                          ),
                                                         )
                                                       ],
                                                       borderRadius:
@@ -1155,6 +1178,7 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                               fontFamily: 'Inter',
                                                                               color: _model.selectedCard == 'Public Stock' ? FlutterFlowTheme.of(context).secondary : FlutterFlowTheme.of(context).secondaryText,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
                                                                             ),
                                                                       ),
@@ -1175,7 +1199,13 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                     ],
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ),
@@ -1269,6 +1299,7 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                   kBreakpointSmall
                                                               ? 21.0
                                                               : 30.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -1315,8 +1346,10 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                             : FlutterFlowTheme
                                                                     .of(context)
                                                                 .overlay0,
-                                                        offset:
-                                                            Offset(0.0, 0.0),
+                                                        offset: Offset(
+                                                          0.0,
+                                                          0.0,
+                                                        ),
                                                       )
                                                     ],
                                                     borderRadius:
@@ -1411,8 +1444,10 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                     .of(context)
                                                                 .overlay0
                                                             : Color(0x34000000),
-                                                        offset:
-                                                            Offset(0.0, 0.0),
+                                                        offset: Offset(
+                                                          0.0,
+                                                          0.0,
+                                                        ),
                                                         spreadRadius: 0.0,
                                                       )
                                                     ],
@@ -1489,7 +1524,10 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                               BoxShadow(
                                                 blurRadius: 3.0,
                                                 color: Color(0x33000000),
-                                                offset: Offset(0.0, 1.0),
+                                                offset: Offset(
+                                                  0.0,
+                                                  1.0,
+                                                ),
                                               )
                                             ],
                                             borderRadius:
@@ -1531,6 +1569,7 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                           color:
                                                               Color(0xFF7F8089),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
@@ -1671,6 +1710,8 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                               'Inter',
                                                                           fontSize:
                                                                               12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                 labelInterval:
                                                                     10.0,
@@ -1688,6 +1729,8 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                               'Inter',
                                                                           fontSize:
                                                                               9.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                         ),
@@ -1812,6 +1855,8 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                               'Inter',
                                                                           fontSize:
                                                                               12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                 labelInterval:
                                                                     1.0,
@@ -1835,6 +1880,8 @@ class _MainHomeWidgetState extends State<MainHomeWidget>
                                                                               'Inter',
                                                                           fontSize:
                                                                               9.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                 labelInterval:
                                                                     20000.0,

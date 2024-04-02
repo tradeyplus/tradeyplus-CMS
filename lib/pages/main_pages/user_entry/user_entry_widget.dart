@@ -216,6 +216,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                     kBreakpointSmall
                                                 ? 21.0
                                                 : 35.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
@@ -310,6 +311,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             kBreakpointSmall
                                                                         ? 16.0
                                                                         : 25.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
@@ -336,6 +339,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             kBreakpointSmall
                                                                         ? 12.0
                                                                         : 14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -385,6 +390,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -426,6 +432,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                             enabledBorder:
                                                                                 OutlineInputBorder(
@@ -469,7 +476,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
+                                                                          minLines:
+                                                                              null,
                                                                           keyboardType:
                                                                               TextInputType.number,
                                                                           validator: _model
@@ -491,6 +501,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -534,6 +545,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   lineHeight: 1.5,
                                                                                 ),
                                                                             hintText:
@@ -543,6 +555,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   lineHeight: 1.5,
                                                                                 ),
                                                                             enabledBorder:
@@ -587,7 +600,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
+                                                                          minLines:
+                                                                              null,
                                                                           keyboardType:
                                                                               TextInputType.number,
                                                                           validator: _model
@@ -778,6 +794,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                           textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 fontSize: 8.0,
+                                                                                                letterSpacing: 0.0,
                                                                                               ),
                                                                                           elevation: 0.0,
                                                                                           borderSide: BorderSide(
@@ -861,6 +878,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                   textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontSize: 14.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                   elevation: 0.0,
                                                                                   borderSide: BorderSide(
@@ -914,6 +932,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -957,6 +976,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         hintText:
                                                                             FFLocalizations.of(context).getText(
@@ -1020,6 +1040,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1064,6 +1085,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontFamily: 'Inter',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                           hintText:
                                                                               FFLocalizations.of(context).getText(
@@ -1136,6 +1158,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1184,6 +1207,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         hintText:
                                                                             FFLocalizations.of(context).getText(
@@ -1247,6 +1271,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1277,8 +1302,12 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             false,
                                                                         decoration:
                                                                             InputDecoration(
-                                                                          labelStyle:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                          labelStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                           hintText:
                                                                               FFLocalizations.of(context).getText(
                                                                             'x7itvnhs' /* Address.... */,
@@ -1288,6 +1317,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                                 lineHeight: 1.5,
                                                                               ),
                                                                           enabledBorder:
@@ -1340,7 +1370,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
+                                                                        minLines:
+                                                                            null,
                                                                         validator: _model
                                                                             .addressControllerValidator
                                                                             .asValidator(context),
@@ -1381,6 +1414,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1416,6 +1450,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                           hintText:
                                                                               FFLocalizations.of(context).getText(
@@ -1426,6 +1461,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                           enabledBorder:
                                                                               OutlineInputBorder(
@@ -1477,7 +1513,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
+                                                                        minLines:
+                                                                            null,
                                                                         keyboardType:
                                                                             TextInputType.emailAddress,
                                                                         validator: _model
@@ -1514,6 +1553,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontFamily: 'Inter',
                                                                                 color: FlutterFlowTheme.of(context).accent1,
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
                                                                               ),
                                                                         ),
@@ -1550,6 +1590,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     lineHeight: 1.5,
                                                                                   ),
                                                                               hintText: FFLocalizations.of(context).getText(
@@ -1559,6 +1600,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                     fontFamily: 'Inter',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     lineHeight: 1.5,
                                                                                   ),
                                                                               enabledBorder: OutlineInputBorder(
@@ -1606,7 +1648,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
+                                                                            minLines:
+                                                                                null,
                                                                             validator:
                                                                                 _model.passwordControllerValidator.asValidator(context),
                                                                           ),
@@ -1651,6 +1696,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontFamily: 'Inter',
                                                                                 color: FlutterFlowTheme.of(context).accent1,
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
                                                                               ),
                                                                         ),
@@ -1687,6 +1733,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     lineHeight: 1.5,
                                                                                   ),
                                                                               hintText: FFLocalizations.of(context).getText(
@@ -1696,6 +1743,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                     fontFamily: 'Inter',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     lineHeight: 1.5,
                                                                                   ),
                                                                               enabledBorder: OutlineInputBorder(
@@ -1743,7 +1791,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
+                                                                            minLines:
+                                                                                null,
                                                                             validator:
                                                                                 _model.confirmPasswordControllerValidator.asValidator(context),
                                                                           ),
@@ -1772,6 +1823,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1815,6 +1867,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         icon:
                                                                             Icon(
@@ -1872,6 +1925,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1909,6 +1963,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         icon:
                                                                             Icon(
@@ -1977,6 +2032,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -2029,6 +2085,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         hintText:
                                                                             FFLocalizations.of(context).getText(
@@ -2090,6 +2147,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -2142,6 +2200,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         hintText:
                                                                             FFLocalizations.of(context).getText(
@@ -2214,6 +2273,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -2251,6 +2311,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   lineHeight: 1.5,
                                                                                 ),
                                                                             hintText:
@@ -2260,6 +2321,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   lineHeight: 1.5,
                                                                                 ),
                                                                             enabledBorder:
@@ -2304,7 +2366,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
+                                                                          minLines:
+                                                                              null,
                                                                           keyboardType:
                                                                               TextInputType.number,
                                                                           validator: _model
@@ -2340,6 +2405,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                             ),
                                                                       ),
@@ -2374,6 +2440,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                       fontFamily: 'Inter',
                                                                                       fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       lineHeight: 1.5,
                                                                                     ),
                                                                                 hintText: FFLocalizations.of(context).getText(
@@ -2383,6 +2450,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                       fontFamily: 'Inter',
                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
                                                                                       fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       lineHeight: 1.5,
                                                                                     ),
                                                                                 enabledBorder: OutlineInputBorder(
@@ -2420,7 +2488,9 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                     fontFamily: 'Inter',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
+                                                                              minLines: null,
                                                                               maxLength: 4,
                                                                               maxLengthEnforcement: MaxLengthEnforcement.enforced,
                                                                               buildCounter: (context, {required currentLength, required isFocused, maxLength}) => null,
@@ -2467,6 +2537,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                       fontFamily: 'Inter',
                                                                                       fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       lineHeight: 1.5,
                                                                                     ),
                                                                                 hintText: FFLocalizations.of(context).getText(
@@ -2475,6 +2546,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                       fontFamily: 'Inter',
                                                                                       fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       lineHeight: 1.5,
                                                                                     ),
                                                                                 enabledBorder: OutlineInputBorder(
@@ -2512,7 +2584,9 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                     fontFamily: 'Inter',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
+                                                                              minLines: null,
                                                                               maxLength: 4,
                                                                               maxLengthEnforcement: MaxLengthEnforcement.enforced,
                                                                               buildCounter: (context, {required currentLength, required isFocused, maxLength}) => null,
@@ -2561,6 +2635,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                             ),
                                                                       ),
@@ -2597,6 +2672,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                               hintText: FFLocalizations.of(context).getText(
                                                                                 'qu874d70' /* DD / MM / YYYY */,
@@ -2604,6 +2680,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                               enabledBorder: OutlineInputBorder(
                                                                                 borderSide: BorderSide(
@@ -2639,7 +2716,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
+                                                                            minLines:
+                                                                                null,
                                                                             keyboardType:
                                                                                 TextInputType.datetime,
                                                                             validator:
@@ -2674,6 +2754,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                     headerTextStyle: FlutterFlowTheme.of(context).headlineLarge.override(
                                                                                           fontFamily: 'Inter',
                                                                                           fontSize: 32.0,
+                                                                                          letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w600,
                                                                                         ),
                                                                                     pickerBackgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -2739,6 +2820,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).accent1,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -2775,6 +2857,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontFamily: 'Inter',
                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                           hintText:
                                                                               FFLocalizations.of(context).getText(
@@ -2786,6 +2869,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontFamily: 'Inter',
                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                           enabledBorder:
                                                                               OutlineInputBorder(
@@ -2838,7 +2922,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
+                                                                        minLines:
+                                                                            null,
                                                                         keyboardType:
                                                                             TextInputType.phone,
                                                                         validator: _model
@@ -2883,6 +2970,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 kBreakpointSmall
                                                                             ? 12.0
                                                                             : 14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
@@ -2914,6 +3003,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               'Inter',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryText,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                     hintText: FFLocalizations.of(
                                                                             context)
@@ -2922,7 +3013,13 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                     ),
                                                                     hintStyle: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .labelMedium,
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                     enabledBorder:
                                                                         OutlineInputBorder(
                                                                       borderSide:
@@ -2991,8 +3088,12 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 kBreakpointSmall
                                                                             ? 12.0
                                                                             : 14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                   maxLines: 9,
+                                                                  minLines:
+                                                                      null,
                                                                   maxLength:
                                                                       200,
                                                                   maxLengthEnforcement:
@@ -3225,6 +3326,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           'Inter',
                                                                       color: Colors
                                                                           .white,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:
@@ -3302,6 +3405,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         kBreakpointSmall
                                                                     ? 16.0
                                                                     : 25.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
@@ -3329,6 +3434,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         kBreakpointSmall
                                                                     ? 12.0
                                                                     : 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -3380,6 +3487,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -3422,6 +3531,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         enabledBorder:
                                                                             OutlineInputBorder(
@@ -3485,7 +3595,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
+                                                                      minLines:
+                                                                          null,
                                                                       validator: _model
                                                                           .firstnameCreateControllerValidator
                                                                           .asValidator(
@@ -3513,6 +3627,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -3557,6 +3673,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               lineHeight: 1.5,
                                                                             ),
                                                                         hintText:
@@ -3568,6 +3685,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               lineHeight: 1.5,
                                                                             ),
                                                                         enabledBorder:
@@ -3632,7 +3750,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
+                                                                      minLines:
+                                                                          null,
                                                                       validator: _model
                                                                           .lastnamecreatedControllerValidator
                                                                           .asValidator(
@@ -3834,6 +3956,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                       textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             fontSize: 8.0,
+                                                                                            letterSpacing: 0.0,
                                                                                           ),
                                                                                       elevation: 0.0,
                                                                                       borderSide: BorderSide(
@@ -3921,7 +4044,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Inter',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).alternate,
@@ -3980,6 +4106,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -4026,6 +4154,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                     hintText: FFLocalizations.of(
                                                                             context)
@@ -4099,6 +4229,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -4150,6 +4282,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                       hintText:
                                                                           FFLocalizations.of(context)
@@ -4231,6 +4365,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -4287,6 +4423,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                     hintText: FFLocalizations.of(
                                                                             context)
@@ -4360,6 +4498,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -4387,9 +4527,15 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         false,
                                                                     decoration:
                                                                         InputDecoration(
-                                                                      labelStyle:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMedium,
+                                                                      labelStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                       hintText:
                                                                           FFLocalizations.of(context)
                                                                               .getText(
@@ -4403,6 +4549,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 'Inter',
                                                                             fontSize:
                                                                                 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             lineHeight:
                                                                                 1.5,
                                                                           ),
@@ -4462,7 +4610,15 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
+                                                                    minLines:
+                                                                        null,
                                                                     validator: _model
                                                                         .addressCreatedControllerValidator
                                                                         .asValidator(
@@ -4515,6 +4671,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -4551,6 +4709,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               lineHeight: 1.5,
                                                                             ),
                                                                         enabledBorder:
@@ -4615,7 +4774,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
+                                                                      minLines:
+                                                                          null,
                                                                       keyboardType:
                                                                           TextInputType
                                                                               .emailAddress,
@@ -4655,6 +4818,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -4693,6 +4858,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               lineHeight: 1.5,
                                                                             ),
                                                                         enabledBorder:
@@ -4777,7 +4943,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
+                                                                      minLines:
+                                                                          null,
                                                                       validator: _model
                                                                           .passwordCreatedControllerValidator
                                                                           .asValidator(
@@ -4825,6 +4995,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -4864,6 +5036,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               lineHeight: 1.5,
                                                                             ),
                                                                         hintText:
@@ -4876,6 +5049,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               lineHeight: 1.5,
                                                                             ),
                                                                         enabledBorder:
@@ -4960,7 +5134,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
+                                                                      minLines:
+                                                                          null,
                                                                       validator: _model
                                                                           .confirmPasswordcreatedControllerValidator
                                                                           .asValidator(
@@ -4998,6 +5176,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -5056,6 +5236,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                     hintText: FFLocalizations.of(
                                                                             context)
@@ -5127,6 +5309,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -5168,6 +5352,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                     hintText: FFLocalizations.of(
                                                                             context)
@@ -5249,6 +5435,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -5307,6 +5495,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                     hintText: FFLocalizations.of(
                                                                             context)
@@ -5378,6 +5568,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -5436,6 +5628,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                     hintText: FFLocalizations.of(
                                                                             context)
@@ -5517,6 +5711,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -5556,6 +5752,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               lineHeight: 1.5,
                                                                             ),
                                                                         hintText:
@@ -5567,6 +5764,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               lineHeight: 1.5,
                                                                             ),
                                                                         enabledBorder:
@@ -5631,7 +5829,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                                 ? 12.0
                                                                                 : 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
+                                                                      minLines:
+                                                                          null,
                                                                       keyboardType:
                                                                           TextInputType
                                                                               .number,
@@ -5676,6 +5878,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                         ),
@@ -5717,6 +5921,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   lineHeight: 1.5,
                                                                                 ),
                                                                             hintText:
@@ -5727,6 +5932,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                   fontFamily: 'Inter',
                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   lineHeight: 1.5,
                                                                                 ),
                                                                             enabledBorder:
@@ -5772,7 +5978,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontFamily: 'Inter',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
+                                                                          minLines:
+                                                                              null,
                                                                           maxLength:
                                                                               4,
                                                                           maxLengthEnforcement:
@@ -5827,6 +6036,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   lineHeight: 1.5,
                                                                                 ),
                                                                             hintText:
@@ -5836,6 +6046,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   lineHeight: 1.5,
                                                                                 ),
                                                                             enabledBorder:
@@ -5881,7 +6092,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontFamily: 'Inter',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
+                                                                          minLines:
+                                                                              null,
                                                                           maxLength:
                                                                               4,
                                                                           maxLengthEnforcement:
@@ -5943,6 +6157,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                         ),
@@ -5976,6 +6192,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                           hintText:
                                                                               FFLocalizations.of(context).getText(
@@ -5986,6 +6203,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                           enabledBorder:
                                                                               OutlineInputBorder(
@@ -6037,7 +6255,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
+                                                                        minLines:
+                                                                            null,
                                                                         keyboardType:
                                                                             TextInputType.datetime,
                                                                         validator: _model
@@ -6081,6 +6302,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 headerTextStyle: FlutterFlowTheme.of(context).headlineLarge.override(
                                                                                       fontFamily: 'Inter',
                                                                                       fontSize: 32.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w600,
                                                                                     ),
                                                                                 pickerBackgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -6159,6 +6381,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -6196,6 +6420,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                             fontSize:
                                                                                 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                       hintText:
                                                                           FFLocalizations.of(context)
@@ -6212,6 +6438,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                             fontSize:
                                                                                 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                       enabledBorder:
                                                                           OutlineInputBorder(
@@ -6278,7 +6506,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
                                                                               ? 12.0
                                                                               : 14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
+                                                                    minLines:
+                                                                        null,
                                                                     keyboardType:
                                                                         TextInputType
                                                                             .phone,
@@ -6325,6 +6557,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             kBreakpointSmall
                                                                         ? 12.0
                                                                         : 14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -6349,6 +6583,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryText,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                                 hintText:
                                                                     FFLocalizations.of(
@@ -6358,7 +6594,13 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                 ),
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                                 enabledBorder:
                                                                     OutlineInputBorder(
                                                                   borderSide:
@@ -6430,8 +6672,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             kBreakpointSmall
                                                                         ? 12.0
                                                                         : 14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                               maxLines: 9,
+                                                              minLines: null,
                                                               maxLength: 200,
                                                               maxLengthEnforcement:
                                                                   MaxLengthEnforcement
@@ -6751,6 +6996,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       'Inter',
                                                                   color: Colors
                                                                       .white,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                         elevation: 3.0,
                                                         borderSide: BorderSide(

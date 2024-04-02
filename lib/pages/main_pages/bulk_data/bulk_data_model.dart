@@ -24,8 +24,6 @@ class BulkDataModel extends FlutterFlowModel<BulkDataWidget> {
   // Model for upload_page component.
   late UploadPageModel uploadPageModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     webNavModel = createModel(context, () => WebNavModel());
@@ -38,8 +36,4 @@ class BulkDataModel extends FlutterFlowModel<BulkDataWidget> {
     webNavModel.dispose();
     uploadPageModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -75,8 +75,6 @@ class CompanyEntryModel extends FlutterFlowModel<CompanyEntryWidget> {
   // Model for logPage component.
   late LogPageModel logPageModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     webNavModel = createModel(context, () => WebNavModel());
@@ -106,8 +104,4 @@ class CompanyEntryModel extends FlutterFlowModel<CompanyEntryWidget> {
     uploadPageModel.dispose();
     logPageModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }
