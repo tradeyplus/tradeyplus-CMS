@@ -407,6 +407,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                       //     }
                                       //   }
                                       // },
+                                      //custom code start
                                       onPressed: () async {
                                             logFirebaseEvent('UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
                                             final selectedFiles = await selectFiles(
@@ -450,6 +451,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                                 }
                                         }
                                       },
+                                      // Custom code end
 
 
                                       text: FFLocalizations.of(context).getText(
