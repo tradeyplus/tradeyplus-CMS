@@ -1,4 +1,6 @@
-import '/backend/firebase_storage/storage.dart';
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -6,6 +8,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import '/flutter_flow/random_data_util.dart' as random_data;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -175,89 +180,82 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                       ],
                       borderRadius: BorderRadius.circular(9.0),
                     ),
-                    child: FlutterFlowDropDown<String>(
-                      controller: _model.dropDownValueController ??=
-                          FormFieldController<String>(null),
-                      options: [
-                        FFLocalizations.of(context).getText(
-                          'g26j40oj' /* January */,
+                    child: StreamBuilder<List<UsersRecord>>(
+                      stream: queryUsersRecord(
+                        queryBuilder: (usersRecord) => usersRecord.where(
+                          'user_role',
+                          isEqualTo: UserRole.INVESTOR.serialize(),
                         ),
-                        FFLocalizations.of(context).getText(
-                          'sq2z4yp0' /* February */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          'lsnvd69i' /* March */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          'u7ootxra' /* April */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          '8tl8jauv' /* May */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          'k8fyfbiy' /* June */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          's55qmo2h' /* July */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          'we7vecar' /* August */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          '7q3yfxj8' /* September */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          '1mv0kdz7' /* October */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          '137wr0oy' /* November */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          't7snhohf' /* December */,
-                        )
-                      ],
-                      onChanged: (val) =>
-                          setState(() => _model.dropDownValue = val),
-                      width: MediaQuery.sizeOf(context).width < kBreakpointSmall
-                          ? 100.0
-                          : 135.0,
-                      height:
-                          MediaQuery.sizeOf(context).width < kBreakpointSmall
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                        List<UsersRecord> dropDownUsersRecordList =
+                            snapshot.data!;
+                        return FlutterFlowDropDown<String>(
+                          controller: _model.dropDownValueController ??=
+                              FormFieldController<String>(null),
+                          options: dropDownUsersRecordList
+                              .map((e) => e.displayName)
+                              .toList(),
+                          onChanged: (val) =>
+                              setState(() => _model.dropDownValue = val),
+                          width: MediaQuery.sizeOf(context).width <
+                                  kBreakpointSmall
+                              ? 100.0
+                              : 135.0,
+                          height: MediaQuery.sizeOf(context).width <
+                                  kBreakpointSmall
                               ? 35.0
                               : 50.0,
-                      maxHeight: 150.0,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .bodyMedium
-                          .override(
-                            fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            fontSize: MediaQuery.sizeOf(context).width <
-                                    kBreakpointSmall
-                                ? 12.0
-                                : 14.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
+                          maxHeight: 150.0,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: MediaQuery.sizeOf(context).width <
+                                        kBreakpointSmall
+                                    ? 12.0
+                                    : 14.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                          hintText: FFLocalizations.of(context).getText(
+                            'e59dl8b7' /* Month */,
                           ),
-                      hintText: FFLocalizations.of(context).getText(
-                        'e59dl8b7' /* Month */,
-                      ),
-                      icon: Icon(
-                        Icons.keyboard_arrow_down_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 24.0,
-                      ),
-                      fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
-                      elevation: 2.0,
-                      borderColor: FlutterFlowTheme.of(context).alternate,
-                      borderWidth: 2.0,
-                      borderRadius: 9.0,
-                      margin:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
-                      hidesUnderline: true,
-                      isOverButton: false,
-                      isSearchable: false,
-                      isMultiSelect: false,
+                          icon: Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 24.0,
+                          ),
+                          fillColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          elevation: 2.0,
+                          borderColor: FlutterFlowTheme.of(context).alternate,
+                          borderWidth: 2.0,
+                          borderRadius: 9.0,
+                          margin: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 4.0, 16.0, 4.0),
+                          hidesUnderline: true,
+                          isOverButton: false,
+                          isSearchable: false,
+                          isMultiSelect: false,
+                        );
+                      },
                     ),
                   ),
                 ],
@@ -363,7 +361,6 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
-                                          var downloadUrls = <String>[];
                                           try {
                                             selectedUploadedFiles =
                                                 selectedFiles
@@ -374,34 +371,115 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                                           bytes: m.bytes,
                                                         ))
                                                     .toList();
-
-                                            downloadUrls = (await Future.wait(
-                                              selectedFiles.map(
-                                                (f) async => await uploadData(
-                                                    f.storagePath, f.bytes),
-                                              ),
-                                            ))
-                                                .where((u) => u != null)
-                                                .map((u) => u!)
-                                                .toList();
                                           } finally {
                                             _model.isDataUploading = false;
                                           }
                                           if (selectedUploadedFiles.length ==
-                                                  selectedFiles.length &&
-                                              downloadUrls.length ==
-                                                  selectedFiles.length) {
+                                              selectedFiles.length) {
                                             setState(() {
                                               _model.uploadedLocalFile =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl =
-                                                  downloadUrls.first;
                                             });
                                           } else {
                                             setState(() {});
                                             return;
                                           }
                                         }
+
+                                        _model.userRef =
+                                            await queryUsersRecordOnce(
+                                          queryBuilder: (usersRecord) =>
+                                              usersRecord.where(
+                                            'uid',
+                                            isEqualTo: _model.dropDownValue,
+                                          ),
+                                          singleRecord: true,
+                                        ).then((s) => s.firstOrNull);
+
+                                        var investmentDataRecordReference =
+                                            InvestmentDataRecord.collection
+                                                .doc();
+                                        await investmentDataRecordReference
+                                            .set(createInvestmentDataRecordData(
+                                          amount: 0.0,
+                                          investorEvaluation: 0.0,
+                                          profitRatio: 5.0,
+                                          investorRef:
+                                              _model.userRef?.reference,
+                                          transactionType:
+                                              TransactionType.PROFIT,
+                                          investmentId:
+                                              random_data.randomString(
+                                            10,
+                                            15,
+                                            true,
+                                            true,
+                                            false,
+                                          ),
+                                          duration: 0,
+                                          points: 0.0,
+                                          investorId: random_data.randomString(
+                                            10,
+                                            15,
+                                            true,
+                                            true,
+                                            true,
+                                          ),
+                                          createdDate: getCurrentTimestamp,
+                                        ));
+                                        _model.investmentData = InvestmentDataRecord
+                                            .getDocumentFromData(
+                                                createInvestmentDataRecordData(
+                                                  amount: 0.0,
+                                                  investorEvaluation: 0.0,
+                                                  profitRatio: 5.0,
+                                                  investorRef:
+                                                      _model.userRef?.reference,
+                                                  transactionType:
+                                                      TransactionType.PROFIT,
+                                                  investmentId:
+                                                      random_data.randomString(
+                                                    10,
+                                                    15,
+                                                    true,
+                                                    true,
+                                                    false,
+                                                  ),
+                                                  duration: 0,
+                                                  points: 0.0,
+                                                  investorId:
+                                                      random_data.randomString(
+                                                    10,
+                                                    15,
+                                                    true,
+                                                    true,
+                                                    true,
+                                                  ),
+                                                  createdDate:
+                                                      getCurrentTimestamp,
+                                                ),
+                                                investmentDataRecordReference);
+
+                                        await _model.investmentData!.reference
+                                            .update(
+                                                createInvestmentDataRecordData(
+                                          investmentRef:
+                                              _model.investmentData?.reference,
+                                        ));
+
+                                        await LogRecord.collection
+                                            .doc()
+                                            .set(createLogRecordData(
+                                              logUserRef: currentUserReference,
+                                              logType: LogType
+                                                  .CREATE_INVESTMENT_DATA,
+                                              logTime: getCurrentTimestamp,
+                                              logUserName:
+                                                  currentUserDisplayName,
+                                              logUserId: currentUserUid,
+                                            ));
+
+                                        setState(() {});
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         'yvm9kbwv' /* Browse File */,
@@ -446,8 +524,8 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  if (_model.uploadedFileUrl != null &&
-                      _model.uploadedFileUrl != '')
+                  if (_model.uploadedLocalFile != null &&
+                      (_model.uploadedLocalFile.bytes?.isNotEmpty ?? false))
                     Container(
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).alternate,
