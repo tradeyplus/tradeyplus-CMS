@@ -21,7 +21,7 @@
     },
     {
       "name": "archive",
-      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/archive-3.4.10",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/archive-3.4.9",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -198,6 +198,12 @@
       "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/equatable-2.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "excel",
+      "rootUri": "file:///C:/Users/panha/AppData/Local/Pub/Cache/hosted/pub.dev/excel-4.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "fake_async",
@@ -1076,7 +1082,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-04-02T18:55:31.612956Z",
+  "generated": "2024-04-02T19:54:53.959156Z",
   "generator": "pub",
   "generatorVersion": "3.3.0"
 }

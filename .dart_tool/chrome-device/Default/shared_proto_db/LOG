@@ -1,3 +1,6 @@
-2024/04/02-23:32:34.504 2678 Reusing MANIFEST C:\Users\panha\AppData\Local\Temp\flutter_tools.96f23023\flutter_tools_chrome_device.f674573d\Default\shared_proto_db/MANIFEST-000001
-2024/04/02-23:32:34.505 2678 Recovering log #3
-2024/04/02-23:32:34.506 2678 Reusing old log C:\Users\panha\AppData\Local\Temp\flutter_tools.96f23023\flutter_tools_chrome_device.f674573d\Default\shared_proto_db/000003.log 
+2024/04/04-13:30:20.595 4bd8 Reusing MANIFEST C:\Users\panha\AppData\Local\Temp\flutter_tools.d9658e95\flutter_tools_chrome_device.606e10af\Default\shared_proto_db/MANIFEST-000001
+2024/04/04-13:30:20.597 4bd8 Recovering log #3
+2024/04/04-13:30:20.599 4bd8 Reusing old log C:\Users\panha\AppData\Local\Temp\flutter_tools.d9658e95\flutter_tools_chrome_device.606e10af\Default\shared_proto_db/000003.log 
+2024/04/04-13:33:26.234 c7c Level-0 table #5: started
+2024/04/04-13:33:26.241 c7c Level-0 table #5: 134046 bytes OK
+2024/04/04-13:33:26.244 c7c Delete type=0 #3

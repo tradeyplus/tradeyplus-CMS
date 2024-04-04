@@ -13,6 +13,7 @@ import 'upload_page_model.dart';
 export 'upload_page_model.dart';
 import 'package:firebase_core/firebase_core.dart'; // Required for Firebase initialization
 import 'package:firebase_storage/firebase_storage.dart'; // For Firebase Storage
+import 'package:excel/excel.dart' as Excel;
 
 class UploadPageWidget extends StatefulWidget {
   const UploadPageWidget({super.key});
@@ -353,102 +354,102 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 0.0),
                                     child: FFButtonWidget(
-                                      onPressed: () async {
-                                        logFirebaseEvent(
-                                            'UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
-                                        final selectedFiles = await selectFiles(
-                                          allowedExtensions: ['xlsx'],
-                                          multiFile: false,
-                                        );
-                                        if (selectedFiles != null) {
-                                          setState(() =>
-                                              _model.isDataUploading = true);
-                                          var selectedUploadedFiles =
-                                              <FFUploadedFile>[];
-
-                                          var downloadUrls = <String>[];
-                                          try {
-                                            selectedUploadedFiles =
-                                                selectedFiles
-                                                    .map((m) => FFUploadedFile(
-                                                          name: m.storagePath
-                                                              .split('/')
-                                                              .last,
-                                                          bytes: m.bytes,
-                                                        ))
-                                                    .toList();
-
-                                            downloadUrls = (await Future.wait(
-                                              selectedFiles.map(
-                                                (f) async => await uploadData(
-                                                    f.storagePath, f.bytes),
-                                              ),
-                                            ))
-                                                .where((u) => u != null)
-                                                .map((u) => u!)
-                                                .toList();
-                                          } finally {
-                                            _model.isDataUploading = false;
-                                          }
-                                          if (selectedUploadedFiles.length ==
-                                                  selectedFiles.length &&
-                                              downloadUrls.length ==
-                                                  selectedFiles.length) {
-                                            setState(() {
-                                              _model.uploadedLocalFile =
-                                                  selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl =
-                                                  downloadUrls.first;
-                                            });
-                                          } else {
-                                            setState(() {});
-                                            return;
-                                          }
-                                        }
-                                      },
                                       // onPressed: () async {
-                                      //   logFirebaseEvent('UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
+                                      //   logFirebaseEvent(
+                                      //       'UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
                                       //   final selectedFiles = await selectFiles(
                                       //     allowedExtensions: ['xlsx'],
                                       //     multiFile: false,
                                       //   );
-                                      //   if (selectedFiles != null && selectedFiles.isNotEmpty) {
-                                      //     setState(() => _model.isDataUploading = true);
+                                      //   if (selectedFiles != null) {
+                                      //     setState(() =>
+                                      //         _model.isDataUploading = true);
+                                      //     var selectedUploadedFiles =
+                                      //         <FFUploadedFile>[];
 
+                                      //     var downloadUrls = <String>[];
                                       //     try {
-                                      //       showUploadMessage(context, 'Uploading file...', showLoading: true);
+                                      //       selectedUploadedFiles =
+                                      //           selectedFiles
+                                      //               .map((m) => FFUploadedFile(
+                                      //                     name: m.storagePath
+                                      //                         .split('/')
+                                      //                         .last,
+                                      //                     bytes: m.bytes,
+                                      //                   ))
+                                      //               .toList();
 
-                                      //       for (var file in selectedFiles) {
-                                      //         String fileName = file.storagePath.split('/').last;
-                                      //         String firebaseStoragePath = 'uploads/$fileName';
-
-                                      //         // Inline upload logic
-                                      //         try {
-                                      //             var fileRef = FirebaseStorage.instance.ref().child(firebaseStoragePath);
-                                      //             print("File Reference: $fileRef");
-                                      //             await fileRef.putData(file.bytes);
-                                      //             String downloadUrl = await fileRef.getDownloadURL();
-                                      //             print("File uploaded: $fileName with URL: $downloadUrl");
-                                      //           // Handle the download URL as needed
-                                      //         } catch (e) {
-                                      //           print("Error uploading file: $e");
-                                      //           showUploadMessage(context, 'Failed to upload file', showLoading: false);
-                                      //           return; // Exit if any file fails to upload
-                                      //         }
-                                      //       }
-
-                                      //       showUploadMessage(context, 'All files uploaded successfully!', showLoading: false);
-                                      //     } catch (e) {
-                                      //       print("An error occurred during file upload: $e");
-                                      //       showUploadMessage(context, 'Error uploading files', showLoading: false);
+                                      //       downloadUrls = (await Future.wait(
+                                      //         selectedFiles.map(
+                                      //           (f) async => await uploadData(
+                                      //               f.storagePath, f.bytes),
+                                      //         ),
+                                      //       ))
+                                      //           .where((u) => u != null)
+                                      //           .map((u) => u!)
+                                      //           .toList();
                                       //     } finally {
-                                      //       setState(() => _model.isDataUploading = false);
-                                      //       ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                                      //       _model.isDataUploading = false;
                                       //     }
-                                      //   } else {
-                                      //     print('No files selected');
+                                      //     if (selectedUploadedFiles.length ==
+                                      //             selectedFiles.length &&
+                                      //         downloadUrls.length ==
+                                      //             selectedFiles.length) {
+                                      //       setState(() {
+                                      //         _model.uploadedLocalFile =
+                                      //             selectedUploadedFiles.first;
+                                      //         _model.uploadedFileUrl =
+                                      //             downloadUrls.first;
+                                      //       });
+                                      //     } else {
+                                      //       setState(() {});
+                                      //       return;
+                                      //     }
                                       //   }
                                       // },
+                                      onPressed: () async {
+                                            logFirebaseEvent('UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
+                                            final selectedFiles = await selectFiles(
+                                              multiFile: false,
+                                              allowedExtensions: ['xlsx'],
+                                            );
+                                            if (selectedFiles != null) {
+                                              setState(() => _model.isDataUploading = true);
+                                              var selectedUploadedFiles = <FFUploadedFile>[];
+                                              try {
+                                                selectedUploadedFiles = selectedFiles
+                                                    .map((m) => FFUploadedFile(
+                                                          name: m.storagePath.split('/').last,
+                                                          bytes: m.bytes,
+                                                        ))
+                                                    .toList();
+                                              } finally {
+                                                _model.isDataUploading = false;
+                                              }
+                                              if (selectedUploadedFiles.length == selectedFiles.length) {
+                                                setState(() {
+                                                  _model.uploadedLocalFile = selectedUploadedFiles.first;
+                                                });
+                                                var bytes = _model.uploadedLocalFile.bytes; // Get the bytes of the uploaded file
+                                                if (bytes != null) {
+                                                  var excel = Excel.Excel.decodeBytes(bytes);
+                                                  for (var table in excel.tables.keys) {
+                                                    print("Sheet name: $table"); // Sheet name
+                                                    var sheet = excel.tables[table];
+                                                    for (var row in sheet!.rows.skip(1)) {
+                                                      // Iterate through each cell in the row and print its value
+                                                      var rowValues = row.map((cell) => cell?.value ?? "").toList();
+                                                      // Do something with the row values, e.g., print or process further
+                                                      print(rowValues);
+                                                    }
+                                                  } 
+                                                }
+                                                } else {
+                                                    setState(() {});
+                                                        return;
+                                                }
+                                        }
+                                      },
 
 
                                       text: FFLocalizations.of(context).getText(
