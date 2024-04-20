@@ -150,20 +150,18 @@ class _WebNavWidgetState extends State<WebNavWidget> {
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         logFirebaseEvent('WEB_NAV_COMP_Row_3irkf5kz_ON_TAP');
-                        if (widget.selectedNav != 1) {
-                          context.pushNamed(
-                            'Main_customerList',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 0),
-                              ),
-                            },
-                          );
-                        } else {
-                          return;
-                        }
+                        
+                        context.pushNamed(
+                          'Main_customerList',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: const TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                            ),
+                          },
+                        );
+                        
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,

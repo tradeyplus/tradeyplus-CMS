@@ -3890,7 +3890,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': '',
     },
     'e59dl8b7': {
-      'en': 'Month',
+      'en': 'Choose User',
       'bn': '',
       'hi': '',
       'ml': '',

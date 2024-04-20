@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:tradey_plus_web_cms/components/used_com/upload_page/math.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
@@ -19,6 +23,8 @@ export 'upload_page_model.dart';
 import 'package:firebase_core/firebase_core.dart'; // Required for Firebase initialization
 import 'package:firebase_storage/firebase_storage.dart'; // For Firebase Storage
 import 'package:excel/excel.dart' as Excel;
+import 'dart:math';
+
 
 class UploadPageWidget extends StatefulWidget {
   const UploadPageWidget({super.key});
@@ -205,20 +211,31 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                             ),
                           );
                         }
-                        List<UsersRecord> dropDownUsersRecordList =
-                            snapshot.data!;
+                        // List<UsersRecord> dropDownUsersRecordList =
+                        //     snapshot.data!;
+                        // return FlutterFlowDropDown<String>(
+                        //   controller: _model.dropDownValueController ??=
+                        //       FormFieldController<String>(null),
+                        //   options: dropDownUsersRecordList
+                        //       .map((e) => e.displayName)
+                        //       .toList(),
+                        //   onChanged: (val) =>
+                        //       setState(() => _model.dropDownValue = val),
+                        List<UsersRecord> dropDownUsersRecordList = snapshot.data!;
                         return FlutterFlowDropDown<String>(
                           controller: _model.dropDownValueController ??=
-                              FormFieldController<String>(null),
-                          options: dropDownUsersRecordList
-                              .map((e) => e.displayName)
-                              .toList(),
-                          onChanged: (val) =>
-                              setState(() => _model.dropDownValue = val),
+                              FormFieldController<String>(
+                            null
+                          ),
+                          options: List<String>.from(
+                              dropDownUsersRecordList.map((e) => e.uid).toList()),
+                          optionLabels:
+                              dropDownUsersRecordList.map((e) => e.displayName).toList(),
+                          onChanged: (val) => setState(() => _model.dropDownValue = val),
                           width: MediaQuery.sizeOf(context).width <
                                   kBreakpointSmall
                               ? 100.0
-                              : 135.0,
+                              : 155.0,
                           height: MediaQuery.sizeOf(context).width <
                                   kBreakpointSmall
                               ? 35.0
@@ -238,7 +255,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                 fontWeight: FontWeight.bold,
                               ),
                           hintText: FFLocalizations.of(context).getText(
-                            'e59dl8b7' /* Month */,
+                            'e59dl8b7' /*Choose User*/,
                           ),
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
@@ -264,7 +281,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                 ],
               ),
             ),
-            Divider(
+            const Divider(
               thickness: 4.0,
               color: Color(0xFFCBD0DC),
             ),
@@ -405,78 +422,118 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                       //     }
                                       //   }
                                       // },
+                                      //             .toList();
+                                        //   } finally {
+                                        //     _model.isDataUploading = false;
+                                        //   }
+                                        //   if (selectedUploadedFiles.length ==
+                                        //       selectedFiles.length) {
+                                        //     setState(() {
+                                        //       _model.uploadedLocalFile =
+                                        //           selectedUploadedFiles.first;
+                                        //     });
+                                        //   } else {
+                                        //     setState(() {});
+                                        //     return;
+                                        //   }
+                                        // }
+                                    
                                       //custom code start
-                                      onPressed: () async {
+                                      onPressed: (_model.dropDownValue == null || _model.dropDownValue == '')
+                                            ? null : () async {
                                             logFirebaseEvent('UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
                                             final selectedFiles = await selectFiles(
                                               multiFile: false,
                                               allowedExtensions: ['xlsx'],
                                             );
+                        
+                                            var result = [];
+                                            List<String> fileNames = []; 
+
                                             if (selectedFiles != null) {
-                                              setState(() => _model.isDataUploading = true);
-                                              var selectedUploadedFiles = <FFUploadedFile>[];
-                                              try {
-                                                selectedUploadedFiles = selectedFiles
-                                        logFirebaseEvent(
-                                            'UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
-                                        final selectedFiles = await selectFiles(
-                                          multiFile: false,
-                                        );
-                                        if (selectedFiles != null) {
-                                          setState(() =>
+                                              setState(() =>
                                               _model.isDataUploading = true);
-                                          var selectedUploadedFiles =
+                                              var selectedUploadedFiles =
                                               <FFUploadedFile>[];
+                                              // try {
+                                              //   selectedUploadedFiles = selectedFiles.map((m) {
+                                              //     // Extract the file name
+                                              //     String fileName = m.storagePath.split('/').last;
+                                                  
+                                              //     // Add the file name to the list of file names
+                                              //     fileNames.add(fileName);
+                                                  
+                                              //     // Return a new FFUploadedFile
+                                              //     return FFUploadedFile(
+                                              //       name: fileName,
+                                              //       bytes: m.bytes,
+                                              //     );
+                                              //   }).toList();
+                                              // }
+                                              try {
+                                                selectedUploadedFiles = selectedFiles.map((m)
+                                              
+                                                => FFUploadedFile(
+                                                            name: m.storagePath.split('/').last,
+                                                            
+                                                            bytes: m.bytes,
+                                                          ))
+                                                      .toList();
 
-                                          try {
-                                            selectedUploadedFiles =
-                                                selectedFiles
-                                                    .map((m) => FFUploadedFile(
-                                                          name: m.storagePath.split('/').last,
-                                                          bytes: m.bytes,
-                                                        ))
-                                                    .toList();
-                                              } finally {
-                                                _model.isDataUploading = false;
-                                              }
-                                              if (selectedUploadedFiles.length == selectedFiles.length) {
-                                                setState(() {
-                                                  _model.uploadedLocalFile = selectedUploadedFiles.first;
-                                                });
-                                                var bytes = _model.uploadedLocalFile.bytes; // Get the bytes of the uploaded file
-                                                if (bytes != null) {
-                                                  var excel = Excel.Excel.decodeBytes(bytes);
-                                                  for (var table in excel.tables.keys) {
-                                                    print("Sheet name: $table"); // Sheet name
-                                                    var sheet = excel.tables[table];
-                                                    for (var row in sheet!.rows.skip(1)) {
-                                                      // Iterate through each cell in the row and print its value
-                                                      var rowValues = row.map((cell) => cell?.value ?? "").toList();
-                                                      // Do something with the row values, e.g., print or process further
-                                                      print(rowValues);
-                                                    }
-                                                  } 
+                                              } 
+                                              finally {
+                                                  _model.isDataUploading = false;
                                                 }
+                                                
+                                                if (selectedUploadedFiles.length == selectedFiles.length) {
+                                                  setState(() {
+                                                    _model.uploadedLocalFile = selectedUploadedFiles.first;
+                                                  });
+                                                  
+                                                    
+                                                  var bytes = _model.uploadedLocalFile.bytes; 
+                                                  if (bytes != null) {
+                                                    var excel = Excel.Excel.decodeBytes(bytes);
+                                                    for (var table in excel.tables.keys) {
+                                                       // Sheet name
+                                                      var sheet = excel.tables[table];
+                                                      
+                                                      if (sheet != null && sheet.rows.length > 1) {
+                                                        // Get the second row
+                                                        var secondRow = sheet.rows[1];
+                                                        // Loop through the first 7 columns of the second row
+                                                        for (int i = 0; i < 7; i++) {
+                                                          // Make sure to check if the cell is not null before accessing it
+                                                          var cellValue = secondRow[i]?.value;
+                                                          // Add the cell value to the result list
+                                                          if (cellValue != null) {
+                                                            result.add(cellValue);
+                                                          }
+                                                        }
+                                                      }
+                                                      //skip the first row
+                                                      // for (var row in sheet!.rows.skip(1)) {
+                                                      //   // Iterate through each cell in the row and print its value
+                                                      //   // var rowValues = row.map((cell) => double.parse(cell!.value.toString())).toList();
+                                                      //   // double testRowVal = double.parse(rowValues[0].toStringAsFixed(2));
+                                                      //   // Do something with the row values, e.g., print or process further
+                                                      //   var rowValues = row.map((cell) => cell!.value).toList();
+                                                      //   result.addAll(rowValues);
+                                                      // }
+                                                      
+                                                    } 
+                                                  }
                                                 } else {
-                                                    setState(() {});
-                                                        return;
+                                                      setState(() {});
+                                                          return;
                                                 }
-                                                    .toList();
-                                          } finally {
-                                            _model.isDataUploading = false;
-                                          }
-                                          if (selectedUploadedFiles.length ==
-                                              selectedFiles.length) {
-                                            setState(() {
-                                              _model.uploadedLocalFile =
-                                                  selectedUploadedFiles.first;
-                                            });
-                                          } else {
-                                            setState(() {});
-                                            return;
-                                          }
-                                        }
+                                              }
+                                              print("Result $result");
+                                              
 
+                                        
+                                        
+                                                
                                         _model.userRef =
                                             await queryUsersRecordOnce(
                                           queryBuilder: (usersRecord) =>
@@ -487,94 +544,95 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                           singleRecord: true,
                                         ).then((s) => s.firstOrNull);
 
-                                        var investmentDataRecordReference =
-                                            InvestmentDataRecord.collection
-                                                .doc();
-                                        await investmentDataRecordReference
-                                            .set(createInvestmentDataRecordData(
-                                          amount: 0.0,
-                                          investorEvaluation: 0.0,
-                                          profitRatio: 5.0,
-                                          investorRef:
-                                              _model.userRef?.reference,
-                                          transactionType:
-                                              TransactionType.PROFIT,
-                                          investmentId:
-                                              random_data.randomString(
-                                            10,
-                                            15,
-                                            true,
-                                            true,
-                                            false,
-                                          ),
-                                          duration: 0,
-                                          points: 0.0,
-                                          investorId: random_data.randomString(
-                                            10,
-                                            15,
-                                            true,
-                                            true,
-                                            true,
-                                          ),
-                                          createdDate: getCurrentTimestamp,
-                                        ));
-                                        _model.investmentData = InvestmentDataRecord
-                                            .getDocumentFromData(
-                                                createInvestmentDataRecordData(
-                                                  amount: 0.0,
-                                                  investorEvaluation: 0.0,
-                                                  profitRatio: 5.0,
-                                                  investorRef:
-                                                      _model.userRef?.reference,
-                                                  transactionType:
-                                                      TransactionType.PROFIT,
-                                                  investmentId:
-                                                      random_data.randomString(
-                                                    10,
-                                                    15,
-                                                    true,
-                                                    true,
-                                                    false,
-                                                  ),
-                                                  duration: 0,
-                                                  points: 0.0,
-                                                  investorId:
-                                                      random_data.randomString(
-                                                    10,
-                                                    15,
-                                                    true,
-                                                    true,
-                                                    true,
-                                                  ),
-                                                  createdDate:
-                                                      getCurrentTimestamp,
-                                                ),
-                                                investmentDataRecordReference);
+                                        
+                                        print("myDouble: ${parseToDouble(result, 1)}");
+                                        print("investorEva: ${parseToDouble(result, 0)}");
+                                        print ("profitRatio: 0.0");
+                                        print("investorRef: ${_model.userRef?.reference}");
 
-                                        await _model.investmentData!.reference
-                                            .update(
-                                                createInvestmentDataRecordData(
-                                          investmentRef:
-                                              _model.investmentData?.reference,
-                                        ));
+                                        print("Transition: ${result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION}");
+                                        
+                                        print("duration: ${parseToInt(result, 2)}");
+                                        print("points: ${parseToDouble(result, 6)}");
+                                        print("investorId: ${_model.userRef?.reference.path.split('/').last}"); 
+                                        print("createdDate: ${parseToDate(result, 4)}");
 
-                                        await LogRecord.collection
-                                            .doc()
-                                            .set(createLogRecordData(
-                                              logUserRef: currentUserReference,
-                                              logType: LogType
-                                                  .CREATE_INVESTMENT_DATA,
-                                              logTime: getCurrentTimestamp,
-                                              logUserName:
-                                                  currentUserDisplayName,
-                                              logUserId: currentUserUid,
-                                            ));
+                                        
 
-                                        setState(() {});
+                                        // var investmentDataRecordReference =
+                                        //     InvestmentDataRecord.collection
+                                        //         .doc();
+                                        // await investmentDataRecordReference
+                                        //     .set(createInvestmentDataRecordData(
+                                        //   amount: parseToDouble(result, 1),
+                                        //   investorEvaluation: parseToDouble(result, 0),
+                                        //   profitRatio: 0.0,
+                                        //   investorRef:
+                                        //       _model.userRef?.reference,
+                                        //   transactionType: result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION,
+                                        //   investmentId:
+                                        //       random_data.randomString(
+                                        //     10,
+                                        //     15,
+                                        //     true,
+                                        //     true,
+                                        //     true,
+                                        //   ),
+                                        //   duration: parseToInt(result, 2),
+                                        //   points: parseToDouble(result, 6),
+                                        //   investorId: _model.userRef?.reference.path.split('/').last,
+                                          
+                                        //   createdDate: parseToDate(result, 4),
+                                        // ));
+                                        // _model.investmentData = InvestmentDataRecord
+                                        //     .getDocumentFromData(
+                                        //         createInvestmentDataRecordData(
+                                        //           amount: parseToDouble(result, 1),
+                                        //           investorEvaluation: parseToDouble(result, 0),
+                                        //           profitRatio: 00,
+                                        //           investorRef:
+                                        //               _model.userRef?.reference,
+                                        //           transactionType:
+                                        //               result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION,
+                                        //           investmentId:
+                                        //               random_data.randomString(
+                                        //             10,
+                                        //             15,
+                                        //             true,
+                                        //             true,
+                                        //             false,
+                                        //           ),
+                                        //           duration: parseToInt(result, 2),
+                                        //           points: parseToDouble(result, 6),
+                                        //           investorId:
+                                        //             _model.userRef?.reference.path.split('/').last,
+                                        //           createdDate: 
+                                        //               parseToDate(result, 4),
+                                        //         ),
+                                        //         investmentDataRecordReference);
+
+                                        // await _model.investmentData!.reference
+                                        //     .update(
+                                        //         createInvestmentDataRecordData(
+                                        //   investmentRef:
+                                        //       _model.investmentData?.reference,
+                                        // ));
+
+                                        // await LogRecord.collection
+                                        //     .doc()
+                                        //     .set(createLogRecordData(
+                                        //       logUserRef: currentUserReference,
+                                        //       logType: LogType
+                                        //           .CREATE_INVESTMENT_DATA,
+                                        //       logTime: getCurrentTimestamp,
+                                        //       logUserName:
+                                        //           currentUserDisplayName,
+                                        //       logUserId: currentUserUid,
+                                        //     ));
+
+                                        // setState(() {});
                                       },
                                       // Custom code end
-
-
                                       text: FFLocalizations.of(context).getText(
                                         'yvm9kbwv' /* Browse File */,
                                       ),
@@ -599,6 +657,8 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(16.0),
+                                        disabledColor: FlutterFlowTheme.of(context).error,
+                                        disabledTextColor: FlutterFlowTheme.of(context).falling,
                                       ),
                                     ),
                                   ),
