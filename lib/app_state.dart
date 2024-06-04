@@ -27,6 +27,7 @@ class FFAppState extends ChangeNotifier {
       _password = prefs.getString('ff_password') ?? _password;
     });
   }
+  
 
   void update(VoidCallback callback) {
     callback();
@@ -40,6 +41,12 @@ class FFAppState extends ChangeNotifier {
   set email(String _value) {
     _email = _value;
     prefs.setString('ff_email', _value);
+  }
+
+  String _selectedFileName = '';
+  String get selectedFileName => _selectedFileName;
+  set selectedFileName(String _value) {
+    _selectedFileName = _value;
   }
 
   String _password = '';

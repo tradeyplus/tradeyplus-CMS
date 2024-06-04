@@ -267,6 +267,7 @@ Future<List<SelectedFile>?> selectFiles({
       final file = e.value;
       final storagePath =
           _getStoragePath(storageFolderPath, file.name, false, index);
+      
       return SelectedFile(
         storagePath: storagePath,
         filePath: isWeb ? null : file.path,
@@ -275,6 +276,10 @@ Future<List<SelectedFile>?> selectFiles({
     }));
   }
   final file = pickedFiles.files.first;
+  FFAppState().update(() {
+    FFAppState().selectedFileName = file.name;
+  });
+  print("This is file.name: ${file.name}");
   if (file.bytes == null) {
     return null;
   }

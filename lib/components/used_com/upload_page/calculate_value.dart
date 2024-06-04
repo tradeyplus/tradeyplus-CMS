@@ -1,4 +1,4 @@
-double parseToDouble(List<dynamic> list, int index) {
+double cellIntToDouble(List<dynamic> list, int index) {
   // Check if the index is within the range of the list
   if (index < 0 || index >= list.length) {
     throw ArgumentError('Index out of bounds');
@@ -12,7 +12,7 @@ double parseToDouble(List<dynamic> list, int index) {
   }
 }
 
-int parseToInt(List<dynamic> list, int index) {
+int toInt(List<dynamic> list, int index) {
   // Check if the index is within the range of the list
   if (index < 0 || index >= list.length) {
     throw ArgumentError('Index out of bounds');
@@ -26,7 +26,7 @@ int parseToInt(List<dynamic> list, int index) {
   }
 }
 
-DateTime? parseToDate(List<dynamic> list, int index) {
+DateTime? toDate(List<dynamic> list, int index) {
   // Check if the index is within the range of the list
   if (index < 0 || index >= list.length) {
     print('Index out of bounds');

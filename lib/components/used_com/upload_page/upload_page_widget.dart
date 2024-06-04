@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:tradey_plus_web_cms/components/used_com/upload_page/math.dart';
+import 'package:tradey_plus_web_cms/components/used_com/upload_page/calculate_value.dart';
+
 
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
@@ -35,6 +36,27 @@ class UploadPageWidget extends StatefulWidget {
 
 class _UploadPageWidgetState extends State<UploadPageWidget> {
   late UploadPageModel _model;
+
+  //additional member start
+  bool isDouble(String s) {
+    return double.tryParse(s) != null;
+  }
+
+  bool isInteger(String s) {
+    return int.tryParse(s) != null;
+  }
+
+  bool isValidDateFormat(String date, String format) {
+    try {
+      DateFormat(format).parseStrict(date);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+  //additional member end
+
+
 
   @override
   void setState(VoidCallback callback) {
@@ -445,12 +467,17 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             final selectedFiles = await selectFiles(
                                               multiFile: false,
                                               allowedExtensions: ['xlsx'],
+                                          
                                             );
+
+                                            
+                                            
                         
                                             var result = [];
-                                            List<String> fileNames = []; 
-
+                                            
                                             if (selectedFiles != null) {
+                                              print("This is filePath: ${selectedFiles[0].filePath}");
+                                              print("This is storagePath: ${selectedFiles[0].storagePath}");
                                               setState(() =>
                                               _model.isDataUploading = true);
                                               var selectedUploadedFiles =
@@ -501,14 +528,52 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                                       if (sheet != null && sheet.rows.length > 1) {
                                                         // Get the second row
                                                         var secondRow = sheet.rows[1];
-                                                        // Loop through the first 7 columns of the second row
-                                                        for (int i = 0; i < 7; i++) {
-                                                          // Make sure to check if the cell is not null before accessing it
+                                                        // Loop through the first 8 columns of the second row
+                                                        for (int i = 0; i < 8; i++) {
+                                                          // Get the cell value, with a check for null
                                                           var cellValue = secondRow[i]?.value;
-                                                          // Add the cell value to the result list
-                                                          if (cellValue != null) {
+                                                          // Handling empty cells and providing feedback via Snackbar
+                                                            if (cellValue == null || cellValue.toString().isEmpty) {
+                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                SnackBar(content: Text('Error: Required field in column ${i+1} is empty'))
+                                                              );
+                                                              return;
+                                                            }
+
+                                                            // Column specific validations
+                                                            if ((i == 0 || i == 1 || i == 5) && !isDouble(cellValue.toString())) { // Double for columns 1, 2, 6
+                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                SnackBar(content: Text('Error: Column ${i+1} must be a number'))
+                                                              );
+                                                              return;
+                                                            } else if ((i == 2 || i == 6 || i == 7) && !isInteger(cellValue.toString())) { // Integer for columns 3, 7, 8
+                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                SnackBar(content: Text('Error: Column ${i+1} must be an integer'))
+                                                              );
+                                                              return;
+                                                            } else if (i == 4 && !isValidDateFormat(cellValue.toString(), "dd/MM/yy")) { // Date format for column 5
+                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                const SnackBar(content: Text('Error: Date format is incorrect in column 5'))
+                                                              );
+                                                              return;
+                                                            } else {
+                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                const SnackBar(content: Text('The File has been uploaded'))
+                                                                );
+                                                            }
                                                             result.add(cellValue);
-                                                          }
+
+                                                                                                          
+                                                          // // If the cellValue is null, determine what to return based on the column
+                                                          // if (cellValue == null) {
+                                                          //   if (i == 3) { // For the fourth column (index 3), return an empty string
+                                                          //     result.add("");
+                                                          //   } else { // For other columns, return 0
+                                                          //     result.add(0);
+                                                          //   }
+                                                          // } else {
+                                                          //   result.add(cellValue);
+                                                          // }
                                                         }
                                                       }
                                                       //skip the first row
@@ -523,9 +588,11 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                                       
                                                     } 
                                                   }
-                                                } else {
-                                                      setState(() {});
-                                                          return;
+                                                } else  {
+                                                  ScaffoldMessenger.of(context).showSnackBar(
+                                                    const SnackBar(content: Text('Error: No data found in the uploaded file'))
+                                                  );
+                                                  setState(() {});
                                                 }
                                               }
                                               print("Result $result");
@@ -545,92 +612,92 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                         ).then((s) => s.firstOrNull);
 
                                         
-                                        print("myDouble: ${parseToDouble(result, 1)}");
-                                        print("investorEva: ${parseToDouble(result, 0)}");
-                                        print ("profitRatio: 0.0");
+                                        print("myDouble: ${cellIntToDouble(result, 1)}");
+                                        print("investorEva: ${cellIntToDouble(result, 0)}");
+                                        print ("profitRatio: ${cellIntToDouble(result, 7)}");
                                         print("investorRef: ${_model.userRef?.reference}");
 
                                         print("Transition: ${result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION}");
                                         
-                                        print("duration: ${parseToInt(result, 2)}");
-                                        print("points: ${parseToDouble(result, 6)}");
+                                        print("duration: ${toInt(result, 2)}");
+                                        print("points: ${cellIntToDouble(result, 6)}");
                                         print("investorId: ${_model.userRef?.reference.path.split('/').last}"); 
-                                        print("createdDate: ${parseToDate(result, 4)}");
+                                        print("createdDate: ${toDate(result, 4)}");
 
                                         
 
-                                        // var investmentDataRecordReference =
-                                        //     InvestmentDataRecord.collection
-                                        //         .doc();
-                                        // await investmentDataRecordReference
-                                        //     .set(createInvestmentDataRecordData(
-                                        //   amount: parseToDouble(result, 1),
-                                        //   investorEvaluation: parseToDouble(result, 0),
-                                        //   profitRatio: 0.0,
-                                        //   investorRef:
-                                        //       _model.userRef?.reference,
-                                        //   transactionType: result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION,
-                                        //   investmentId:
-                                        //       random_data.randomString(
-                                        //     10,
-                                        //     15,
-                                        //     true,
-                                        //     true,
-                                        //     true,
-                                        //   ),
-                                        //   duration: parseToInt(result, 2),
-                                        //   points: parseToDouble(result, 6),
-                                        //   investorId: _model.userRef?.reference.path.split('/').last,
+                                      //   var investmentDataRecordReference =
+                                      //       InvestmentDataRecord.collection
+                                      //           .doc();
+                                      //   await investmentDataRecordReference
+                                      //       .set(createInvestmentDataRecordData(
+                                      //     amount: cellIntToDouble(result, 1),
+                                      //     investorEvaluation: cellIntToDouble(result, 0),
+                                      //     profitRatio: cellIntToDouble(result, 7),
+                                      //     investorRef:
+                                      //         _model.userRef?.reference,
+                                      //     transactionType: result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION,
+                                      //     investmentId:
+                                      //         random_data.randomString(
+                                      //       10,
+                                      //       15,
+                                      //       true,
+                                      //       true,
+                                      //       true,
+                                      //     ),
+                                      //     duration: toInt(result, 2),
+                                      //     points: cellIntToDouble(result, 6),
+                                      //     investorId: _model.userRef?.reference.path.split('/').last,
                                           
-                                        //   createdDate: parseToDate(result, 4),
-                                        // ));
-                                        // _model.investmentData = InvestmentDataRecord
-                                        //     .getDocumentFromData(
-                                        //         createInvestmentDataRecordData(
-                                        //           amount: parseToDouble(result, 1),
-                                        //           investorEvaluation: parseToDouble(result, 0),
-                                        //           profitRatio: 00,
-                                        //           investorRef:
-                                        //               _model.userRef?.reference,
-                                        //           transactionType:
-                                        //               result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION,
-                                        //           investmentId:
-                                        //               random_data.randomString(
-                                        //             10,
-                                        //             15,
-                                        //             true,
-                                        //             true,
-                                        //             false,
-                                        //           ),
-                                        //           duration: parseToInt(result, 2),
-                                        //           points: parseToDouble(result, 6),
-                                        //           investorId:
-                                        //             _model.userRef?.reference.path.split('/').last,
-                                        //           createdDate: 
-                                        //               parseToDate(result, 4),
-                                        //         ),
-                                        //         investmentDataRecordReference);
+                                      //     createdDate: toDate(result, 4),
+                                      //   ));
+                                      //   _model.investmentData = InvestmentDataRecord
+                                      //       .getDocumentFromData(
+                                      //           createInvestmentDataRecordData(
+                                      //             amount: cellIntToDouble(result, 1),
+                                      //             investorEvaluation: cellIntToDouble(result, 0),
+                                      //             profitRatio: cellIntToDouble(result, 7),
+                                      //             investorRef:
+                                      //                 _model.userRef?.reference,
+                                      //             transactionType:
+                                      //                 result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION,
+                                      //             investmentId:
+                                      //                 random_data.randomString(
+                                      //               10,
+                                      //               15,
+                                      //               true,
+                                      //               true,
+                                      //               false,
+                                      //             ),
+                                      //             duration: toInt(result, 2),
+                                      //             points: cellIntToDouble(result, 6),
+                                      //             investorId:
+                                      //               _model.userRef?.reference.path.split('/').last,
+                                      //             createdDate: 
+                                      //                 toDate(result, 4),
+                                      //           ),
+                                      //           investmentDataRecordReference);
 
-                                        // await _model.investmentData!.reference
-                                        //     .update(
-                                        //         createInvestmentDataRecordData(
-                                        //   investmentRef:
-                                        //       _model.investmentData?.reference,
-                                        // ));
+                                      //   await _model.investmentData!.reference
+                                      //       .update(
+                                      //           createInvestmentDataRecordData(
+                                      //     investmentRef:
+                                      //         _model.investmentData?.reference,
+                                      //   ));
 
-                                        // await LogRecord.collection
-                                        //     .doc()
-                                        //     .set(createLogRecordData(
-                                        //       logUserRef: currentUserReference,
-                                        //       logType: LogType
-                                        //           .CREATE_INVESTMENT_DATA,
-                                        //       logTime: getCurrentTimestamp,
-                                        //       logUserName:
-                                        //           currentUserDisplayName,
-                                        //       logUserId: currentUserUid,
-                                        //     ));
+                                      //   await LogRecord.collection
+                                      //       .doc()
+                                      //       .set(createLogRecordData(
+                                      //         logUserRef: currentUserReference,
+                                      //         logType: LogType
+                                      //             .CREATE_INVESTMENT_DATA,
+                                      //         logTime: getCurrentTimestamp,
+                                      //         logUserName:
+                                      //             currentUserDisplayName,
+                                      //         logUserId: currentUserUid,
+                                      //       ));
 
-                                        // setState(() {});
+                                      //   setState(() {});
                                       },
                                       // Custom code end
                                       text: FFLocalizations.of(context).getText(
@@ -724,9 +791,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        FFLocalizations.of(context).getText(
-                                          '4syrj65e' /* my-Data.xlsx */,
-                                        ),
+                                        FFAppState().selectedFileName,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
