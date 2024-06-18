@@ -5,16 +5,17 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/user_detail/edit_admin/modal_profile_details/modal_profile_details_widget.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'user_details_main_model.dart';
-export 'user_details_main_model.dart';
+import 'user_details_main_copy_model.dart';
+export 'user_details_main_copy_model.dart';
 
-class UserDetailsMainWidget extends StatefulWidget {
-  const UserDetailsMainWidget({
+class UserDetailsMainCopyWidget extends StatefulWidget {
+  const UserDetailsMainCopyWidget({
     super.key,
     required this.showBack,
   });
@@ -22,274 +23,15 @@ class UserDetailsMainWidget extends StatefulWidget {
   final bool? showBack;
 
   @override
-  State<UserDetailsMainWidget> createState() => _UserDetailsMainWidgetState();
+  State<UserDetailsMainCopyWidget> createState() =>
+      _UserDetailsMainCopyWidgetState();
 }
 
-class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
+class _UserDetailsMainCopyWidgetState extends State<UserDetailsMainCopyWidget>
     with TickerProviderStateMixin {
-  late UserDetailsMainModel _model;
+  late UserDetailsMainCopyModel _model;
 
-  final animationsMap = {
-    'imageOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, -140.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'cardOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 400.ms),
-        FadeEffect(
-          curve: Curves.bounceOut,
-          delay: 400.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        ScaleEffect(
-          curve: Curves.bounceOut,
-          delay: 400.ms,
-          duration: 600.ms,
-          begin: Offset(0.6, 0.6),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 40.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 40.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 40.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 60.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation6': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 70.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'dividerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 80.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 90.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'listViewOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 80.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 800.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 800.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 800.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 120.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -300,8 +42,269 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => UserDetailsMainModel());
+    _model = createModel(context, () => UserDetailsMainCopyModel());
 
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -140.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'cardOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 400.ms),
+          FadeEffect(
+            curve: Curves.bounceOut,
+            delay: 400.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ScaleEffect(
+            curve: Curves.bounceOut,
+            delay: 400.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.6, 0.6),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 40.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 40.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 40.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 60.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 70.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'dividerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 80.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation7': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 90.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'listViewOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 80.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 800.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 800.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 800.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 120.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -366,7 +369,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   logFirebaseEvent(
-                                      'USER_DETAILS_MAIN_Card_xvm62zsz_ON_TAP');
+                                      'USER_DETAILS_MAIN_COPY_Card_snc5j93v_ON_');
                                   context.safePop();
                                 },
                                 child: Card(
@@ -406,7 +409,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '918p9oc4' /* Customer Name */,
+                                  '9gb8ugy5' /* Customer Name */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -421,7 +424,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'gs85nrf2' /* Randy Alcorn */,
+                                    'ggdscbga' /* Randy Alcorn */,
                                   ),
                                   textAlign: TextAlign.start,
                                   style: FlutterFlowTheme.of(context)
@@ -470,46 +473,54 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 0.0, 0.0),
-                      child: Container(
-                        width: 120.0,
-                        height: 32.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).accent1,
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 4.0, 0.0),
-                              child: Icon(
-                                Icons.stars_rounded,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                    if (responsiveVisibility(
+                      context: context,
+                      phone: false,
+                      tablet: false,
+                      tabletLandscape: false,
+                      desktop: false,
+                    ))
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 12.0, 0.0, 0.0),
+                        child: Container(
+                          width: 120.0,
+                          height: 32.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).accent1,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 4.0, 0.0),
+                                child: Icon(
+                                  Icons.stars_rounded,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 24.0,
+                                ),
                               ),
-                            ),
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                '534e9fmv' /* High Profile */,
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'lcft22pd' /* High Profile */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ).animateOnPageLoad(
-                          animationsMap['containerOnPageLoadAnimation1']!),
-                    ),
+                            ],
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation1']!),
+                      ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 0.0, 0.0),
@@ -519,7 +530,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              'jindju5a' /* Title */,
+                              'dwjex36d' /* Title */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -534,7 +545,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'ouyjuyvf' /* Head of Procurement */,
+                                'wpu2lecy' /* Head of Procurement */,
                               ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
@@ -558,7 +569,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              '8viyn84n' /* Company */,
+                              'udh6zyvi' /* Company */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -573,7 +584,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                '7enxw4hk' /* ACME Co. */,
+                                'irzuvqx8' /* ACME Co. */,
                               ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
@@ -600,7 +611,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                           EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'f6o8asym' /* Notes */,
+                          '4xonfnty' /* Notes */,
                         ),
                         style:
                             FlutterFlowTheme.of(context).labelMedium.override(
@@ -654,7 +665,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'p41433bd' /* Alexandria Smith */,
+                                                'j5wv3irx' /* Alexandria Smith */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -670,7 +681,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'a3j3ejvp' /* 1m ago */,
+                                                  'mwdngs21' /* 1m ago */,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -700,7 +711,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                       ),
                                       onPressed: () async {
                                         logFirebaseEvent(
-                                            'USER_DETAILS_MAIN_add_rounded_ICN_ON_TAP');
+                                            'USER_DETAILS_MAIN_COPY_add_rounded_ICN_O');
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
@@ -726,7 +737,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                       0.0, 12.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'yqm004xu' /* Lorem ipsum dolor sit amet, co... */,
+                                      'infd3htl' /* Lorem ipsum dolor sit amet, co... */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -753,7 +764,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                             4.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'v33uqxl2' /* 8 */,
+                                            'd8lnj6az' /* 8 */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -768,7 +779,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                             4.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'cn1mi2rc' /* Notes */,
+                                            'ybwf7jdv' /* Notes */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
@@ -857,7 +868,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                '01hso9ea' /* Randy Alcorn */,
+                                                                'e3v0bl1k' /* Randy Alcorn */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -881,7 +892,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'st5cr4ca' /* I'm not really sure about this... */,
+                                                                  'h9er2bef' /* I'm not really sure about this... */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -908,7 +919,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '5h4d8i39' /* a min ago */,
+                                                        '29dmpgcv' /* a min ago */,
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -976,7 +987,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                   child: FFButtonWidget(
                     onPressed: () async {
                       logFirebaseEvent(
-                          'USER_DETAILS_MAIN_GENERATE_QUOTE_BTN_ON_');
+                          'USER_DETAILS_MAIN_COPY_GENERATE_QUOTE_BT');
                       showModalBottomSheet(
                         isScrollControlled: true,
                         backgroundColor: Colors.transparent,
@@ -994,7 +1005,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                       ).then((value) => safeSetState(() {}));
                     },
                     text: FFLocalizations.of(context).getText(
-                      '8rmeqctf' /* Generate Quote */,
+                      'tov21pqn' /* Generate Quote */,
                     ),
                     options: FFButtonOptions(
                       height: 44.0,
@@ -1030,7 +1041,7 @@ class _UserDetailsMainWidgetState extends State<UserDetailsMainWidget>
                       print('Button pressed ...');
                     },
                     text: FFLocalizations.of(context).getText(
-                      'ougpd8b8' /* View Company */,
+                      'v63bug8g' /* View Company */,
                     ),
                     options: FFButtonOptions(
                       height: 44.0,

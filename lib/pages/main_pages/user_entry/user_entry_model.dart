@@ -36,12 +36,12 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
   late WebNavModel webNavModel;
   // State field(s) for firstnameEdit widget.
   FocusNode? firstnameEditFocusNode;
-  TextEditingController? firstnameEditController;
-  String? Function(BuildContext, String?)? firstnameEditControllerValidator;
+  TextEditingController? firstnameEditTextController;
+  String? Function(BuildContext, String?)? firstnameEditTextControllerValidator;
   // State field(s) for lastname widget.
   FocusNode? lastnameFocusNode;
-  TextEditingController? lastnameController;
-  String? Function(BuildContext, String?)? lastnameControllerValidator;
+  TextEditingController? lastnameTextController;
+  String? Function(BuildContext, String?)? lastnameTextControllerValidator;
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -63,22 +63,23 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
   FormFieldController<String>? packageValueController;
   // State field(s) for address widget.
   FocusNode? addressFocusNode;
-  TextEditingController? addressController;
-  String? Function(BuildContext, String?)? addressControllerValidator;
+  TextEditingController? addressTextController;
+  String? Function(BuildContext, String?)? addressTextControllerValidator;
   // State field(s) for email widget.
   FocusNode? emailFocusNode;
-  TextEditingController? emailController;
-  String? Function(BuildContext, String?)? emailControllerValidator;
+  TextEditingController? emailTextController;
+  String? Function(BuildContext, String?)? emailTextControllerValidator;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
-  TextEditingController? passwordController;
+  TextEditingController? passwordTextController;
   late bool passwordVisibility;
-  String? Function(BuildContext, String?)? passwordControllerValidator;
+  String? Function(BuildContext, String?)? passwordTextControllerValidator;
   // State field(s) for confirmPassword widget.
   FocusNode? confirmPasswordFocusNode;
-  TextEditingController? confirmPasswordController;
+  TextEditingController? confirmPasswordTextController;
   late bool confirmPasswordVisibility;
-  String? Function(BuildContext, String?)? confirmPasswordControllerValidator;
+  String? Function(BuildContext, String?)?
+      confirmPasswordTextControllerValidator;
   // State field(s) for role widget.
   String? roleValue;
   FormFieldController<String>? roleValueController;
@@ -93,41 +94,44 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
   FormFieldController<int>? yieldPeriodValueController;
   // State field(s) for riskRatio widget.
   FocusNode? riskRatioFocusNode;
-  TextEditingController? riskRatioController;
+  TextEditingController? riskRatioTextController;
   final riskRatioMask = MaskTextInputFormatter(mask: '0.##');
-  String? Function(BuildContext, String?)? riskRatioControllerValidator;
+  String? Function(BuildContext, String?)? riskRatioTextControllerValidator;
   // State field(s) for profitRatio widget.
   FocusNode? profitRatioFocusNode;
-  TextEditingController? profitRatioController;
+  TextEditingController? profitRatioTextController;
   final profitRatioMask = MaskTextInputFormatter(mask: '0.##');
-  String? Function(BuildContext, String?)? profitRatioControllerValidator;
+  String? Function(BuildContext, String?)? profitRatioTextControllerValidator;
   // State field(s) for commissionRatio widget.
   FocusNode? commissionRatioFocusNode;
-  TextEditingController? commissionRatioController;
-  String? Function(BuildContext, String?)? commissionRatioControllerValidator;
+  TextEditingController? commissionRatioTextController;
+  String? Function(BuildContext, String?)?
+      commissionRatioTextControllerValidator;
   // State field(s) for dob widget.
   FocusNode? dobFocusNode1;
-  TextEditingController? dobController1;
+  TextEditingController? dobTextController1;
   final dobMask1 = MaskTextInputFormatter(mask: '##/##/####');
-  String? Function(BuildContext, String?)? dobController1Validator;
+  String? Function(BuildContext, String?)? dobTextController1Validator;
   DateTime? datePicked1;
   // State field(s) for phoneNo widget.
   FocusNode? phoneNoFocusNode;
-  TextEditingController? phoneNoController;
+  TextEditingController? phoneNoTextController;
   final phoneNoMask = MaskTextInputFormatter(mask: '+964 (###) ###-##-##');
-  String? Function(BuildContext, String?)? phoneNoControllerValidator;
+  String? Function(BuildContext, String?)? phoneNoTextControllerValidator;
   // State field(s) for note widget.
   FocusNode? noteFocusNode;
-  TextEditingController? noteController;
-  String? Function(BuildContext, String?)? noteControllerValidator;
+  TextEditingController? noteTextController;
+  String? Function(BuildContext, String?)? noteTextControllerValidator;
   // State field(s) for firstnameCreate widget.
   FocusNode? firstnameCreateFocusNode;
-  TextEditingController? firstnameCreateController;
-  String? Function(BuildContext, String?)? firstnameCreateControllerValidator;
+  TextEditingController? firstnameCreateTextController;
+  String? Function(BuildContext, String?)?
+      firstnameCreateTextControllerValidator;
   // State field(s) for lastnamecreated widget.
   FocusNode? lastnamecreatedFocusNode;
-  TextEditingController? lastnamecreatedController;
-  String? Function(BuildContext, String?)? lastnamecreatedControllerValidator;
+  TextEditingController? lastnamecreatedTextController;
+  String? Function(BuildContext, String?)?
+      lastnamecreatedTextControllerValidator;
   bool isDataUploading3 = false;
   FFUploadedFile uploadedLocalFile3 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -149,13 +153,15 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
   FormFieldController<String>? packageCreatedValueController;
   // State field(s) for addressCreated widget.
   FocusNode? addressCreatedFocusNode;
-  TextEditingController? addressCreatedController;
-  String? Function(BuildContext, String?)? addressCreatedControllerValidator;
+  TextEditingController? addressCreatedTextController;
+  String? Function(BuildContext, String?)?
+      addressCreatedTextControllerValidator;
   // State field(s) for emailCreated widget.
   FocusNode? emailCreatedFocusNode;
-  TextEditingController? emailCreatedController;
-  String? Function(BuildContext, String?)? emailCreatedControllerValidator;
-  String? _emailCreatedControllerValidator(BuildContext context, String? val) {
+  TextEditingController? emailCreatedTextController;
+  String? Function(BuildContext, String?)? emailCreatedTextControllerValidator;
+  String? _emailCreatedTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'nvdhrygz' /* Field is required */,
@@ -175,10 +181,11 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
 
   // State field(s) for passwordCreated widget.
   FocusNode? passwordCreatedFocusNode;
-  TextEditingController? passwordCreatedController;
+  TextEditingController? passwordCreatedTextController;
   late bool passwordCreatedVisibility;
-  String? Function(BuildContext, String?)? passwordCreatedControllerValidator;
-  String? _passwordCreatedControllerValidator(
+  String? Function(BuildContext, String?)?
+      passwordCreatedTextControllerValidator;
+  String? _passwordCreatedTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
@@ -195,10 +202,10 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
 
   // State field(s) for confirmPasswordcreated widget.
   FocusNode? confirmPasswordcreatedFocusNode;
-  TextEditingController? confirmPasswordcreatedController;
+  TextEditingController? confirmPasswordcreatedTextController;
   late bool confirmPasswordcreatedVisibility;
   String? Function(BuildContext, String?)?
-      confirmPasswordcreatedControllerValidator;
+      confirmPasswordcreatedTextControllerValidator;
   // State field(s) for roleCreated widget.
   String? roleCreatedValue;
   FormFieldController<String>? roleCreatedValueController;
@@ -213,36 +220,38 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
   FormFieldController<int>? yieldPeriodCreatedValueController;
   // State field(s) for riskRatioCreated widget.
   FocusNode? riskRatioCreatedFocusNode;
-  TextEditingController? riskRatioCreatedController;
+  TextEditingController? riskRatioCreatedTextController;
   final riskRatioCreatedMask = MaskTextInputFormatter(mask: '0.#0');
-  String? Function(BuildContext, String?)? riskRatioCreatedControllerValidator;
+  String? Function(BuildContext, String?)?
+      riskRatioCreatedTextControllerValidator;
   // State field(s) for profitRatioCreated widget.
   FocusNode? profitRatioCreatedFocusNode;
-  TextEditingController? profitRatioCreatedController;
+  TextEditingController? profitRatioCreatedTextController;
   final profitRatioCreatedMask = MaskTextInputFormatter(mask: '0.##');
   String? Function(BuildContext, String?)?
-      profitRatioCreatedControllerValidator;
+      profitRatioCreatedTextControllerValidator;
   // State field(s) for commissionRatioCreated widget.
   FocusNode? commissionRatioCreatedFocusNode;
-  TextEditingController? commissionRatioCreatedController;
+  TextEditingController? commissionRatioCreatedTextController;
   String? Function(BuildContext, String?)?
-      commissionRatioCreatedControllerValidator;
+      commissionRatioCreatedTextControllerValidator;
   // State field(s) for dob widget.
   FocusNode? dobFocusNode2;
-  TextEditingController? dobController2;
+  TextEditingController? dobTextController2;
   final dobMask2 = MaskTextInputFormatter(mask: '##/##/####');
-  String? Function(BuildContext, String?)? dobController2Validator;
+  String? Function(BuildContext, String?)? dobTextController2Validator;
   DateTime? datePicked2;
   // State field(s) for phoneNoCreated widget.
   FocusNode? phoneNoCreatedFocusNode;
-  TextEditingController? phoneNoCreatedController;
+  TextEditingController? phoneNoCreatedTextController;
   final phoneNoCreatedMask =
       MaskTextInputFormatter(mask: '+964 (###) ###-##-##');
-  String? Function(BuildContext, String?)? phoneNoCreatedControllerValidator;
+  String? Function(BuildContext, String?)?
+      phoneNoCreatedTextControllerValidator;
   // State field(s) for noteCreated widget.
   FocusNode? noteCreatedFocusNode;
-  TextEditingController? noteCreatedController;
-  String? Function(BuildContext, String?)? noteCreatedControllerValidator;
+  TextEditingController? noteCreatedTextController;
+  String? Function(BuildContext, String?)? noteCreatedTextControllerValidator;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   UsersRecord? out;
   // Model for logPage component.
@@ -253,9 +262,10 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
     webNavModel = createModel(context, () => WebNavModel());
     passwordVisibility = false;
     confirmPasswordVisibility = false;
-    emailCreatedControllerValidator = _emailCreatedControllerValidator;
+    emailCreatedTextControllerValidator = _emailCreatedTextControllerValidator;
     passwordCreatedVisibility = false;
-    passwordCreatedControllerValidator = _passwordCreatedControllerValidator;
+    passwordCreatedTextControllerValidator =
+        _passwordCreatedTextControllerValidator;
     confirmPasswordcreatedVisibility = false;
     logPageModel = createModel(context, () => LogPageModel());
   }
@@ -265,76 +275,76 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
     unfocusNode.dispose();
     webNavModel.dispose();
     firstnameEditFocusNode?.dispose();
-    firstnameEditController?.dispose();
+    firstnameEditTextController?.dispose();
 
     lastnameFocusNode?.dispose();
-    lastnameController?.dispose();
+    lastnameTextController?.dispose();
 
     addressFocusNode?.dispose();
-    addressController?.dispose();
+    addressTextController?.dispose();
 
     emailFocusNode?.dispose();
-    emailController?.dispose();
+    emailTextController?.dispose();
 
     passwordFocusNode?.dispose();
-    passwordController?.dispose();
+    passwordTextController?.dispose();
 
     confirmPasswordFocusNode?.dispose();
-    confirmPasswordController?.dispose();
+    confirmPasswordTextController?.dispose();
 
     riskRatioFocusNode?.dispose();
-    riskRatioController?.dispose();
+    riskRatioTextController?.dispose();
 
     profitRatioFocusNode?.dispose();
-    profitRatioController?.dispose();
+    profitRatioTextController?.dispose();
 
     commissionRatioFocusNode?.dispose();
-    commissionRatioController?.dispose();
+    commissionRatioTextController?.dispose();
 
     dobFocusNode1?.dispose();
-    dobController1?.dispose();
+    dobTextController1?.dispose();
 
     phoneNoFocusNode?.dispose();
-    phoneNoController?.dispose();
+    phoneNoTextController?.dispose();
 
     noteFocusNode?.dispose();
-    noteController?.dispose();
+    noteTextController?.dispose();
 
     firstnameCreateFocusNode?.dispose();
-    firstnameCreateController?.dispose();
+    firstnameCreateTextController?.dispose();
 
     lastnamecreatedFocusNode?.dispose();
-    lastnamecreatedController?.dispose();
+    lastnamecreatedTextController?.dispose();
 
     addressCreatedFocusNode?.dispose();
-    addressCreatedController?.dispose();
+    addressCreatedTextController?.dispose();
 
     emailCreatedFocusNode?.dispose();
-    emailCreatedController?.dispose();
+    emailCreatedTextController?.dispose();
 
     passwordCreatedFocusNode?.dispose();
-    passwordCreatedController?.dispose();
+    passwordCreatedTextController?.dispose();
 
     confirmPasswordcreatedFocusNode?.dispose();
-    confirmPasswordcreatedController?.dispose();
+    confirmPasswordcreatedTextController?.dispose();
 
     riskRatioCreatedFocusNode?.dispose();
-    riskRatioCreatedController?.dispose();
+    riskRatioCreatedTextController?.dispose();
 
     profitRatioCreatedFocusNode?.dispose();
-    profitRatioCreatedController?.dispose();
+    profitRatioCreatedTextController?.dispose();
 
     commissionRatioCreatedFocusNode?.dispose();
-    commissionRatioCreatedController?.dispose();
+    commissionRatioCreatedTextController?.dispose();
 
     dobFocusNode2?.dispose();
-    dobController2?.dispose();
+    dobTextController2?.dispose();
 
     phoneNoCreatedFocusNode?.dispose();
-    phoneNoCreatedController?.dispose();
+    phoneNoCreatedTextController?.dispose();
 
     noteCreatedFocusNode?.dispose();
-    noteCreatedController?.dispose();
+    noteCreatedTextController?.dispose();
 
     logPageModel.dispose();
   }

@@ -28,7 +28,7 @@ class _CreateCommentWidgetState extends State<CreateCommentWidget> {
     super.initState();
     _model = createModel(context, () => CreateCommentModel());
 
-    _model.shortBioController ??= TextEditingController();
+    _model.shortBioTextController ??= TextEditingController();
     _model.shortBioFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -163,7 +163,7 @@ class _CreateCommentWidgetState extends State<CreateCommentWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 0.0),
                           child: TextFormField(
-                            controller: _model.shortBioController,
+                            controller: _model.shortBioTextController,
                             focusNode: _model.shortBioFocusNode,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -215,9 +215,8 @@ class _CreateCommentWidgetState extends State<CreateCommentWidget> {
                                     ),
                             textAlign: TextAlign.start,
                             maxLines: 4,
-                            minLines: null,
                             keyboardType: TextInputType.multiline,
-                            validator: _model.shortBioControllerValidator
+                            validator: _model.shortBioTextControllerValidator
                                 .asValidator(context),
                           ),
                         ),

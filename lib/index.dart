@@ -19,3 +19,5 @@ export '/pages/main_pages/user_entry/user_entry_widget.dart'
 export '/pages/main_pages/company_entry/company_entry_widget.dart'
     show CompanyEntryWidget;
 export '/pages/main_pages/bulk_data/bulk_data_widget.dart' show BulkDataWidget;
+export '/pages/main_pages/list_user_n_log/list_user_n_log_widget.dart'
+    show ListUserNLogWidget;

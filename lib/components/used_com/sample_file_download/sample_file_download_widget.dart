@@ -212,7 +212,7 @@ class _SampleFileDownloadWidgetState extends State<SampleFileDownloadWidget> {
                                       logFirebaseEvent(
                                           'SAMPLE_FILE_DOWNLOAD_DOWNLOAD_SAMPLE_FIL');
                                       await actions.downloadSample(
-                                        'https://firebasestorage.googleapis.com/v0/b/tradeyplus-44b3f.appspot.com/o/Assets%2FSample_File.xlsx?alt=media&token=b9991862-5d62-4f89-9a37-52301621e5ef',
+                                        'https://firebasestorage.googleapis.com/v0/b/tradeyplus-44b3f.appspot.com/o/Assets%2FBook1.xlsx?alt=media&token=d85017e8-e58a-4be7-a74e-240fcf2999aa',
                                       );
                                     },
                                     text: FFLocalizations.of(context).getText(

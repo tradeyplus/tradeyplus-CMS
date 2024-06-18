@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
-import '/components/used_com/profile/profile_widget.dart';
+import '/components/profile/profile_widget.dart';
 import '/components/used_com/web_nav/web_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'main_customer_list_widget.dart' show MainCustomerListWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
@@ -50,8 +51,8 @@ class MainCustomerListModel extends FlutterFlowModel<MainCustomerListWidget> {
   late ProfileModel profileModel;
   // State field(s) for searchorder widget.
   FocusNode? searchorderFocusNode;
-  TextEditingController? searchorderController;
-  String? Function(BuildContext, String?)? searchorderControllerValidator;
+  TextEditingController? searchorderTextController;
+  String? Function(BuildContext, String?)? searchorderTextControllerValidator;
   List<UsersRecord> simpleSearchResults = [];
   // State field(s) for Usernosearch widget.
   final usernosearchController1 = FlutterFlowDataTableController<UsersRecord>();
@@ -70,6 +71,6 @@ class MainCustomerListModel extends FlutterFlowModel<MainCustomerListWidget> {
     webNavModel.dispose();
     profileModel.dispose();
     searchorderFocusNode?.dispose();
-    searchorderController?.dispose();
+    searchorderTextController?.dispose();
   }
 }

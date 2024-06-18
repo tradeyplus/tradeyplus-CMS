@@ -1,8 +1,10 @@
-import '/components/modals/modal_sections/user_details_main/user_details_main_widget.dart';
+import '/backend/backend.dart';
+import '/components/used_com/user_details_main/user_details_main_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -12,7 +14,12 @@ import 'modal_user_model.dart';
 export 'modal_user_model.dart';
 
 class ModalUserWidget extends StatefulWidget {
-  const ModalUserWidget({super.key});
+  const ModalUserWidget({
+    super.key,
+    this.userRef,
+  });
+
+  final UsersRecord? userRef;
 
   @override
   State<ModalUserWidget> createState() => _ModalUserWidgetState();
@@ -22,55 +29,7 @@ class _ModalUserWidgetState extends State<ModalUserWidget>
     with TickerProviderStateMixin {
   late ModalUserModel _model;
 
-  final animationsMap = {
-    'iconButtonOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: Offset(0.7, 0.7),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: Offset(60.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-        TiltEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: Offset(0, 1.047),
-          end: Offset(0, 0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -82,6 +41,56 @@ class _ModalUserWidgetState extends State<ModalUserWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => ModalUserModel());
+
+    animationsMap.addAll({
+      'iconButtonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0.7, 0.7),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(60.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+          TiltEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0, 1.047),
+            end: Offset(0, 0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -149,7 +158,6 @@ class _ModalUserWidgetState extends State<ModalUserWidget>
               duration: Duration(milliseconds: 100),
               curve: Curves.easeInOut,
               width: double.infinity,
-              height: double.infinity,
               constraints: BoxConstraints(
                 minHeight: 150.0,
                 maxWidth: 500.0,
@@ -176,7 +184,7 @@ class _ModalUserWidgetState extends State<ModalUserWidget>
                 borderRadius: BorderRadius.circular(12.0),
                 child: Container(
                   width: 100.0,
-                  height: 100.0,
+                  height: 445.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     borderRadius: BorderRadius.circular(12.0),
@@ -186,6 +194,7 @@ class _ModalUserWidgetState extends State<ModalUserWidget>
                     updateCallback: () => setState(() {}),
                     child: UserDetailsMainWidget(
                       showBack: _model.showBack!,
+                      userRef: widget.userRef,
                     ),
                   ),
                 ),
