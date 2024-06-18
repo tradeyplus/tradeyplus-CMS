@@ -40,6 +40,7 @@ enum LogType {
   EDIT_PROFILE,
   LOGOUT,
   UPLOAD_DOC,
+  CREATE_INVESTMENT_BULK_DATA,
 }
 
 extension FFEnumExtensions<T extends Enum> on T {

@@ -36,19 +36,19 @@ class CompanyEntryModel extends FlutterFlowModel<CompanyEntryWidget> {
   late WebNavModel webNavModel;
   // State field(s) for evaluation widget.
   FocusNode? evaluationFocusNode;
-  TextEditingController? evaluationController;
-  String? Function(BuildContext, String?)? evaluationControllerValidator;
+  TextEditingController? evaluationTextController;
+  String? Function(BuildContext, String?)? evaluationTextControllerValidator;
   // State field(s) for points widget.
   FocusNode? pointsFocusNode;
-  TextEditingController? pointsController;
-  String? Function(BuildContext, String?)? pointsControllerValidator;
+  TextEditingController? pointsTextController;
+  String? Function(BuildContext, String?)? pointsTextControllerValidator;
   // State field(s) for investorDropdown widget.
   String? investorDropdownValue;
   FormFieldController<String>? investorDropdownValueController;
   // State field(s) for amount widget.
   FocusNode? amountFocusNode;
-  TextEditingController? amountController;
-  String? Function(BuildContext, String?)? amountControllerValidator;
+  TextEditingController? amountTextController;
+  String? Function(BuildContext, String?)? amountTextControllerValidator;
   // State field(s) for Date widget.
   FocusNode? dateFocusNode;
   TextEditingController? dateController;
@@ -57,7 +57,7 @@ class CompanyEntryModel extends FlutterFlowModel<CompanyEntryWidget> {
   DateTime? datePicked;
   // State field(s) for profitRatio widget.
   FocusNode? profitRatioFocusNode;
-  TextEditingController? profitRatioController;
+  TextEditingController? profitRatioTextController;
   final profitRatioMask = MaskTextInputFormatter(mask: '##%');
   String? Function(BuildContext, String?)? profitRatioControllerValidator;
   // State field(s) for Transction_Type widget.
@@ -87,19 +87,21 @@ class CompanyEntryModel extends FlutterFlowModel<CompanyEntryWidget> {
     unfocusNode.dispose();
     webNavModel.dispose();
     evaluationFocusNode?.dispose();
-    evaluationController?.dispose();
+    evaluationTextController?.dispose();
 
     pointsFocusNode?.dispose();
-    pointsController?.dispose();
+    pointsTextController?.dispose();
+
 
     amountFocusNode?.dispose();
-    amountController?.dispose();
+    amountTextController?.dispose();
+
 
     dateFocusNode?.dispose();
     dateController?.dispose();
 
     profitRatioFocusNode?.dispose();
-    profitRatioController?.dispose();
+    profitRatioTextController?.dispose();
 
     uploadPageModel.dispose();
     logPageModel.dispose();

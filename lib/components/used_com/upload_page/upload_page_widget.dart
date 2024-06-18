@@ -21,6 +21,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'upload_page_model.dart';
 export 'upload_page_model.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:firebase_core/firebase_core.dart'; // Required for Firebase initialization
 import 'package:firebase_storage/firebase_storage.dart'; // For Firebase Storage
 import 'package:excel/excel.dart' as Excel;
@@ -34,8 +35,85 @@ class UploadPageWidget extends StatefulWidget {
   State<UploadPageWidget> createState() => _UploadPageWidgetState();
 }
 
+//Custom upload Excel file start
+
 class _UploadPageWidgetState extends State<UploadPageWidget> {
   late UploadPageModel _model;
+  void uploadData(BuildContext context, List<List<dynamic>> data) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    WriteBatch batch = firestore.batch(); // Create a new batch
+    int totalBalance = 0;
+    int totalPoints = 0;
+    List<DocumentReference> docRefs = []; // To store document references for later use
+    // Loop through each row of validated data
+    for (var row in data) {
+      var documentReference = firestore.collection('investment_data').doc(); // Create a new document reference
+      docRefs.add(documentReference); // Store the reference for later update
+      // Prepare the data map
+      var dataMap = {
+        'investor_evaluation': cellIntToDouble(row, 0),
+        'amount': cellIntToDouble(row, 1),
+        'duration': toInt(row, 2),
+        //result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION,
+        'transaction_type': row[3],
+        'created_date': DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row[4].toString()),
+        'points': cellIntToDouble(row, 6),
+        'profit_ratio': cellIntToDouble(row, 7),
+        'investor_ref' : _model.userRef?.reference,
+        'investor_id' : _model.userRef?.reference.path.split('/').last,
+        'investmentId': random_data.randomString(10,15,true,true,true,),
+        'investmentRef': documentReference,
+      };
+      totalBalance += int.tryParse(row[5].toString()) ?? 0;
+      totalPoints += int.tryParse(row[6].toString()) ?? 0;
+
+      batch.set(documentReference, dataMap); // Add a set operation to the batch
+    }
+    // Commit the batch
+      batch.commit().then((_) async {
+        try {
+          
+          if (_model.userRef != null) {
+            await _model.userRef!.reference.update({
+              'balance': FieldValue.increment(totalBalance),
+              'points': FieldValue.increment(totalPoints),
+            });
+            // print(totalBalance);
+            // print(totalPoints);
+          } else {
+            print("Error: _model.userRef or its reference is null.");
+          }
+          // Ensure all needed values are not null before logging
+          if (currentUserReference != null) {
+            await LogRecord.collection.doc().set(createLogRecordData(
+              logUserRef: currentUserReference,
+              logType: LogType.CREATE_INVESTMENT_DATA,
+              logTime: getCurrentTimestamp,
+              logUserName: currentUserDisplayName,
+              logUserId: currentUserUid,
+            ));
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('All data successfully uploaded, updated, and logged'))
+            );
+          } else {
+            print("Error: Logging references or timestamp are null.");
+          }
+        } catch (error) {
+          print('Failed to update1 $error');
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Failed to update additional fields or log: $error'))
+          );
+        }
+        
+    }).catchError((error) {
+      print('Failed to upload data: $error');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to upload data: $error'))
+      );
+    });
+  }
+
+  //custom code scan excel file end
 
   //additional member start
   bool isDouble(String s) {
@@ -342,7 +420,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Icon(
                                     Icons.cloud_done_outlined,
@@ -386,11 +464,12 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                       ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 0.0),
                                     child: FFButtonWidget(
+                                      
                                       // onPressed: () async {
                                       //   logFirebaseEvent(
                                       //       'UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
@@ -403,7 +482,6 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                       //         _model.isDataUploading = true);
                                       //     var selectedUploadedFiles =
                                       //         <FFUploadedFile>[];
-
                                       //     var downloadUrls = <String>[];
                                       //     try {
                                       //       selectedUploadedFiles =
@@ -415,7 +493,6 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                       //                     bytes: m.bytes,
                                       //                   ))
                                       //               .toList();
-
                                       //       downloadUrls = (await Future.wait(
                                       //         selectedFiles.map(
                                       //           (f) async => await uploadData(
@@ -459,255 +536,294 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                         //     return;
                                         //   }
                                         // }
-                                    
                                       //custom code start
+                                      // onPressed: (_model.dropDownValue == null || _model.dropDownValue == '')
+                                      //       ? null : () async {
+                                      //       logFirebaseEvent('UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
+                                      //       final selectedFiles = await selectFiles(
+                                      //         multiFile: false,
+                                      //         allowedExtensions: ['xlsx'],  
+                                      //       );
+
                                       onPressed: (_model.dropDownValue == null || _model.dropDownValue == '')
                                             ? null : () async {
                                             logFirebaseEvent('UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
-                                            final selectedFiles = await selectFiles(
-                                              multiFile: false,
-                                              allowedExtensions: ['xlsx'],
-                                          
+                                            FilePickerResult? selectedFiles = await FilePicker.platform.pickFiles(
+                                            type: FileType.custom,
+                                            allowedExtensions: ['xlsx'],
                                             );
+                                            _model.userRef =
 
+                                            //dropdown
+                                            await queryUsersRecordOnce(
+                                              queryBuilder: (usersRecord) =>
+                                              usersRecord.where(
+                                              'uid',
+                                              isEqualTo: _model.dropDownValue,
+                                            ),
+                                              singleRecord: true,
+                                            ).then((s) => s.firstOrNull);
                                             
-                                            
-                        
-                                            var result = [];
-                                            
-                                            if (selectedFiles != null) {
-                                              print("This is filePath: ${selectedFiles[0].filePath}");
-                                              print("This is storagePath: ${selectedFiles[0].storagePath}");
-                                              setState(() =>
-                                              _model.isDataUploading = true);
-                                              var selectedUploadedFiles =
-                                              <FFUploadedFile>[];
-                                              // try {
-                                              //   selectedUploadedFiles = selectedFiles.map((m) {
-                                              //     // Extract the file name
-                                              //     String fileName = m.storagePath.split('/').last;
-                                                  
-                                              //     // Add the file name to the list of file names
-                                              //     fileNames.add(fileName);
-                                                  
-                                              //     // Return a new FFUploadedFile
-                                              //     return FFUploadedFile(
-                                              //       name: fileName,
-                                              //       bytes: m.bytes,
-                                              //     );
-                                              //   }).toList();
-                                              // }
-                                              try {
-                                                selectedUploadedFiles = selectedFiles.map((m)
-                                              
-                                                => FFUploadedFile(
-                                                            name: m.storagePath.split('/').last,
-                                                            
-                                                            bytes: m.bytes,
-                                                          ))
-                                                      .toList();
+                                            if (selectedFiles != null) { // Check if a file is selected
+                                              var bytes = selectedFiles.files.first.bytes; // Get the bytes of the first file
+                                              if (bytes != null) {
+                                                var excel = Excel.Excel.decodeBytes(bytes); // Decode the bytes to an Excel document
+                                                List<List<dynamic>> validDataRows = []; // Initialize an empty list to store valid rows
 
-                                              } 
-                                              finally {
-                                                  _model.isDataUploading = false;
-                                                }
-                                                
-                                                if (selectedUploadedFiles.length == selectedFiles.length) {
-                                                  setState(() {
-                                                    _model.uploadedLocalFile = selectedUploadedFiles.first;
-                                                  });
-                                                  
-                                                    
-                                                  var bytes = _model.uploadedLocalFile.bytes; 
-                                                  if (bytes != null) {
-                                                    var excel = Excel.Excel.decodeBytes(bytes);
-                                                    for (var table in excel.tables.keys) {
-                                                       // Sheet name
-                                                      var sheet = excel.tables[table];
-                                                      
-                                                      if (sheet != null && sheet.rows.length > 1) {
-                                                        // Get the second row
-                                                        var secondRow = sheet.rows[1];
-                                                        // Loop through the first 8 columns of the second row
-                                                        for (int i = 0; i < 8; i++) {
-                                                          // Get the cell value, with a check for null
-                                                          var cellValue = secondRow[i]?.value;
-                                                          // Handling empty cells and providing feedback via Snackbar
-                                                            if (cellValue == null || cellValue.toString().isEmpty) {
-                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                SnackBar(content: Text('Error: Required field in column ${i+1} is empty'))
-                                                              );
-                                                              return;
-                                                            }
+                                                // Iterate through each sheet in the Excel document
+                                                for (var table in excel.tables.keys) {
+                                                  var sheet = excel.tables[table]; // Get the current sheet
+                                                  if (sheet != null && sheet.rows.length > 1) { // Check if the sheet is not empty
+                                                    // Iterate through each row, skipping the header (index 0)
+                                                    for (int rowIndex = 1; rowIndex < sheet.rows.length; rowIndex++) {
+                                                      var currentRow = sheet.rows[rowIndex];
+                                                      List<dynamic> rowData = [];
+                                                      bool hasError = false;
 
-                                                            // Column specific validations
-                                                            if ((i == 0 || i == 1 || i == 5) && !isDouble(cellValue.toString())) { // Double for columns 1, 2, 6
-                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                SnackBar(content: Text('Error: Column ${i+1} must be a number'))
-                                                              );
-                                                              return;
-                                                            } else if ((i == 2 || i == 6 || i == 7) && !isInteger(cellValue.toString())) { // Integer for columns 3, 7, 8
-                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                SnackBar(content: Text('Error: Column ${i+1} must be an integer'))
-                                                              );
-                                                              return;
-                                                            } else if (i == 4 && !isValidDateFormat(cellValue.toString(), "dd/MM/yy")) { // Date format for column 5
-                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                const SnackBar(content: Text('Error: Date format is incorrect in column 5'))
-                                                              );
-                                                              return;
-                                                            } else {
-                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                const SnackBar(content: Text('The File has been uploaded'))
-                                                                );
-                                                            }
-                                                            result.add(cellValue);
-
-                                                                                                          
-                                                          // // If the cellValue is null, determine what to return based on the column
-                                                          // if (cellValue == null) {
-                                                          //   if (i == 3) { // For the fourth column (index 3), return an empty string
-                                                          //     result.add("");
-                                                          //   } else { // For other columns, return 0
-                                                          //     result.add(0);
-                                                          //   }
-                                                          // } else {
-                                                          //   result.add(cellValue);
-                                                          // }
+                                                      // Iterate through the first 8 columns of the current row
+                                                      for (int colIndex = 0; colIndex < 8; colIndex++) {
+                                                        var cellValue = currentRow[colIndex]?.value ?? ''; // Get cell value or empty string if null
+                                                        if (cellValue.toString().isEmpty) {
+                                                          ScaffoldMessenger.of(context).showSnackBar(
+                                                            SnackBar(content: Text('Collum ${colIndex + 1} is empty in row $rowIndex'))
+                                                          );
+                                                          hasError = true;
+                                                          break; // Exit the loop if a required field is empty
                                                         }
-                                                      }
-                                                      //skip the first row
-                                                      // for (var row in sheet!.rows.skip(1)) {
-                                                      //   // Iterate through each cell in the row and print its value
-                                                      //   // var rowValues = row.map((cell) => double.parse(cell!.value.toString())).toList();
-                                                      //   // double testRowVal = double.parse(rowValues[0].toStringAsFixed(2));
-                                                      //   // Do something with the row values, e.g., print or process further
-                                                      //   var rowValues = row.map((cell) => cell!.value).toList();
-                                                      //   result.addAll(rowValues);
-                                                      // }
-                                                      
-                                                    } 
-                                                  }
-                                                } else  {
-                                                  ScaffoldMessenger.of(context).showSnackBar(
-                                                    const SnackBar(content: Text('Error: No data found in the uploaded file'))
-                                                  );
-                                                  setState(() {});
+
+                                                        // Perform specific validations based on column index
+                                                        switch (colIndex) {
+                                                          case 0:
+                                                          case 1:
+                                                          case 5:
+                                                            if (!isDouble(cellValue.toString())) {
+                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                SnackBar(content: Text('Error: Column ${colIndex + 1} must be a number'))
+                                                              );
+                                                              hasError = true;
+                                                            }
+                                                            break;
+                                                          case 2:
+                                                          case 6:
+                                                          case 7:
+                                                            if (!isInteger(cellValue.toString())) {
+                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                SnackBar(content: Text('Error: Column ${colIndex + 1} must be an integer'))
+                                                              );
+                                                              hasError = true;
+                                                            }
+                                                            break;
+                                                          case 3: 
+                                                            String lowerCaseValue = cellValue.toString().toLowerCase();
+                                                            print(lowerCaseValue);
+                                                            if (lowerCaseValue != "profit" && lowerCaseValue != "deposit" && lowerCaseValue != "commission") {
+                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                    const SnackBar(content: Text('Error: Column 4 must be "profit", "deposit", or "commission"'))
+                                                                );
+                                                                hasError = true;
+                                                            } else {
+                                                                // Assigning the correct transaction type based on the string
+                                                                cellValue = lowerCaseValue == 'profit' ? 'PROFIT' :
+                                                                            lowerCaseValue == 'deposit' ? 'DEPOSIT' : 'COMMISSION';
+                                                            }
+                                                            break;
+                                                          case 4:
+                                                          print(cellValue.toString());
+                                                            if (!isValidDateFormat(cellValue.toString(), "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")) {
+                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                SnackBar(content: Text('Error: Date format is incorrect in column 5 in row $rowIndex'))
+                                                              );
+                                                              hasError = true;
+                                                            }
+                                                            
+                                                            break;
+                                                        }
+
+                                                        if (!hasError) rowData.add(cellValue); // Add cell value to row data if no errors
+                                                      } 
+
+                                                      if (!hasError && rowData.length == 8) validDataRows.add(rowData); // Add row data to valid rows if no errors and all columns are valid
+                                                    }
+                                                    // print("ValidDataRow = ${validDataRows.length}");
+                                                    // print("sheetRow = ${sheet.rows.length - 2}");
+
+                                                    // Upload valid rows to Firestore
+                                                    if (validDataRows.length == sheet.rows.length - 1) {
+                                                      uploadData(context, validDataRows);
+                                                    } else {
+                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                            const SnackBar(content: Text('Unable to upload data'))
+                                                          );
+                                                    }
+                                                  } else { ScaffoldMessenger.of(context).showSnackBar(
+                                                            const SnackBar(content: Text('The Sheet is Empty'))
+                                                          );}
                                                 }
                                               }
-                                              print("Result $result");
-                                              
+                                            }
+                                            //testing for one row start
+                                            // var result = [];
+                                            // if (selectedFiles != null) {
+                                            //   print("This is filePath: ${selectedFiles[0].filePath}");
+                                            //   print("This is storagePath: ${selectedFiles[0].storagePath}");
+                                            //   setState(() =>
+                                            //   _model.isDataUploading = true);
+                                            //   var selectedUploadedFiles =
+                                            //   <FFUploadedFile>[];
+                                            //   try {
+                                            //     selectedUploadedFiles = selectedFiles.map((m)
+                                            //     => FFUploadedFile(
+                                            //                 name: m.storagePath.split('/').last,     
+                                            //                 bytes: m.bytes,
+                                            //               ))
+                                            //           .toList();
+                                            //   } 
+                                            //   finally {
+                                            //       _model.isDataUploading = false;
+                                            //     }
+                                            //     if (selectedUploadedFiles.length == selectedFiles.length) {
+                                            //       setState(() {
+                                            //         _model.uploadedLocalFile = selectedUploadedFiles.first;
+                                            //       });
+                                            //       var bytes = _model.uploadedLocalFile.bytes; 
+                                            //       if (bytes != null) {
+                                            //         var excel = Excel.Excel.decodeBytes(bytes);
+                                            //         for (var table in excel.tables.keys) {
+                                            //            // Sheet name
+                                            //           var sheet = excel.tables[table];
+                                            //           if (sheet != null && sheet.rows.length > 1) {
+                                            //             // Get the second row
+                                            //             var secondRow = sheet.rows[1];
+                                            //             // Loop through the first 8 columns of the second row
+                                            //             for (int i = 0; i < 8; i++) {
+                                            //               // Get the cell value, with a check for null
+                                            //               var cellValue = secondRow[i]?.value;
+                                            //               // Handling empty cells and providing feedback via Snackbar
+                                            //                 if (cellValue == null || cellValue.toString().isEmpty) {
+                                            //                   ScaffoldMessenger.of(context).showSnackBar(
+                                            //                     SnackBar(content: Text('Error: Required field in column ${i+1} is empty'))
+                                            //                   );
+                                            //                   return;
+                                            //                 }
+                                            //                 // Column specific validations
+                                            //                 if ((i == 0 || i == 1 || i == 5) && !isDouble(cellValue.toString())) { // Double for columns 1, 2, 6
+                                            //                   ScaffoldMessenger.of(context).showSnackBar(
+                                            //                     SnackBar(content: Text('Error: Column ${i+1} must be a number'))
+                                            //                   );
+                                            //                   return;
+                                            //                 } else if ((i == 2 || i == 6 || i == 7) && !isInteger(cellValue.toString())) { // Integer for columns 3, 7, 8
+                                            //                   ScaffoldMessenger.of(context).showSnackBar(
+                                            //                     SnackBar(content: Text('Error: Column ${i+1} must be an integer'))
+                                            //                   );
+                                            //                   return;
+                                            //                 } else if (i == 4 && !isValidDateFormat(cellValue.toString(), "d/M/yy")) { // Date format for column 5
+                                            //                   ScaffoldMessenger.of(context).showSnackBar(
+                                            //                     const SnackBar(content: Text('Error: Date format is incorrect in column 5'))
+                                            //                   );
+                                            //                   return;
+                                            //                 } else {
+                                            //                 }
+                                            //                 result.add(cellValue);
+                                            //             }
+                                            //           }
+                                            //         } 
+                                            //       }
+                                            //     } else  {
+                                            //       setState(() {});
+                                            //     }
+                                            //   }
+                                              // print("Result $result");
+                                        // print("myDouble: ${cellIntToDouble(result, 1)}");
+                                        // print("investorEva: ${cellIntToDouble(result, 0)}");
+                                        // print ("profitRatio: ${cellIntToDouble(result, 7)}");
+                                        // print("investorRef: ${_model.userRef?.reference}");
+                                        // print("Transition: ${result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION}");
+                                        // print("duration: ${toInt(result, 2)}");
+                                        // print("points: ${cellIntToDouble(result, 6)}");
+                                        // print("investorId: ${_model.userRef?.reference.path.split('/').last}"); 
+                                        // print("createdDate: ${toDate(result, 4)}");
+                                        // var investmentDataRecordReference =
+                                        //     InvestmentDataRecord.collection
+                                        //         .doc();
+                                        // await investmentDataRecordReference
+                                        //     .set(createInvestmentDataRecordData(
+                                        //   amount: cellIntToDouble(result, 1),
+                                        //   investorEvaluation: cellIntToDouble(result, 0),
+                                        //   profitRatio: cellIntToDouble(result, 7),
+                                        //   investorRef:
+                                        //       _model.userRef?.reference,
+                                        //   transactionType: result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION,
+                                        //   investmentId:
+                                        //       random_data.randomString(
+                                        //     10,
+                                        //     15,
+                                        //     true,
+                                        //     true,
+                                        //     true,
+                                        //   ),
+                                        //   duration: toInt(result, 2),
+                                        //   points: cellIntToDouble(result, 6),
+                                        //   investorId: _model.userRef?.reference.path.split('/').last,
+                                        //   createdDate: toDate(result, 4),
+                                        // ));
+                                        // _model.investmentData = InvestmentDataRecord
+                                        //     .getDocumentFromData(
+                                        //         createInvestmentDataRecordData(
+                                        //           amount: cellIntToDouble(result, 1),
+                                        //           investorEvaluation: cellIntToDouble(result, 0),
+                                        //           profitRatio: cellIntToDouble(result, 7),
+                                        //           investorRef:
+                                        //               _model.userRef?.reference,
+                                        //           transactionType:
+                                        //               result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION,
+                                        //           investmentId:
+                                        //               random_data.randomString(
+                                        //             10,
+                                        //             15,
+                                        //             true,
+                                        //             true,
+                                        //             false,
+                                        //           ),
+                                        //           duration: toInt(result, 2),
+                                        //           points: cellIntToDouble(result, 6),
+                                        //           investorId:
+                                        //             _model.userRef?.reference.path.split('/').last,
+                                        //           createdDate: 
+                                        //               toDate(result, 4),
+                                        //         ),
+                                        //         investmentDataRecordReference);
+                                        // await _model.investmentData!.reference
+                                        //     .update(
+                                        //         createInvestmentDataRecordData(
+                                        //   investmentRef:
+                                        //       _model.investmentData?.reference,
+                                        // ));
+                                        //Log
+                                        // await LogRecord.collection
+                                        //     .doc()
+                                        //     .set(createLogRecordData(
+                                        //       logUserRef: currentUserReference,
+                                        //       logType: LogType
+                                        //           .CREATE_INVESTMENT_DATA,
+                                        //       logTime: getCurrentTimestamp,
+                                        //       logUserName:
+                                        //           currentUserDisplayName,
+                                        //       logUserId: currentUserUid,
+                                        //     ));
+                                            //testing for one row end
 
-                                        
-                                        
-                                                
-                                        _model.userRef =
-                                            await queryUsersRecordOnce(
-                                          queryBuilder: (usersRecord) =>
-                                              usersRecord.where(
-                                            'uid',
-                                            isEqualTo: _model.dropDownValue,
-                                          ),
-                                          singleRecord: true,
-                                        ).then((s) => s.firstOrNull);
-
-                                        
-                                        print("myDouble: ${cellIntToDouble(result, 1)}");
-                                        print("investorEva: ${cellIntToDouble(result, 0)}");
-                                        print ("profitRatio: ${cellIntToDouble(result, 7)}");
-                                        print("investorRef: ${_model.userRef?.reference}");
-
-                                        print("Transition: ${result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION}");
-                                        
-                                        print("duration: ${toInt(result, 2)}");
-                                        print("points: ${cellIntToDouble(result, 6)}");
-                                        print("investorId: ${_model.userRef?.reference.path.split('/').last}"); 
-                                        print("createdDate: ${toDate(result, 4)}");
-
-                                        
-
-                                      //   var investmentDataRecordReference =
-                                      //       InvestmentDataRecord.collection
-                                      //           .doc();
-                                      //   await investmentDataRecordReference
-                                      //       .set(createInvestmentDataRecordData(
-                                      //     amount: cellIntToDouble(result, 1),
-                                      //     investorEvaluation: cellIntToDouble(result, 0),
-                                      //     profitRatio: cellIntToDouble(result, 7),
-                                      //     investorRef:
-                                      //         _model.userRef?.reference,
-                                      //     transactionType: result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION,
-                                      //     investmentId:
-                                      //         random_data.randomString(
-                                      //       10,
-                                      //       15,
-                                      //       true,
-                                      //       true,
-                                      //       true,
-                                      //     ),
-                                      //     duration: toInt(result, 2),
-                                      //     points: cellIntToDouble(result, 6),
-                                      //     investorId: _model.userRef?.reference.path.split('/').last,
-                                          
-                                      //     createdDate: toDate(result, 4),
-                                      //   ));
-                                      //   _model.investmentData = InvestmentDataRecord
-                                      //       .getDocumentFromData(
-                                      //           createInvestmentDataRecordData(
-                                      //             amount: cellIntToDouble(result, 1),
-                                      //             investorEvaluation: cellIntToDouble(result, 0),
-                                      //             profitRatio: cellIntToDouble(result, 7),
-                                      //             investorRef:
-                                      //                 _model.userRef?.reference,
-                                      //             transactionType:
-                                      //                 result[3].toString().toLowerCase() == 'profit' ? TransactionType.PROFIT : result[3].toString().toLowerCase() == 'deposit' ? TransactionType.DEPOSIT : TransactionType.COMMISSION,
-                                      //             investmentId:
-                                      //                 random_data.randomString(
-                                      //               10,
-                                      //               15,
-                                      //               true,
-                                      //               true,
-                                      //               false,
-                                      //             ),
-                                      //             duration: toInt(result, 2),
-                                      //             points: cellIntToDouble(result, 6),
-                                      //             investorId:
-                                      //               _model.userRef?.reference.path.split('/').last,
-                                      //             createdDate: 
-                                      //                 toDate(result, 4),
-                                      //           ),
-                                      //           investmentDataRecordReference);
-
-                                      //   await _model.investmentData!.reference
-                                      //       .update(
-                                      //           createInvestmentDataRecordData(
-                                      //     investmentRef:
-                                      //         _model.investmentData?.reference,
-                                      //   ));
-
-                                      //   await LogRecord.collection
-                                      //       .doc()
-                                      //       .set(createLogRecordData(
-                                      //         logUserRef: currentUserReference,
-                                      //         logType: LogType
-                                      //             .CREATE_INVESTMENT_DATA,
-                                      //         logTime: getCurrentTimestamp,
-                                      //         logUserName:
-                                      //             currentUserDisplayName,
-                                      //         logUserId: currentUserUid,
-                                      //       ));
-
-                                      //   setState(() {});
+                                        setState(() {});
                                       },
+                                      
                                       // Custom code end
                                       text: FFLocalizations.of(context).getText(
                                         'yvm9kbwv' /* Browse File */,
                                       ),
                                       options: FFButtonOptions(
                                         height: 38.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 9.0),
-                                        iconPadding: EdgeInsets.all(0.0),
+                                        iconPadding: const EdgeInsets.all(0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         textStyle: FlutterFlowTheme.of(context)
@@ -718,7 +834,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),

@@ -44,19 +44,19 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'Company_Entry'});
-    _model.evaluationController ??= TextEditingController();
+    _model.evaluationTextController ??= TextEditingController();
     _model.evaluationFocusNode ??= FocusNode();
 
-    _model.pointsController ??= TextEditingController();
+    _model.pointsTextController ??= TextEditingController();
     _model.pointsFocusNode ??= FocusNode();
 
-    _model.amountController ??= TextEditingController();
+    _model.amountTextController ??= TextEditingController();
     _model.amountFocusNode ??= FocusNode();
 
     _model.dateController ??= TextEditingController();
     _model.dateFocusNode ??= FocusNode();
 
-    _model.profitRatioController ??= TextEditingController();
+    _model.profitRatioTextController ??= TextEditingController();
     _model.profitRatioFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
@@ -631,7 +631,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                       child:
                                                                           TextFormField(
                                                                         controller:
-                                                                            _model.evaluationController,
+                                                                            _model.evaluationTextController,
                                                                         focusNode:
                                                                             _model.evaluationFocusNode,
                                                                         onChanged:
@@ -723,7 +723,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                         keyboardType:
                                                                             TextInputType.number,
                                                                         validator: _model
-                                                                            .evaluationControllerValidator
+                                                                            .evaluationTextControllerValidator
                                                                             .asValidator(context),
                                                                         inputFormatters: [
                                                                           FilteringTextInputFormatter.allow(
@@ -797,7 +797,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                 AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 TextFormField(
-                                                                              controller: _model.pointsController,
+                                                                              controller: _model.pointsTextController,
                                                                               focusNode: _model.pointsFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.pointsController',
@@ -859,7 +859,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                   ),
                                                                               minLines: null,
                                                                               keyboardType: TextInputType.number,
-                                                                              validator: _model.pointsControllerValidator.asValidator(context),
+                                                                              validator: _model.pointsTextControllerValidator.asValidator(context),
                                                                               inputFormatters: [
                                                                                 FilteringTextInputFormatter.allow(RegExp('[0-9]'))
                                                                               ],
@@ -1056,7 +1056,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                     TextFormField(
                                                                       controller:
                                                                           _model
-                                                                              .amountController,
+                                                                              .amountTextController,
                                                                       focusNode:
                                                                           _model
                                                                               .amountFocusNode,
@@ -1176,7 +1176,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                           decimal:
                                                                               true),
                                                                       validator: _model
-                                                                          .amountControllerValidator
+                                                                          .amountTextControllerValidator
                                                                           .asValidator(
                                                                               context),
                                                                       inputFormatters: [
@@ -1476,7 +1476,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                       child:
                                                                           TextFormField(
                                                                         controller:
-                                                                            _model.profitRatioController,
+                                                                            _model.profitRatioTextController,
                                                                         focusNode:
                                                                             _model.profitRatioFocusNode,
                                                                         onChanged:
@@ -1879,29 +1879,19 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                     Align(
                                       alignment: AlignmentDirectional(1.0, 0.0),
                                       child: FFButtonWidget(
-                                        onPressed: ((_model.evaluationController.text ==
-                                                        null ||
-                                                    _model.evaluationController
+                                        onPressed: ((_model.evaluationTextController
                                                             .text ==
                                                         '') &&
-                                                (_model.pointsController.text ==
-                                                        null ||
-                                                    _model.pointsController.text ==
+                                                (_model.pointsTextController.text ==
                                                         '') &&
                                                 (_model.investorDropdownValue ==
                                                         null ||
                                                     _model.investorDropdownValue ==
                                                         '') &&
-                                                (_model.amountController
-                                                            .text ==
-                                                        null ||
-                                                    _model.amountController.text ==
+                                                (_model.amountTextController.text ==
                                                         '') &&
                                                 (_model.datePicked == null) &&
-                                                (_model.profitRatioController
-                                                            .text ==
-                                                        null ||
-                                                    _model.profitRatioController
+                                                (_model.profitRatioTextController
                                                             .text ==
                                                         '') &&
                                                 (_model.transctionTypeValue ==
@@ -1933,14 +1923,14 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                     .set(
                                                         createInvestmentDataRecordData(
                                                   amount: double.tryParse(_model
-                                                      .amountController.text),
+                                                      .amountTextController.text),
                                                   investorEvaluation:
                                                       double.tryParse(_model
-                                                          .evaluationController
+                                                          .evaluationTextController
                                                           .text),
                                                   profitRatio: double.tryParse(
                                                       _model
-                                                          .profitRatioController
+                                                          .profitRatioTextController
                                                           .text),
                                                   investorRef: _model
                                                       .investorDoc?.reference,
@@ -1971,7 +1961,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                   duration: _model
                                                       .durationOptionsValue,
                                                   points: double.tryParse(_model
-                                                      .pointsController.text),
+                                                      .pointsTextController.text),
                                                   investorId:
                                                       _model.investorDoc?.uid,
                                                   createdDate:
@@ -1983,16 +1973,16 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                             createInvestmentDataRecordData(
                                                               amount: double
                                                                   .tryParse(_model
-                                                                      .amountController
+                                                                      .amountTextController
                                                                       .text),
                                                               investorEvaluation:
                                                                   double.tryParse(
                                                                       _model
-                                                                          .evaluationController
+                                                                          .evaluationTextController
                                                                           .text),
                                                               profitRatio: double
                                                                   .tryParse(_model
-                                                                      .profitRatioController
+                                                                      .profitRatioTextController
                                                                       .text),
                                                               investorRef: _model
                                                                   .investorDoc
@@ -2027,7 +2017,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                   .durationOptionsValue,
                                                               points: double
                                                                   .tryParse(_model
-                                                                      .pointsController
+                                                                      .pointsTextController
                                                                       .text),
                                                               investorId: _model
                                                                   .investorDoc
@@ -2046,6 +2036,16 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                       .createdInvesmntdata
                                                       ?.reference,
                                                 ));
+                                                await _model.investorDoc!.reference.update({
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'balance': FieldValue.increment(
+                                                            double.parse(_model.amountTextController.text)),
+                                                        'points': FieldValue.increment(
+                                                            int.parse(_model.pointsTextController.text)),
+                                                      },
+                                                    ),
+                                                  });
 
                                                 context.goNamed('Main_Home');
 
