@@ -178,7 +178,9 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Dashboard',
+                                FFLocalizations.of(context).getText(
+                                  'ecazn4fx' /* Dashboard */,
+                                ),
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
                                     .displaySmall
@@ -258,19 +260,25 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                   padding: EdgeInsets.all(4.0),
                                   tabs: [
                                     Tab(
-                                      text: 'Log List',
+                                      text: FFLocalizations.of(context).getText(
+                                        '0kyywvfm' /* Log List */,
+                                      ),
                                       icon: Icon(
                                         Icons.notifications_active_outlined,
                                       ),
                                     ),
                                     Tab(
-                                      text: 'User List',
+                                      text: FFLocalizations.of(context).getText(
+                                        'lf3hued6' /* User List */,
+                                      ),
                                       icon: FaIcon(
                                         FontAwesomeIcons.user,
                                       ),
                                     ),
                                     Tab(
-                                      text: 'Investment List',
+                                      text: FFLocalizations.of(context).getText(
+                                        '2od3b945' /* Investment List */,
+                                      ),
                                       icon: Icon(
                                         Icons.bar_chart,
                                       ),
@@ -356,7 +364,11 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                             .fromSTEB(16.0,
                                                                 16.0, 0.0, 4.0),
                                                     child: Text(
-                                                      'Log Activity',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'fwhqxlb7' /* Log Activity */,
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .displaySmall
@@ -371,7 +383,10 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Below is the list of all Log.',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'pa4upme9' /* Below is the list of all Log. */,
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .labelMedium
@@ -414,7 +429,11 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                                           LogRecord>();
                                                               setState(() {});
                                                             },
-                                                            text: 'All',
+                                                            text: FFLocalizations
+                                                                    .of(context)
+                                                                .getText(
+                                                              'vy49suw6' /* All */,
+                                                            ),
                                                             options:
                                                                 FFButtonOptions(
                                                               width: 64.0,
@@ -589,7 +608,13 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                                     FormFieldController<
                                                                         List<
                                                                             String>>(
-                                                                  ['All'],
+                                                                  [
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'tnmwzhxw' /* All */,
+                                                                    )
+                                                                  ],
                                                                 ),
                                                                 wrapped: true,
                                                               ),
@@ -654,7 +679,11 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                             decoration:
                                                                 InputDecoration(
                                                               labelText:
-                                                                  'Search all User...',
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                'qdc0vnhz' /* Search all User... */,
+                                                              ),
                                                               labelStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -978,7 +1007,10 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              'Investment Data',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '6mn2u3du' /* Investment Data */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .displaySmall
@@ -997,7 +1029,9 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                             ),
                                           ),
                                           Text(
-                                            'This is the summary of Users',
+                                            FFLocalizations.of(context).getText(
+                                              'byjsdplw' /* This is the summary of Users */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -1061,7 +1095,11 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                     obscureText: false,
                                                     decoration: InputDecoration(
                                                       labelText:
-                                                          'Search all User...',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'bb3w2qk8' /* Search all User... */,
+                                                      ),
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1391,7 +1429,9 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                           alignment:
                                               AlignmentDirectional(-1.0, -1.0),
                                           child: Text(
-                                            'Investment list',
+                                            FFLocalizations.of(context).getText(
+                                              'k8auerai' /* Investment list */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge
                                                 .override(
@@ -1434,7 +1474,11 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                           .merge(
                                                         softWrap: true,
                                                         child: Text(
-                                                          'Type of Transaction',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'p40v20eo' /* Type of Transaction */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelLarge
@@ -1455,7 +1499,11 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                           .merge(
                                                         softWrap: true,
                                                         child: Text(
-                                                          'Amount',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '92unqu4y' /* Amount */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelLarge
@@ -1476,7 +1524,11 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                           .merge(
                                                         softWrap: true,
                                                         child: Text(
-                                                          'Duration',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'qjilyqkv' /* Duration */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelLarge
@@ -1497,7 +1549,11 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                           .merge(
                                                         softWrap: true,
                                                         child: Text(
-                                                          'Created Date',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '7izb3z7x' /* Created Date */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelLarge
@@ -1518,7 +1574,11 @@ class _ListUserNLogWidgetState extends State<ListUserNLogWidget>
                                                           .merge(
                                                         softWrap: true,
                                                         child: Text(
-                                                          'Investor',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '4y54m5k6' /* Investor */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelLarge

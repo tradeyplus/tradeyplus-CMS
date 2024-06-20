@@ -2922,7 +2922,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ListUserNLog
   {
-    'ads3b2ch': {
+    'ecazn4fx': {
       'en': 'Dashboard',
       'bn': '',
       'hi': '',
@@ -2932,7 +2932,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '2al1pt49': {
+    '0kyywvfm': {
       'en': 'Log List',
       'bn': '',
       'hi': '',
@@ -2942,7 +2942,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'jq5rfrsi': {
+    'fwhqxlb7': {
       'en': 'Log Activity',
       'bn': '',
       'hi': '',
@@ -2952,7 +2952,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'mkmmxsct': {
+    'pa4upme9': {
       'en': 'Below is the list of all Log.',
       'bn': '',
       'hi': '',
@@ -2962,7 +2962,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '5eqvp4h0': {
+    'vy49suw6': {
       'en': 'All',
       'bn': '',
       'hi': '',
@@ -2972,7 +2972,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'vq92leic': {
+    '1gvcsl3j': {
       'en': 'All',
       'bn': '',
       'hi': '',
@@ -2982,7 +2982,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'r838tvzb': {
+    'e2mdsak5': {
       'en': 'UPDATE_USER',
       'bn': '',
       'hi': '',
@@ -2992,7 +2992,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'bg0b0f2a': {
+    '30v1s10h': {
       'en': 'LOGIN',
       'bn': '',
       'hi': '',
@@ -3002,7 +3002,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'a0wici1w': {
+    'oou86oat': {
       'en': 'CREATE_INVESTMENT_DATA',
       'bn': '',
       'hi': '',
@@ -3012,7 +3012,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'qmavjw31': {
+    'qo672yzp': {
       'en': 'LOGOUT',
       'bn': '',
       'hi': '',
@@ -3022,7 +3022,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'pllcurzq': {
+    'l5qf22ye': {
       'en': 'EDIT_PROFILE',
       'bn': '',
       'hi': '',
@@ -3032,7 +3032,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'aeth0z8r': {
+    'g14bey1l': {
       'en': 'UPDATE_USER',
       'bn': '',
       'hi': '',
@@ -3042,7 +3042,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'syqyzu74': {
+    'tnmwzhxw': {
       'en': 'All',
       'bn': '',
       'hi': '',
@@ -3052,7 +3052,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'wfyzvmx5': {
+    '3g7zxecs': {
       'en': 'All',
       'bn': '',
       'hi': '',
@@ -3062,7 +3062,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '0jdsmw72': {
+    'qdc0vnhz': {
       'en': 'Search all User...',
       'bn': '',
       'hi': '',
@@ -3072,7 +3072,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '5m5z1oad': {
+    'lf3hued6': {
       'en': 'User List',
       'bn': '',
       'hi': '',
@@ -3082,7 +3082,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'h48srg0f': {
+    '6mn2u3du': {
       'en': 'Investment Data',
       'bn': '',
       'hi': '',
@@ -3092,7 +3092,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'v5hqyut6': {
+    'byjsdplw': {
       'en': 'This is the summary of Users',
       'bn': '',
       'hi': '',
@@ -3102,7 +3102,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '3x6pnnff': {
+    'bb3w2qk8': {
       'en': 'Search all User...',
       'bn': '',
       'hi': '',
@@ -3112,7 +3112,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'rb792g0o': {
+    '2od3b945': {
       'en': 'Investment List',
       'bn': '',
       'hi': '',
@@ -3122,7 +3122,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'qo1zdq7e': {
+    'k8auerai': {
       'en': 'Investment list',
       'bn': '',
       'hi': '',
@@ -3132,7 +3132,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'jlfxipdn': {
+    'p40v20eo': {
       'en': 'Type of Transaction',
       'bn': '',
       'hi': '',
@@ -3142,7 +3142,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '3hkcqute': {
+    '92unqu4y': {
       'en': 'Amount',
       'bn': '',
       'hi': '',
@@ -3152,7 +3152,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    's2oc8nh5': {
+    'qjilyqkv': {
       'en': 'Duration',
       'bn': '',
       'hi': '',
@@ -3162,7 +3162,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '7sqwdhxc': {
+    '7izb3z7x': {
       'en': 'Created Date',
       'bn': '',
       'hi': '',
@@ -3172,7 +3172,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '6o3z0nl1': {
+    '4y54m5k6': {
       'en': 'Investor',
       'bn': '',
       'hi': '',
