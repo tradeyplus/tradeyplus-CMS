@@ -340,7 +340,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                   kBreakpointSmall
                               ? 35.0
                               : 50.0,
-                          maxHeight: 150.0,
+                          maxHeight: 1.0,
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(

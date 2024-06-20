@@ -1,0 +1,24 @@
+2024/04/08-04:29:40.827 397c Reusing MANIFEST C:\Users\panha\AppData\Local\Temp\flutter_tools.e1e25e0\flutter_tools_chrome_device.470d5e19\Default\IndexedDB\http_localhost_51225.indexeddb.leveldb/MANIFEST-000001
+2024/04/08-04:29:40.827 397c Recovering log #12
+2024/04/08-04:29:40.828 397c Reusing old log C:\Users\panha\AppData\Local\Temp\flutter_tools.e1e25e0\flutter_tools_chrome_device.470d5e19\Default\IndexedDB\http_localhost_51225.indexeddb.leveldb/000012.log 
+2024/04/08-04:29:40.835 38fc Level-0 table #18: started
+2024/04/08-04:29:40.838 38fc Level-0 table #18: 2200 bytes OK
+2024/04/08-04:29:40.839 38fc Delete type=0 #12
+2024/04/08-04:29:40.840 38fc Manual compaction at level-0 from '\x00\x08\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x09\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/04/08-04:29:45.368 38fc Level-0 table #20: started
+2024/04/08-04:29:45.371 38fc Level-0 table #20: 3222 bytes OK
+2024/04/08-04:29:45.373 38fc Delete type=0 #17
+2024/04/08-04:29:45.374 c20 Manual compaction at level-0 from '\x00\x09\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0a\x00\x00\x00' @ 0 : 0; will stop at '\x00\x09\x00\x00\x05' @ 372 : 1
+2024/04/08-04:29:45.374 c20 Compacting 1@0 + 1@1 files
+2024/04/08-04:29:45.376 c20 Generated table #21@0: 37 keys, 3331 bytes
+2024/04/08-04:29:45.376 c20 Compacted 1@0 + 1@1 files => 3331 bytes
+2024/04/08-04:29:45.377 c20 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/04/08-04:29:45.377 c20 Delete type=2 #20
+2024/04/08-04:29:45.378 c20 Manual compaction at level-0 from '\x00\x09\x00\x00\x05' @ 372 : 1 .. '\x00\x0a\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/04/08-04:30:24.870 397c Compacting 1@1 + 1@2 files
+2024/04/08-04:30:24.878 397c Generated table #22@1: 52 keys, 3759 bytes
+2024/04/08-04:30:24.878 397c Compacted 1@1 + 1@2 files => 3759 bytes
+2024/04/08-04:30:24.880 397c compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/04/08-04:30:24.881 397c Delete type=2 #15
+2024/04/08-04:30:24.881 397c Delete type=2 #18
+2024/04/08-04:30:24.881 397c Delete type=2 #21

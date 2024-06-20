@@ -52,14 +52,16 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
 
     _model.lastnameFocusNode ??= FocusNode();
 
-    _model.addressFocusNode ??= FocusNode();
+    _model.addressFocusNode1 ??= FocusNode();
+
+    _model.addressFocusNode2 ??= FocusNode();
 
     _model.emailFocusNode ??= FocusNode();
 
-    _model.passwordController ??= TextEditingController();
+    _model.passwordTextController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
 
-    _model.confirmPasswordController ??= TextEditingController();
+    _model.confirmPasswordTextController ??= TextEditingController();
     _model.confirmPasswordFocusNode ??= FocusNode();
 
     _model.riskRatioFocusNode ??= FocusNode();
@@ -74,40 +76,40 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
 
     _model.noteFocusNode ??= FocusNode();
 
-    _model.firstnameCreateController ??= TextEditingController();
+    _model.firstnameCreateTextController ??= TextEditingController();
     _model.firstnameCreateFocusNode ??= FocusNode();
 
-    _model.lastnamecreatedController ??= TextEditingController();
+    _model.lastnamecreatedTextController ??= TextEditingController();
     _model.lastnamecreatedFocusNode ??= FocusNode();
 
-    _model.addressCreatedController ??= TextEditingController();
+    _model.addressCreatedTextController ??= TextEditingController();
     _model.addressCreatedFocusNode ??= FocusNode();
 
-    _model.emailCreatedController ??= TextEditingController();
+    _model.emailCreatedTextController ??= TextEditingController();
     _model.emailCreatedFocusNode ??= FocusNode();
 
-    _model.passwordCreatedController ??= TextEditingController();
+    _model.passwordCreatedTextController ??= TextEditingController();
     _model.passwordCreatedFocusNode ??= FocusNode();
 
-    _model.confirmPasswordcreatedController ??= TextEditingController();
+    _model.confirmPasswordcreatedTextController ??= TextEditingController();
     _model.confirmPasswordcreatedFocusNode ??= FocusNode();
 
-    _model.riskRatioCreatedController ??= TextEditingController();
+    _model.riskRatioCreatedTextController ??= TextEditingController();
     _model.riskRatioCreatedFocusNode ??= FocusNode();
 
-    _model.profitRatioCreatedController ??= TextEditingController();
+    _model.profitRatioCreatedTextController ??= TextEditingController();
     _model.profitRatioCreatedFocusNode ??= FocusNode();
 
-    _model.commissionRatioCreatedController ??= TextEditingController();
+    _model.commissionRatioCreatedTextController ??= TextEditingController();
     _model.commissionRatioCreatedFocusNode ??= FocusNode();
 
-    _model.dobController2 ??= TextEditingController();
+    _model.dobTextController2 ??= TextEditingController();
     _model.dobFocusNode2 ??= FocusNode();
 
-    _model.phoneNoCreatedController ??= TextEditingController();
+    _model.phoneNoCreatedTextController ??= TextEditingController();
     _model.phoneNoCreatedFocusNode ??= FocusNode();
 
-    _model.noteCreatedController ??= TextEditingController();
+    _model.noteCreatedTextController ??= TextEditingController();
     _model.noteCreatedFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -400,7 +402,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             0.0),
                                                                         child:
                                                                             TextFormField(
-                                                                          controller: _model.firstnameEditController ??=
+                                                                          controller: _model.firstnameEditTextController ??=
                                                                               TextEditingController(
                                                                             text:
                                                                                 valueOrDefault<String>(
@@ -414,7 +416,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               _model.firstnameEditFocusNode,
                                                                           onChanged: (_) =>
                                                                               EasyDebounce.debounce(
-                                                                            '_model.firstnameEditController',
+                                                                            '_model.firstnameEditTextController',
                                                                             Duration(milliseconds: 100),
                                                                             () =>
                                                                                 setState(() {}),
@@ -478,12 +480,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                                 letterSpacing: 0.0,
                                                                               ),
-                                                                          minLines:
-                                                                              null,
                                                                           keyboardType:
                                                                               TextInputType.number,
                                                                           validator: _model
-                                                                              .firstnameEditControllerValidator
+                                                                              .firstnameEditTextControllerValidator
                                                                               .asValidator(context),
                                                                           inputFormatters: [
                                                                             FilteringTextInputFormatter.allow(RegExp('[a-zA-Z]'))
@@ -517,7 +517,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         ),
                                                                         child:
                                                                             TextFormField(
-                                                                          controller: _model.lastnameController ??=
+                                                                          controller: _model.lastnameTextController ??=
                                                                               TextEditingController(
                                                                             text:
                                                                                 valueOrDefault<String>(
@@ -531,7 +531,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               _model.lastnameFocusNode,
                                                                           onChanged: (_) =>
                                                                               EasyDebounce.debounce(
-                                                                            '_model.lastnameController',
+                                                                            '_model.lastnameTextController',
                                                                             Duration(milliseconds: 100),
                                                                             () =>
                                                                                 setState(() {}),
@@ -602,12 +602,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                                 letterSpacing: 0.0,
                                                                               ),
-                                                                          minLines:
-                                                                              null,
                                                                           keyboardType:
                                                                               TextInputType.number,
                                                                           validator: _model
-                                                                              .lastnameControllerValidator
+                                                                              .lastnameTextControllerValidator
                                                                               .asValidator(context),
                                                                           inputFormatters: [
                                                                             FilteringTextInputFormatter.allow(RegExp('[a-zA-Z]'))
@@ -1263,7 +1261,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       Text(
                                                                         FFLocalizations.of(context)
                                                                             .getText(
-                                                                          '8f12y1kw' /* Address */,
+                                                                          '8f12y1kw' /* Balance */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyLarge
@@ -1277,20 +1275,20 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       ),
                                                                       TextFormField(
                                                                         controller:
-                                                                            _model.addressController ??=
+                                                                            _model.addressTextController1 ??=
                                                                                 TextEditingController(
                                                                           text:
                                                                               valueOrDefault<String>(
-                                                                            containerUsersRecord.address,
+                                                                            containerUsersRecord.balance.toString(),
                                                                             '0',
                                                                           ),
                                                                         ),
                                                                         focusNode:
-                                                                            _model.addressFocusNode,
+                                                                            _model.addressFocusNode1,
                                                                         onChanged:
                                                                             (_) =>
                                                                                 EasyDebounce.debounce(
-                                                                          '_model.addressController',
+                                                                          '_model.addressTextController1',
                                                                           Duration(
                                                                               milliseconds: 100),
                                                                           () =>
@@ -1372,10 +1370,138 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
-                                                                        minLines:
-                                                                            null,
                                                                         validator: _model
-                                                                            .addressControllerValidator
+                                                                            .addressTextController1Validator
+                                                                            .asValidator(context),
+                                                                      ),
+                                                                    ].divide(SizedBox(
+                                                                        height:
+                                                                            16.0)),
+                                                                  ),
+                                                                ),
+                                                                Expanded(
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          'lw61q0su' /* Address */,
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: FlutterFlowTheme.of(context).accent1,
+                                                                              fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
+                                                                      ),
+                                                                      TextFormField(
+                                                                        controller:
+                                                                            _model.addressTextController2 ??=
+                                                                                TextEditingController(
+                                                                          text:
+                                                                              valueOrDefault<String>(
+                                                                            containerUsersRecord.address,
+                                                                            '0',
+                                                                          ),
+                                                                        ),
+                                                                        focusNode:
+                                                                            _model.addressFocusNode2,
+                                                                        onChanged:
+                                                                            (_) =>
+                                                                                EasyDebounce.debounce(
+                                                                          '_model.addressTextController2',
+                                                                          Duration(
+                                                                              milliseconds: 100),
+                                                                          () =>
+                                                                              setState(() {}),
+                                                                        ),
+                                                                        autofocus:
+                                                                            true,
+                                                                        obscureText:
+                                                                            false,
+                                                                        decoration:
+                                                                            InputDecoration(
+                                                                          labelStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                          hintText:
+                                                                              FFLocalizations.of(context).getText(
+                                                                            't2ou2bip' /* Address.... */,
+                                                                          ),
+                                                                          hintStyle: FlutterFlowTheme.of(context)
+                                                                              .labelLarge
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                                lineHeight: 1.5,
+                                                                              ),
+                                                                          enabledBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).border,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          focusedBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          errorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).error,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          focusedErrorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).error,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          filled:
+                                                                              true,
+                                                                          fillColor:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                        validator: _model
+                                                                            .addressTextController2Validator
                                                                             .asValidator(context),
                                                                       ),
                                                                     ].divide(SizedBox(
@@ -1420,7 +1546,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       ),
                                                                       TextFormField(
                                                                         controller:
-                                                                            _model.emailController ??=
+                                                                            _model.emailTextController ??=
                                                                                 TextEditingController(
                                                                           text:
                                                                               valueOrDefault<String>(
@@ -1433,7 +1559,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         onChanged:
                                                                             (_) =>
                                                                                 EasyDebounce.debounce(
-                                                                          '_model.emailController',
+                                                                          '_model.emailTextController',
                                                                           Duration(
                                                                               milliseconds: 100),
                                                                           () =>
@@ -1515,12 +1641,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
-                                                                        minLines:
-                                                                            null,
                                                                         keyboardType:
                                                                             TextInputType.emailAddress,
                                                                         validator: _model
-                                                                            .emailControllerValidator
+                                                                            .emailTextControllerValidator
                                                                             .asValidator(context),
                                                                       ),
                                                                     ].divide(SizedBox(
@@ -1570,12 +1694,12 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           child:
                                                                               TextFormField(
                                                                             controller:
-                                                                                _model.passwordController,
+                                                                                _model.passwordTextController,
                                                                             focusNode:
                                                                                 _model.passwordFocusNode,
                                                                             onChanged: (_) =>
                                                                                 EasyDebounce.debounce(
-                                                                              '_model.passwordController',
+                                                                              '_model.passwordTextController',
                                                                               Duration(milliseconds: 100),
                                                                               () => setState(() {}),
                                                                             ),
@@ -1650,10 +1774,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                   fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                 ),
-                                                                            minLines:
-                                                                                null,
                                                                             validator:
-                                                                                _model.passwordControllerValidator.asValidator(context),
+                                                                                _model.passwordTextControllerValidator.asValidator(context),
                                                                           ),
                                                                         ),
                                                                       ].divide(SizedBox(
@@ -1713,12 +1835,12 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           child:
                                                                               TextFormField(
                                                                             controller:
-                                                                                _model.confirmPasswordController,
+                                                                                _model.confirmPasswordTextController,
                                                                             focusNode:
                                                                                 _model.confirmPasswordFocusNode,
                                                                             onChanged: (_) =>
                                                                                 EasyDebounce.debounce(
-                                                                              '_model.confirmPasswordController',
+                                                                              '_model.confirmPasswordTextController',
                                                                               Duration(milliseconds: 100),
                                                                               () => setState(() {}),
                                                                             ),
@@ -1793,10 +1915,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                   fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                 ),
-                                                                            minLines:
-                                                                                null,
                                                                             validator:
-                                                                                _model.confirmPasswordControllerValidator.asValidator(context),
+                                                                                _model.confirmPasswordTextControllerValidator.asValidator(context),
                                                                           ),
                                                                         ),
                                                                       ].divide(SizedBox(
@@ -2285,7 +2405,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         ),
                                                                         child:
                                                                             TextFormField(
-                                                                          controller: _model.riskRatioController ??=
+                                                                          controller: _model.riskRatioTextController ??=
                                                                               TextEditingController(
                                                                             text:
                                                                                 valueOrDefault<String>(
@@ -2297,7 +2417,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               _model.riskRatioFocusNode,
                                                                           onChanged: (_) =>
                                                                               EasyDebounce.debounce(
-                                                                            '_model.riskRatioController',
+                                                                            '_model.riskRatioTextController',
                                                                             Duration(milliseconds: 100),
                                                                             () =>
                                                                                 setState(() {}),
@@ -2368,12 +2488,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                                 letterSpacing: 0.0,
                                                                               ),
-                                                                          minLines:
-                                                                              null,
                                                                           keyboardType:
                                                                               TextInputType.number,
                                                                           validator: _model
-                                                                              .riskRatioControllerValidator
+                                                                              .riskRatioTextControllerValidator
                                                                               .asValidator(context),
                                                                           inputFormatters: [
                                                                             _model.riskRatioMask
@@ -2417,7 +2535,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           Expanded(
                                                                             child:
                                                                                 TextFormField(
-                                                                              controller: _model.profitRatioController ??= TextEditingController(
+                                                                              controller: _model.profitRatioTextController ??= TextEditingController(
                                                                                 text: valueOrDefault<String>(
                                                                                   containerUsersRecord.profitDistributionRatio.profit.toString(),
                                                                                   'N/A',
@@ -2425,12 +2543,13 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               ),
                                                                               focusNode: _model.profitRatioFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
-                                                                                '_model.profitRatioController',
+                                                                                '_model.profitRatioTextController',
                                                                                 Duration(milliseconds: 100),
                                                                                 () async {
                                                                                   logFirebaseEvent('USER_ENTRY_profitRatio_ON_TEXTFIELD_CHAN');
                                                                                   setState(() {
-                                                                                    _model.commissionRatioController?.text = ((((1 - double.parse(_model.profitRatioController.text)) * 100).roundToDouble()) / 100).toString();
+                                                                                    _model.commissionRatioTextController?.text = ((((1 - double.parse(_model.profitRatioTextController.text)) * 100).roundToDouble()) / 100).toString();
+                                                                                    _model.commissionRatioTextController?.selection = TextSelection.collapsed(offset: _model.commissionRatioTextController!.text.length);
                                                                                   });
                                                                                 },
                                                                               ),
@@ -2490,12 +2609,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                     fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
-                                                                              minLines: null,
                                                                               maxLength: 4,
                                                                               maxLengthEnforcement: MaxLengthEnforcement.enforced,
                                                                               buildCounter: (context, {required currentLength, required isFocused, maxLength}) => null,
                                                                               keyboardType: TextInputType.number,
-                                                                              validator: _model.profitRatioControllerValidator.asValidator(context),
+                                                                              validator: _model.profitRatioTextControllerValidator.asValidator(context),
                                                                               inputFormatters: [
                                                                                 _model.profitRatioMask
                                                                               ],
@@ -2514,7 +2632,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           Expanded(
                                                                             child:
                                                                                 TextFormField(
-                                                                              controller: _model.commissionRatioController ??= TextEditingController(
+                                                                              controller: _model.commissionRatioTextController ??= TextEditingController(
                                                                                 text: valueOrDefault<String>(
                                                                                   containerUsersRecord.profitDistributionRatio.commission.toString(),
                                                                                   'N/A',
@@ -2522,12 +2640,13 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               ),
                                                                               focusNode: _model.commissionRatioFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
-                                                                                '_model.commissionRatioController',
+                                                                                '_model.commissionRatioTextController',
                                                                                 Duration(milliseconds: 100),
                                                                                 () async {
                                                                                   logFirebaseEvent('USER_ENTRY_commissionRatio_ON_TEXTFIELD_');
                                                                                   setState(() {
-                                                                                    _model.profitRatioController?.text = ((((1 - double.parse(_model.commissionRatioController.text)) * 100).roundToDouble()) / 100).toString();
+                                                                                    _model.profitRatioTextController?.text = ((((1 - double.parse(_model.commissionRatioTextController.text)) * 100).roundToDouble()) / 100).toString();
+                                                                                    _model.profitRatioTextController?.selection = TextSelection.collapsed(offset: _model.profitRatioTextController!.text.length);
                                                                                   });
                                                                                 },
                                                                               ),
@@ -2586,12 +2705,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                     fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
-                                                                              minLines: null,
                                                                               maxLength: 4,
                                                                               maxLengthEnforcement: MaxLengthEnforcement.enforced,
                                                                               buildCounter: (context, {required currentLength, required isFocused, maxLength}) => null,
                                                                               keyboardType: TextInputType.number,
-                                                                              validator: _model.commissionRatioControllerValidator.asValidator(context),
+                                                                              validator: _model.commissionRatioTextControllerValidator.asValidator(context),
                                                                               inputFormatters: [
                                                                                 FilteringTextInputFormatter.allow(RegExp('0.##'))
                                                                               ],
@@ -2642,7 +2760,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       Stack(
                                                                         children: [
                                                                           TextFormField(
-                                                                            controller: _model.dobController1 ??=
+                                                                            controller: _model.dobTextController1 ??=
                                                                                 TextEditingController(
                                                                               text: valueOrDefault<String>(
                                                                                 dateTimeFormat(
@@ -2657,7 +2775,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 _model.dobFocusNode1,
                                                                             onChanged: (_) =>
                                                                                 EasyDebounce.debounce(
-                                                                              '_model.dobController1',
+                                                                              '_model.dobTextController1',
                                                                               Duration(milliseconds: 100),
                                                                               () => setState(() {}),
                                                                             ),
@@ -2718,12 +2836,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                   fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                 ),
-                                                                            minLines:
-                                                                                null,
                                                                             keyboardType:
                                                                                 TextInputType.datetime,
                                                                             validator:
-                                                                                _model.dobController1Validator.asValidator(context),
+                                                                                _model.dobTextController1Validator.asValidator(context),
                                                                             inputFormatters: [
                                                                               _model.dobMask1
                                                                             ],
@@ -2777,11 +2893,12 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 });
                                                                               }
                                                                               setState(() {
-                                                                                _model.dobController1?.text = dateTimeFormat(
+                                                                                _model.dobTextController1?.text = dateTimeFormat(
                                                                                   'd/M/y',
                                                                                   _model.datePicked1,
                                                                                   locale: FFLocalizations.of(context).languageCode,
                                                                                 );
+                                                                                _model.dobTextController1?.selection = TextSelection.collapsed(offset: _model.dobTextController1!.text.length);
                                                                               });
                                                                             },
                                                                             child:
@@ -2826,7 +2943,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       ),
                                                                       TextFormField(
                                                                         controller:
-                                                                            _model.phoneNoController ??=
+                                                                            _model.phoneNoTextController ??=
                                                                                 TextEditingController(
                                                                           text:
                                                                               valueOrDefault<String>(
@@ -2839,7 +2956,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         onChanged:
                                                                             (_) =>
                                                                                 EasyDebounce.debounce(
-                                                                          '_model.phoneNoController',
+                                                                          '_model.phoneNoTextController',
                                                                           Duration(
                                                                               milliseconds: 100),
                                                                           () =>
@@ -2924,12 +3041,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
-                                                                        minLines:
-                                                                            null,
                                                                         keyboardType:
                                                                             TextInputType.phone,
                                                                         validator: _model
-                                                                            .phoneNoControllerValidator
+                                                                            .phoneNoTextControllerValidator
                                                                             .asValidator(context),
                                                                         inputFormatters: [
                                                                           _model
@@ -2978,7 +3093,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                 ),
                                                                 TextFormField(
                                                                   controller: _model
-                                                                          .noteController ??=
+                                                                          .noteTextController ??=
                                                                       TextEditingController(
                                                                     text: valueOrDefault<
                                                                         String>(
@@ -3092,8 +3207,6 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             0.0,
                                                                       ),
                                                                   maxLines: 9,
-                                                                  minLines:
-                                                                      null,
                                                                   maxLength:
                                                                       200,
                                                                   maxLengthEnforcement:
@@ -3105,7 +3218,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           maxLength}) =>
                                                                       null,
                                                                   validator: _model
-                                                                      .noteControllerValidator
+                                                                      .noteTextControllerValidator
                                                                       .asValidator(
                                                                           context),
                                                                 ),
@@ -3123,9 +3236,9 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                 1.0, 0.0),
                                                         child: FFButtonWidget(
                                                           onPressed:
-                                                              ((_model.firstnameEditController.text == null || _model.firstnameEditController.text == '') ||
-                                                                      (_model.lastnameController.text == null ||
-                                                                          _model.lastnameController.text ==
+                                                              ((_model.firstnameEditTextController.text == null || _model.firstnameEditTextController.text == '') ||
+                                                                      (_model.lastnameTextController.text == null ||
+                                                                          _model.lastnameTextController.text ==
                                                                               '') ||
                                                                       (_model.portfolioTypeValue == null ||
                                                                           _model.portfolioTypeValue ==
@@ -3136,11 +3249,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       (_model.packageValue == null ||
                                                                           _model.packageValue ==
                                                                               '') ||
-                                                                      (_model.addressController.text == null ||
-                                                                          _model.addressController.text ==
+                                                                      (_model.addressTextController1.text == null ||
+                                                                          _model.addressTextController1.text ==
                                                                               '') ||
-                                                                      (_model.emailController.text == null ||
-                                                                          _model.emailController.text ==
+                                                                      (_model.emailTextController.text == null ||
+                                                                          _model.emailTextController.text ==
                                                                               '') ||
                                                                       (_model.roleValue == null ||
                                                                           _model.roleValue ==
@@ -3152,21 +3265,21 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           null) ||
                                                                       (_model.yieldPeriodValue ==
                                                                           null) ||
-                                                                      (_model.dobController1.text ==
+                                                                      (_model.dobTextController1.text ==
                                                                               null ||
-                                                                          _model.dobController1.text ==
+                                                                          _model.dobTextController1.text ==
                                                                               '') ||
-                                                                      (_model.profitRatioController.text ==
+                                                                      (_model.profitRatioTextController.text ==
                                                                               null ||
-                                                                          _model.profitRatioController.text ==
+                                                                          _model.profitRatioTextController.text ==
                                                                               '') ||
-                                                                      (_model.riskRatioController.text ==
+                                                                      (_model.riskRatioTextController.text ==
                                                                               null ||
-                                                                          _model.riskRatioController.text ==
+                                                                          _model.riskRatioTextController.text ==
                                                                               '') ||
-                                                                      (_model.phoneNoController.text ==
+                                                                      (_model.phoneNoTextController.text ==
                                                                               null ||
-                                                                          _model.phoneNoController.text ==
+                                                                          _model.phoneNoTextController.text ==
                                                                               ''))
                                                                   ? null
                                                                   : () async {
@@ -3178,10 +3291,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           .update(
                                                                               createUsersRecordData(
                                                                         email: _model
-                                                                            .emailController
+                                                                            .emailTextController
                                                                             .text,
                                                                         displayName:
-                                                                            '${_model.firstnameEditController.text} ${_model.lastnameController.text}',
+                                                                            '${_model.firstnameEditTextController.text} ${_model.lastnameTextController.text}',
                                                                         userRole:
                                                                             () {
                                                                           if (_model.roleValue ==
@@ -3200,10 +3313,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         nationality:
                                                                             _model.nationalityValue,
                                                                         note: _model
-                                                                            .noteController
+                                                                            .noteTextController
                                                                             .text,
                                                                         riskRatio: double.tryParse(_model
-                                                                            .riskRatioController
+                                                                            .riskRatioTextController
                                                                             .text),
                                                                         package:
                                                                             () {
@@ -3223,17 +3336,17 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         address:
                                                                             valueOrDefault<String>(
                                                                           _model
-                                                                              .addressController
+                                                                              .addressTextController1
                                                                               .text,
                                                                           'N/A',
                                                                         ),
                                                                         profitDistributionRatio:
                                                                             createProfitDistributionRatioStruct(
                                                                           commission: double.tryParse(_model
-                                                                              .commissionRatioController
+                                                                              .commissionRatioTextController
                                                                               .text),
                                                                           profit: double.tryParse(_model
-                                                                              .profitRatioController
+                                                                              .profitRatioTextController
                                                                               .text),
                                                                           clearUnsetFields:
                                                                               false,
@@ -3257,7 +3370,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         dob: _model
                                                                             .datePicked1,
                                                                         phoneNumber: _model
-                                                                            .phoneNoController
+                                                                            .phoneNoTextController
                                                                             .text,
                                                                         photoUrl: _model.uploadedFileUrl2 != null &&
                                                                                 _model.uploadedFileUrl2 != ''
@@ -3502,14 +3615,14 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         TextFormField(
                                                                       controller:
                                                                           _model
-                                                                              .firstnameCreateController,
+                                                                              .firstnameCreateTextController,
                                                                       focusNode:
                                                                           _model
                                                                               .firstnameCreateFocusNode,
                                                                       onChanged:
                                                                           (_) =>
                                                                               EasyDebounce.debounce(
-                                                                        '_model.firstnameCreateController',
+                                                                        '_model.firstnameCreateTextController',
                                                                         Duration(
                                                                             milliseconds:
                                                                                 100),
@@ -3598,10 +3711,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
-                                                                      minLines:
-                                                                          null,
                                                                       validator: _model
-                                                                          .firstnameCreateControllerValidator
+                                                                          .firstnameCreateTextControllerValidator
                                                                           .asValidator(
                                                                               context),
                                                                       inputFormatters: [
@@ -3648,14 +3759,14 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         TextFormField(
                                                                       controller:
                                                                           _model
-                                                                              .lastnamecreatedController,
+                                                                              .lastnamecreatedTextController,
                                                                       focusNode:
                                                                           _model
                                                                               .lastnamecreatedFocusNode,
                                                                       onChanged:
                                                                           (_) =>
                                                                               EasyDebounce.debounce(
-                                                                        '_model.lastnamecreatedController',
+                                                                        '_model.lastnamecreatedTextController',
                                                                         Duration(
                                                                             milliseconds:
                                                                                 100),
@@ -3753,10 +3864,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
-                                                                      minLines:
-                                                                          null,
                                                                       validator: _model
-                                                                          .lastnamecreatedControllerValidator
+                                                                          .lastnamecreatedTextControllerValidator
                                                                           .asValidator(
                                                                               context),
                                                                       inputFormatters: [
@@ -4507,14 +4616,14 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                   TextFormField(
                                                                     controller:
                                                                         _model
-                                                                            .addressCreatedController,
+                                                                            .addressCreatedTextController,
                                                                     focusNode:
                                                                         _model
                                                                             .addressCreatedFocusNode,
                                                                     onChanged: (_) =>
                                                                         EasyDebounce
                                                                             .debounce(
-                                                                      '_model.addressCreatedController',
+                                                                      '_model.addressCreatedTextController',
                                                                       Duration(
                                                                           milliseconds:
                                                                               100),
@@ -4617,10 +4726,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
-                                                                    minLines:
-                                                                        null,
                                                                     validator: _model
-                                                                        .addressCreatedControllerValidator
+                                                                        .addressCreatedTextControllerValidator
                                                                         .asValidator(
                                                                             context),
                                                                   ),
@@ -4680,7 +4787,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                     TextFormField(
                                                                       controller:
                                                                           _model
-                                                                              .emailCreatedController,
+                                                                              .emailCreatedTextController,
                                                                       focusNode:
                                                                           _model
                                                                               .emailCreatedFocusNode,
@@ -4777,13 +4884,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
-                                                                      minLines:
-                                                                          null,
                                                                       keyboardType:
                                                                           TextInputType
                                                                               .emailAddress,
                                                                       validator: _model
-                                                                          .emailCreatedControllerValidator
+                                                                          .emailCreatedTextControllerValidator
                                                                           .asValidator(
                                                                               context),
                                                                     ),
@@ -4827,7 +4932,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                     TextFormField(
                                                                       controller:
                                                                           _model
-                                                                              .passwordCreatedController,
+                                                                              .passwordCreatedTextController,
                                                                       focusNode:
                                                                           _model
                                                                               .passwordCreatedFocusNode,
@@ -4946,10 +5051,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
-                                                                      minLines:
-                                                                          null,
                                                                       validator: _model
-                                                                          .passwordCreatedControllerValidator
+                                                                          .passwordCreatedTextControllerValidator
                                                                           .asValidator(
                                                                               context),
                                                                     ),
@@ -5016,7 +5119,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         TextFormField(
                                                                       controller:
                                                                           _model
-                                                                              .confirmPasswordcreatedController,
+                                                                              .confirmPasswordcreatedTextController,
                                                                       focusNode:
                                                                           _model
                                                                               .confirmPasswordcreatedFocusNode,
@@ -5137,10 +5240,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
-                                                                      minLines:
-                                                                          null,
                                                                       validator: _model
-                                                                          .confirmPasswordcreatedControllerValidator
+                                                                          .confirmPasswordcreatedTextControllerValidator
                                                                           .asValidator(
                                                                               context),
                                                                     ),
@@ -5727,14 +5828,14 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         TextFormField(
                                                                       controller:
                                                                           _model
-                                                                              .riskRatioCreatedController,
+                                                                              .riskRatioCreatedTextController,
                                                                       focusNode:
                                                                           _model
                                                                               .riskRatioCreatedFocusNode,
                                                                       onChanged:
                                                                           (_) =>
                                                                               EasyDebounce.debounce(
-                                                                        '_model.riskRatioCreatedController',
+                                                                        '_model.riskRatioCreatedTextController',
                                                                         Duration(
                                                                             milliseconds:
                                                                                 100),
@@ -5832,13 +5933,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
-                                                                      minLines:
-                                                                          null,
                                                                       keyboardType:
                                                                           TextInputType
                                                                               .number,
                                                                       validator: _model
-                                                                          .riskRatioCreatedControllerValidator
+                                                                          .riskRatioCreatedTextControllerValidator
                                                                           .asValidator(
                                                                               context),
                                                                       inputFormatters: [
@@ -5893,22 +5992,23 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         child:
                                                                             TextFormField(
                                                                           controller:
-                                                                              _model.profitRatioCreatedController,
+                                                                              _model.profitRatioCreatedTextController,
                                                                           focusNode:
                                                                               _model.profitRatioCreatedFocusNode,
                                                                           onChanged: (_) =>
                                                                               EasyDebounce.debounce(
-                                                                            '_model.profitRatioCreatedController',
+                                                                            '_model.profitRatioCreatedTextController',
                                                                             Duration(milliseconds: 100),
                                                                             () async {
                                                                               logFirebaseEvent('USER_ENTRY_profitRatioCreated_ON_TEXTFIE');
                                                                               setState(() {
-                                                                                _model.commissionRatioCreatedController?.text = formatNumber(
-                                                                                  (((1 - double.parse(_model.profitRatioCreatedController.text)) * 100).roundToDouble()) / 100,
+                                                                                _model.commissionRatioCreatedTextController?.text = formatNumber(
+                                                                                  (((1 - double.parse(_model.profitRatioCreatedTextController.text)) * 100).roundToDouble()) / 100,
                                                                                   formatType: FormatType.custom,
                                                                                   format: '#0.00',
                                                                                   locale: '',
                                                                                 );
+                                                                                _model.commissionRatioCreatedTextController?.selection = TextSelection.collapsed(offset: _model.commissionRatioCreatedTextController!.text.length);
                                                                               });
                                                                             },
                                                                           ),
@@ -5980,8 +6080,6 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                                 letterSpacing: 0.0,
                                                                               ),
-                                                                          minLines:
-                                                                              null,
                                                                           maxLength:
                                                                               4,
                                                                           maxLengthEnforcement:
@@ -5991,7 +6089,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           keyboardType:
                                                                               TextInputType.number,
                                                                           validator: _model
-                                                                              .profitRatioCreatedControllerValidator
+                                                                              .profitRatioCreatedTextControllerValidator
                                                                               .asValidator(context),
                                                                           inputFormatters: [
                                                                             _model.profitRatioCreatedMask
@@ -6013,17 +6111,18 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         child:
                                                                             TextFormField(
                                                                           controller:
-                                                                              _model.commissionRatioCreatedController,
+                                                                              _model.commissionRatioCreatedTextController,
                                                                           focusNode:
                                                                               _model.commissionRatioCreatedFocusNode,
                                                                           onChanged: (_) =>
                                                                               EasyDebounce.debounce(
-                                                                            '_model.commissionRatioCreatedController',
+                                                                            '_model.commissionRatioCreatedTextController',
                                                                             Duration(milliseconds: 100),
                                                                             () async {
                                                                               logFirebaseEvent('USER_ENTRY_commissionRatioCreated_ON_TEX');
                                                                               setState(() {
-                                                                                _model.profitRatioCreatedController?.text = ((((1 - double.parse(_model.commissionRatioCreatedController.text)) * 100).roundToDouble()) / 100).toString();
+                                                                                _model.profitRatioCreatedTextController?.text = ((((1 - double.parse(_model.commissionRatioCreatedTextController.text)) * 100).roundToDouble()) / 100).toString();
+                                                                                _model.profitRatioCreatedTextController?.selection = TextSelection.collapsed(offset: _model.profitRatioCreatedTextController!.text.length);
                                                                               });
                                                                             },
                                                                           ),
@@ -6094,8 +6193,6 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                                 fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                                 letterSpacing: 0.0,
                                                                               ),
-                                                                          minLines:
-                                                                              null,
                                                                           maxLength:
                                                                               4,
                                                                           maxLengthEnforcement:
@@ -6105,7 +6202,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           keyboardType:
                                                                               TextInputType.number,
                                                                           validator: _model
-                                                                              .commissionRatioCreatedControllerValidator
+                                                                              .commissionRatioCreatedTextControllerValidator
                                                                               .asValidator(context),
                                                                           inputFormatters: [
                                                                             FilteringTextInputFormatter.allow(RegExp('0.##'))
@@ -6167,13 +6264,13 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                     children: [
                                                                       TextFormField(
                                                                         controller:
-                                                                            _model.dobController2,
+                                                                            _model.dobTextController2,
                                                                         focusNode:
                                                                             _model.dobFocusNode2,
                                                                         onChanged:
                                                                             (_) =>
                                                                                 EasyDebounce.debounce(
-                                                                          '_model.dobController2',
+                                                                          '_model.dobTextController2',
                                                                           Duration(
                                                                               milliseconds: 100),
                                                                           () =>
@@ -6257,12 +6354,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
-                                                                        minLines:
-                                                                            null,
                                                                         keyboardType:
                                                                             TextInputType.datetime,
                                                                         validator: _model
-                                                                            .dobController2Validator
+                                                                            .dobTextController2Validator
                                                                             .asValidator(context),
                                                                         inputFormatters: [
                                                                           _model
@@ -6327,12 +6422,14 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           }
                                                                           setState(
                                                                               () {
-                                                                            _model.dobController2?.text =
+                                                                            _model.dobTextController2?.text =
                                                                                 dateTimeFormat(
                                                                               'd/M/y',
                                                                               _model.datePicked2,
                                                                               locale: FFLocalizations.of(context).languageCode,
                                                                             );
+                                                                            _model.dobTextController2?.selection =
+                                                                                TextSelection.collapsed(offset: _model.dobTextController2!.text.length);
                                                                           });
                                                                         },
                                                                         child:
@@ -6390,14 +6487,14 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                   TextFormField(
                                                                     controller:
                                                                         _model
-                                                                            .phoneNoCreatedController,
+                                                                            .phoneNoCreatedTextController,
                                                                     focusNode:
                                                                         _model
                                                                             .phoneNoCreatedFocusNode,
                                                                     onChanged: (_) =>
                                                                         EasyDebounce
                                                                             .debounce(
-                                                                      '_model.phoneNoCreatedController',
+                                                                      '_model.phoneNoCreatedTextController',
                                                                       Duration(
                                                                           milliseconds:
                                                                               100),
@@ -6509,13 +6606,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
-                                                                    minLines:
-                                                                        null,
                                                                     keyboardType:
                                                                         TextInputType
                                                                             .phone,
                                                                     validator: _model
-                                                                        .phoneNoCreatedControllerValidator
+                                                                        .phoneNoCreatedTextControllerValidator
                                                                         .asValidator(
                                                                             context),
                                                                     inputFormatters: [
@@ -6566,7 +6661,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                             ),
                                                             TextFormField(
                                                               controller: _model
-                                                                  .noteCreatedController,
+                                                                  .noteCreatedTextController,
                                                               focusNode: _model
                                                                   .noteCreatedFocusNode,
                                                               autofocus: true,
@@ -6676,7 +6771,6 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         0.0,
                                                                   ),
                                                               maxLines: 9,
-                                                              minLines: null,
                                                               maxLength: 200,
                                                               maxLengthEnforcement:
                                                                   MaxLengthEnforcement
@@ -6687,7 +6781,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       maxLength}) =>
                                                                   null,
                                                               validator: _model
-                                                                  .noteCreatedControllerValidator
+                                                                  .noteCreatedTextControllerValidator
                                                                   .asValidator(
                                                                       context),
                                                             ),
@@ -6706,9 +6800,9 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                       onPressed:
                                                           (_model.roleCreatedValue !=
                                                                       'ADMINISTRATOR'
-                                                                  ? ((_model.firstnameCreateController.text == null || _model.firstnameCreateController.text == '') ||
-                                                                      (_model.lastnamecreatedController.text == null ||
-                                                                          _model.lastnamecreatedController.text ==
+                                                                  ? ((_model.firstnameCreateTextController.text == null || _model.firstnameCreateTextController.text == '') ||
+                                                                      (_model.lastnamecreatedTextController.text == null ||
+                                                                          _model.lastnamecreatedTextController.text ==
                                                                               '') ||
                                                                       (_model.portfolioTypeCreatedValue == null ||
                                                                           _model.portfolioTypeCreatedValue ==
@@ -6719,11 +6813,11 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       (_model.packageCreatedValue == null ||
                                                                           _model.packageCreatedValue ==
                                                                               '') ||
-                                                                      (_model.addressCreatedController.text == null ||
-                                                                          _model.addressCreatedController.text ==
+                                                                      (_model.addressCreatedTextController.text == null ||
+                                                                          _model.addressCreatedTextController.text ==
                                                                               '') ||
-                                                                      (_model.emailCreatedController.text == null ||
-                                                                          _model.emailCreatedController.text ==
+                                                                      (_model.emailCreatedTextController.text == null ||
+                                                                          _model.emailCreatedTextController.text ==
                                                                               '') ||
                                                                       (_model.roleCreatedValue == null ||
                                                                           _model.roleCreatedValue ==
@@ -6737,28 +6831,28 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           null) ||
                                                                       (_model.datePicked2 ==
                                                                           null) ||
-                                                                      (_model.profitRatioCreatedController.text == null ||
-                                                                          _model.profitRatioCreatedController.text ==
+                                                                      (_model.profitRatioCreatedTextController.text == null ||
+                                                                          _model.profitRatioCreatedTextController.text ==
                                                                               '') ||
-                                                                      (_model.riskRatioCreatedController.text == null ||
-                                                                          _model.riskRatioCreatedController.text ==
+                                                                      (_model.riskRatioCreatedTextController.text == null ||
+                                                                          _model.riskRatioCreatedTextController.text ==
                                                                               '') ||
-                                                                      (_model.phoneNoCreatedController.text == null ||
-                                                                          _model.phoneNoCreatedController.text ==
+                                                                      (_model.phoneNoCreatedTextController.text == null ||
+                                                                          _model.phoneNoCreatedTextController.text ==
                                                                               ''))
-                                                                  : ((_model.firstnameCreateController.text == null || _model.firstnameCreateController.text == '') ||
-                                                                      (_model.lastnamecreatedController.text == null ||
-                                                                          _model.lastnamecreatedController.text ==
+                                                                  : ((_model.firstnameCreateTextController.text == null || _model.firstnameCreateTextController.text == '') ||
+                                                                      (_model.lastnamecreatedTextController.text == null ||
+                                                                          _model.lastnamecreatedTextController.text ==
                                                                               '') ||
                                                                       (_model.nationalityCreatedValue == null ||
                                                                           _model.nationalityCreatedValue ==
                                                                               '') ||
-                                                                      (_model.addressCreatedController.text == null ||
-                                                                          _model.addressCreatedController.text == '') ||
-                                                                      (_model.emailCreatedController.text == null || _model.emailCreatedController.text == '') ||
+                                                                      (_model.addressCreatedTextController.text == null ||
+                                                                          _model.addressCreatedTextController.text == '') ||
+                                                                      (_model.emailCreatedTextController.text == null || _model.emailCreatedTextController.text == '') ||
                                                                       (_model.roleCreatedValue == null || _model.roleCreatedValue == '') ||
                                                                       (_model.datePicked2 == null) ||
-                                                                      (_model.phoneNoCreatedController.text == null || _model.phoneNoCreatedController.text == '')))
+                                                                      (_model.phoneNoCreatedTextController.text == null || _model.phoneNoCreatedTextController.text == '')))
                                                               ? null
                                                               : () async {
                                                                   logFirebaseEvent(
@@ -6767,10 +6861,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           context)
                                                                       .prepareAuthEvent();
                                                                   if (_model
-                                                                          .passwordCreatedController
+                                                                          .passwordCreatedTextController
                                                                           .text !=
                                                                       _model
-                                                                          .confirmPasswordcreatedController
+                                                                          .confirmPasswordcreatedTextController
                                                                           .text) {
                                                                     ScaffoldMessenger.of(
                                                                             context)
@@ -6790,10 +6884,10 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           .createAccountWithEmail(
                                                                     context,
                                                                     _model
-                                                                        .emailCreatedController
+                                                                        .emailCreatedTextController
                                                                         .text,
                                                                     _model
-                                                                        .passwordCreatedController
+                                                                        .passwordCreatedTextController
                                                                         .text,
                                                                   );
                                                                   if (user ==
@@ -6810,12 +6904,12 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         email: valueOrDefault<
                                                                             String>(
                                                                           _model
-                                                                              .emailCreatedController
+                                                                              .emailCreatedTextController
                                                                               .text,
                                                                           'N/A',
                                                                         ),
                                                                         displayName:
-                                                                            '${_model.firstnameCreateController.text} ${_model.lastnamecreatedController.text}',
+                                                                            '${_model.firstnameCreateTextController.text} ${_model.lastnamecreatedTextController.text}',
                                                                         portfolioType:
                                                                             () {
                                                                           if (_model.portfolioTypeCreatedValue ==
@@ -6829,13 +6923,13 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           }
                                                                         }(),
                                                                         phoneNumber: _model
-                                                                            .phoneNoCreatedController
+                                                                            .phoneNoCreatedTextController
                                                                             .text,
                                                                         note: _model
-                                                                            .noteCreatedController
+                                                                            .noteCreatedTextController
                                                                             .text,
                                                                         riskRatio: double.tryParse(_model
-                                                                            .riskRatioCreatedController
+                                                                            .riskRatioCreatedTextController
                                                                             .text),
                                                                         package:
                                                                             () {
@@ -6853,15 +6947,15 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                           }
                                                                         }(),
                                                                         address: _model
-                                                                            .addressCreatedController
+                                                                            .addressCreatedTextController
                                                                             .text,
                                                                         profitDistributionRatio:
                                                                             createProfitDistributionRatioStruct(
                                                                           commission: double.tryParse(_model
-                                                                              .commissionRatioCreatedController
+                                                                              .commissionRatioCreatedTextController
                                                                               .text),
                                                                           profit: double.tryParse(_model
-                                                                              .profitRatioCreatedController
+                                                                              .profitRatioCreatedTextController
                                                                               .text),
                                                                           clearUnsetFields:
                                                                               false,
@@ -6909,6 +7003,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             return 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60';
                                                                           }
                                                                         }(),
+                                                                        balance:
+                                                                            0.0,
                                                                       ));
 
                                                                   _model.out =

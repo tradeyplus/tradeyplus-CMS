@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -27,34 +28,7 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
     with TickerProviderStateMixin {
   late ModalCreateProjectModel _model;
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 200.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 250.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 250.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 70.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -67,12 +41,40 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
     super.initState();
     _model = createModel(context, () => ModalCreateProjectModel());
 
-    _model.projectNameController ??= TextEditingController();
+    _model.projectNameTextController ??= TextEditingController();
     _model.projectNameFocusNode ??= FocusNode();
 
-    _model.descriptionController ??= TextEditingController();
+    _model.descriptionTextController ??= TextEditingController();
     _model.descriptionFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 200.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 250.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 250.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 70.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -294,7 +296,7 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
                             child: TextFormField(
-                              controller: _model.projectNameController,
+                              controller: _model.projectNameTextController,
                               focusNode: _model.projectNameFocusNode,
                               autofocus: true,
                               obscureText: false,
@@ -361,8 +363,8 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                                     fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                   ),
-                              minLines: null,
-                              validator: _model.projectNameControllerValidator
+                              validator: _model
+                                  .projectNameTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),
@@ -370,7 +372,7 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 12.0),
                             child: TextFormField(
-                              controller: _model.descriptionController,
+                              controller: _model.descriptionTextController,
                               focusNode: _model.descriptionFocusNode,
                               autofocus: true,
                               obscureText: false,
@@ -439,8 +441,8 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget>
                                     letterSpacing: 0.0,
                                   ),
                               maxLines: 5,
-                              minLines: null,
-                              validator: _model.descriptionControllerValidator
+                              validator: _model
+                                  .descriptionTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),

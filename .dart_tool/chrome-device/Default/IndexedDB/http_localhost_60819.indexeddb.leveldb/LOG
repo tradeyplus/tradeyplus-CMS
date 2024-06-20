@@ -1,0 +1,24 @@
+2024/04/08-02:35:05.213 2234 Reusing MANIFEST C:\Users\panha\AppData\Local\Temp\flutter_tools.5bf8900\flutter_tools_chrome_device.3a3ab64f\Default\IndexedDB\http_localhost_60819.indexeddb.leveldb/MANIFEST-000001
+2024/04/08-02:35:05.213 2234 Recovering log #6
+2024/04/08-02:35:05.213 2234 Reusing old log C:\Users\panha\AppData\Local\Temp\flutter_tools.5bf8900\flutter_tools_chrome_device.3a3ab64f\Default\IndexedDB\http_localhost_60819.indexeddb.leveldb/000006.log 
+2024/04/08-02:35:05.220 2234 Level-0 table #11: started
+2024/04/08-02:35:05.222 2234 Level-0 table #11: 5309 bytes OK
+2024/04/08-02:35:05.225 2234 Delete type=0 #6
+2024/04/08-02:35:05.226 2234 Manual compaction at level-0 from '\x00\x06\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x07\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/04/08-02:35:07.831 2234 Level-0 table #13: started
+2024/04/08-02:35:07.834 2234 Level-0 table #13: 3241 bytes OK
+2024/04/08-02:35:07.836 2234 Delete type=0 #10
+2024/04/08-02:35:07.836 54c4 Manual compaction at level-0 from '\x00\x07\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x08\x00\x00\x00' @ 0 : 0; will stop at '\x00\x07\x00\x00\x05' @ 284 : 1
+2024/04/08-02:35:07.836 54c4 Compacting 1@0 + 1@1 files
+2024/04/08-02:35:07.838 54c4 Generated table #14@0: 72 keys, 3940 bytes
+2024/04/08-02:35:07.838 54c4 Compacted 1@0 + 1@1 files => 3940 bytes
+2024/04/08-02:35:07.840 54c4 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/04/08-02:35:07.840 54c4 Delete type=2 #13
+2024/04/08-02:35:07.841 54c4 Manual compaction at level-0 from '\x00\x07\x00\x00\x05' @ 284 : 1 .. '\x00\x08\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/04/08-02:35:47.639 54c4 Compacting 1@1 + 1@2 files
+2024/04/08-02:35:47.644 54c4 Generated table #15@1: 51 keys, 3736 bytes
+2024/04/08-02:35:47.644 54c4 Compacted 1@1 + 1@2 files => 3736 bytes
+2024/04/08-02:35:47.646 54c4 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/04/08-02:35:47.647 54c4 Delete type=2 #8
+2024/04/08-02:35:47.647 54c4 Delete type=2 #11
+2024/04/08-02:35:47.647 54c4 Delete type=2 #14

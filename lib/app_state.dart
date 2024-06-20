@@ -38,9 +38,9 @@ class FFAppState extends ChangeNotifier {
 
   String _email = '';
   String get email => _email;
-  set email(String _value) {
-    _email = _value;
-    prefs.setString('ff_email', _value);
+  set email(String value) {
+    _email = value;
+    prefs.setString('ff_email', value);
   }
 
   String _selectedFileName = '';
@@ -51,9 +51,9 @@ class FFAppState extends ChangeNotifier {
 
   String _password = '';
   String get password => _password;
-  set password(String _value) {
-    _password = _value;
-    prefs.setString('ff_password', _value);
+  set password(String value) {
+    _password = value;
+    prefs.setString('ff_password', value);
   }
 }
 

@@ -72,6 +72,11 @@ class InvestmentDataRecord extends FirestoreRecord {
   DateTime? get createdDate => _createdDate;
   bool hasCreatedDate() => _createdDate != null;
 
+  // "Balance" field.
+  double? _balance;
+  double get balance => _balance ?? 0.0;
+  bool hasBalance() => _balance != null;
+
   void _initializeFields() {
     _amount = castToType<double>(snapshotData['amount']);
     _investorEvaluation =
@@ -86,6 +91,7 @@ class InvestmentDataRecord extends FirestoreRecord {
     _points = castToType<double>(snapshotData['points']);
     _investorId = snapshotData['investor_id'] as String?;
     _createdDate = snapshotData['created_date'] as DateTime?;
+    _balance = castToType<double>(snapshotData['Balance']);
   }
 
   static CollectionReference get collection =>
@@ -134,6 +140,7 @@ Map<String, dynamic> createInvestmentDataRecordData({
   double? points,
   String? investorId,
   DateTime? createdDate,
+  double? balance,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -148,6 +155,7 @@ Map<String, dynamic> createInvestmentDataRecordData({
       'points': points,
       'investor_id': investorId,
       'created_date': createdDate,
+      'Balance': balance,
     }.withoutNulls,
   );
 
@@ -170,7 +178,8 @@ class InvestmentDataRecordDocumentEquality
         e1?.duration == e2?.duration &&
         e1?.points == e2?.points &&
         e1?.investorId == e2?.investorId &&
-        e1?.createdDate == e2?.createdDate;
+        e1?.createdDate == e2?.createdDate &&
+        e1?.balance == e2?.balance;
   }
 
   @override
@@ -185,7 +194,8 @@ class InvestmentDataRecordDocumentEquality
         e?.duration,
         e?.points,
         e?.investorId,
-        e?.createdDate
+        e?.createdDate,
+        e?.balance
       ]);
 
   @override

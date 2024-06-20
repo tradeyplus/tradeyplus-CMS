@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'modal_create_project_widget.dart' show ModalCreateProjectWidget;
 import 'package:cached_network_image/cached_network_image.dart';
@@ -21,9 +22,10 @@ class ModalCreateProjectModel
   final formKey = GlobalKey<FormState>();
   // State field(s) for projectName widget.
   FocusNode? projectNameFocusNode;
-  TextEditingController? projectNameController;
-  String? Function(BuildContext, String?)? projectNameControllerValidator;
-  String? _projectNameControllerValidator(BuildContext context, String? val) {
+  TextEditingController? projectNameTextController;
+  String? Function(BuildContext, String?)? projectNameTextControllerValidator;
+  String? _projectNameTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         '4spmowtt' /* Please enter a project name... */,
@@ -35,9 +37,10 @@ class ModalCreateProjectModel
 
   // State field(s) for description widget.
   FocusNode? descriptionFocusNode;
-  TextEditingController? descriptionController;
-  String? Function(BuildContext, String?)? descriptionControllerValidator;
-  String? _descriptionControllerValidator(BuildContext context, String? val) {
+  TextEditingController? descriptionTextController;
+  String? Function(BuildContext, String?)? descriptionTextControllerValidator;
+  String? _descriptionTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'wfu6up0n' /* Please enter a short descripti... */,
@@ -49,16 +52,16 @@ class ModalCreateProjectModel
 
   @override
   void initState(BuildContext context) {
-    projectNameControllerValidator = _projectNameControllerValidator;
-    descriptionControllerValidator = _descriptionControllerValidator;
+    projectNameTextControllerValidator = _projectNameTextControllerValidator;
+    descriptionTextControllerValidator = _descriptionTextControllerValidator;
   }
 
   @override
   void dispose() {
     projectNameFocusNode?.dispose();
-    projectNameController?.dispose();
+    projectNameTextController?.dispose();
 
     descriptionFocusNode?.dispose();
-    descriptionController?.dispose();
+    descriptionTextController?.dispose();
   }
 }

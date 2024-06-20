@@ -46,39 +46,36 @@ class _LogPageWidgetState extends State<LogPageWidget> {
           queryBuilder: (logRecord) =>
               logRecord.orderBy('log_time', descending: true),
         );
-        setState(() {
-          _model.filterLog = _model.investmentData!
-              .where((e) =>
-                  (e.logType == LogType.CREATE_INVESTMENT_DATA) ||
-                  (e.logType == LogType.UPDATE_INVESTMENT_DATA) ||
-                  (e.logType == LogType.UPLOAD_DOC))
-              .toList()
-              .toList()
-              .cast<LogRecord>();
-        });
+        _model.filterLog = _model.investmentData!
+            .where((e) =>
+                (e.logType == LogType.CREATE_INVESTMENT_DATA) ||
+                (e.logType == LogType.UPDATE_INVESTMENT_DATA) ||
+                (e.logType == LogType.UPLOAD_DOC))
+            .toList()
+            .toList()
+            .cast<LogRecord>();
+        setState(() {});
       } else {
         if (widget.typeLog == 'UserEntry') {
           _model.userEntry = await queryLogRecordOnce(
             queryBuilder: (logRecord) =>
                 logRecord.orderBy('log_time', descending: true),
           );
-          setState(() {
-            _model.filterLog = _model.userEntry!
-                .where((e) =>
-                    (e.logType == LogType.CREATE_USER) ||
-                    (e.logType == LogType.UPDATE_USER))
-                .toList()
-                .toList()
-                .cast<LogRecord>();
-          });
+          _model.filterLog = _model.userEntry!
+              .where((e) =>
+                  (e.logType == LogType.CREATE_USER) ||
+                  (e.logType == LogType.UPDATE_USER))
+              .toList()
+              .toList()
+              .cast<LogRecord>();
+          setState(() {});
         } else {
           _model.allLog = await queryLogRecordOnce(
             queryBuilder: (logRecord) =>
                 logRecord.orderBy('log_time', descending: true),
           );
-          setState(() {
-            _model.filterLog = _model.allLog!.toList().cast<LogRecord>();
-          });
+          _model.filterLog = _model.allLog!.toList().cast<LogRecord>();
+          setState(() {});
         }
       }
     });

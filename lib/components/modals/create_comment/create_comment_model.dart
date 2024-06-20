@@ -11,8 +11,8 @@ class CreateCommentModel extends FlutterFlowModel<CreateCommentWidget> {
 
   // State field(s) for shortBio widget.
   FocusNode? shortBioFocusNode;
-  TextEditingController? shortBioController;
-  String? Function(BuildContext, String?)? shortBioControllerValidator;
+  TextEditingController? shortBioTextController;
+  String? Function(BuildContext, String?)? shortBioTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -20,6 +20,6 @@ class CreateCommentModel extends FlutterFlowModel<CreateCommentWidget> {
   @override
   void dispose() {
     shortBioFocusNode?.dispose();
-    shortBioController?.dispose();
+    shortBioTextController?.dispose();
   }
 }

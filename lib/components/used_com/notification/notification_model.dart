@@ -2,6 +2,7 @@ import '/components/used_com/log_page/log_page_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'notification_widget.dart' show NotificationWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';

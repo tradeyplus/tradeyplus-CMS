@@ -38,6 +38,10 @@ class CompanyEntryModel extends FlutterFlowModel<CompanyEntryWidget> {
   FocusNode? evaluationFocusNode;
   TextEditingController? evaluationTextController;
   String? Function(BuildContext, String?)? evaluationTextControllerValidator;
+  // State field(s) for Balance widget.
+  FocusNode? balanceFocusNode;
+  TextEditingController? balanceTextController;
+  String? Function(BuildContext, String?)? balanceTextControllerValidator;
   // State field(s) for points widget.
   FocusNode? pointsFocusNode;
   TextEditingController? pointsTextController;
@@ -51,15 +55,15 @@ class CompanyEntryModel extends FlutterFlowModel<CompanyEntryWidget> {
   String? Function(BuildContext, String?)? amountTextControllerValidator;
   // State field(s) for Date widget.
   FocusNode? dateFocusNode;
-  TextEditingController? dateController;
+  TextEditingController? dateTextController;
   final dateMask = MaskTextInputFormatter(mask: '##%');
-  String? Function(BuildContext, String?)? dateControllerValidator;
+  String? Function(BuildContext, String?)? dateTextControllerValidator;
   DateTime? datePicked;
   // State field(s) for profitRatio widget.
   FocusNode? profitRatioFocusNode;
   TextEditingController? profitRatioTextController;
   final profitRatioMask = MaskTextInputFormatter(mask: '##%');
-  String? Function(BuildContext, String?)? profitRatioControllerValidator;
+  String? Function(BuildContext, String?)? profitRatioTextControllerValidator;
   // State field(s) for Transction_Type widget.
   String? transctionTypeValue;
   FormFieldController<String>? transctionTypeValueController;
@@ -89,16 +93,17 @@ class CompanyEntryModel extends FlutterFlowModel<CompanyEntryWidget> {
     evaluationFocusNode?.dispose();
     evaluationTextController?.dispose();
 
+    balanceFocusNode?.dispose();
+    balanceTextController?.dispose();
+
     pointsFocusNode?.dispose();
     pointsTextController?.dispose();
-
 
     amountFocusNode?.dispose();
     amountTextController?.dispose();
 
-
     dateFocusNode?.dispose();
-    dateController?.dispose();
+    dateTextController?.dispose();
 
     profitRatioFocusNode?.dispose();
     profitRatioTextController?.dispose();
