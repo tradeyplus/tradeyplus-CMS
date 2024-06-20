@@ -170,11 +170,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : CompanyEntryWidget(),
             ),
             FFRoute(
-              name: 'Bulk_Data',
-              path: 'bulkData',
-              builder: (context, params) => BulkDataWidget(),
-            ),
-            FFRoute(
               name: 'ListUserNLog',
               path: 'listUserNLog',
               builder: (context, params) => ListUserNLogWidget(),

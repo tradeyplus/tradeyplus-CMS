@@ -206,63 +206,6 @@ class _WebNavWidgetState extends State<WebNavWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          logFirebaseEvent('WEB_NAV_COMP_Row_t4jnflbm_ON_TAP');
-
-                          context.pushNamed(
-                            'Bulk_Data',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 0),
-                              ),
-                            },
-                          );
-                        },
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 40.0,
-                              child: VerticalDivider(
-                                thickness: 3.0,
-                                color: widget.selectedNav == 4
-                                    ? FlutterFlowTheme.of(context).primary
-                                    : Color(0x00F1F4F8),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 0.0, 0.0, 0.0),
-                                child: Icon(
-                                  Icons.list_alt,
-                                  color: widget.selectedNav == 4
-                                      ? FlutterFlowTheme.of(context).primary
-                                      : Color(0xFFABABAB),
-                                  size: 35.0,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      height: 61.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
                           logFirebaseEvent('WEB_NAV_COMP_Row_bwy0h7vq_ON_TAP');
 
                           context.pushNamed(

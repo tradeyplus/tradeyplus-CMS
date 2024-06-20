@@ -2012,310 +2012,313 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                         ),
                                       ),
                                     ),
-                                    Align(
-                                      alignment: AlignmentDirectional(1.0, 0.0),
-                                      child: FFButtonWidget(
-                                        onPressed:
-                                            ((_model.evaluationTextController
-                                                                .text ==
-                                                            null ||
-                                                        _model.evaluationTextController.text ==
-                                                            '') &&
-                                                    (_model.pointsTextController.text == null ||
-                                                        _model.pointsTextController.text ==
-                                                            '') &&
-                                                    (_model.investorDropdownValue == null ||
-                                                        _model.investorDropdownValue ==
-                                                            '') &&
-                                                    (_model.amountTextController.text ==
-                                                            null ||
-                                                        _model.amountTextController
-                                                                .text ==
-                                                            '') &&
-                                                    (_model.datePicked ==
-                                                        null) &&
-                                                    (_model.profitRatioTextController
-                                                                .text ==
-                                                            null ||
-                                                        _model.profitRatioTextController
-                                                                .text ==
-                                                            '') &&
-                                                    (_model.transctionTypeValue ==
-                                                            null ||
-                                                        _model.transctionTypeValue ==
-                                                            '') &&
-                                                    (_model.durationOptionsValue ==
-                                                        null))
-                                                ? null
-                                                : () async {
-                                                    logFirebaseEvent(
-                                                        'COMPANY_ENTRY_CREATE_DATA_BTN_ON_TAP');
-                                                    final firestoreBatch =
-                                                        FirebaseFirestore
-                                                            .instance
-                                                            .batch();
-                                                    try {
-                                                      _model.investorDoc =
-                                                          await queryUsersRecordOnce(
-                                                        queryBuilder:
-                                                            (usersRecord) =>
-                                                                usersRecord
-                                                                    .where(
-                                                          'uid',
-                                                          isEqualTo: _model
-                                                              .investorDropdownValue,
-                                                        ),
-                                                        singleRecord: true,
-                                                      ).then((s) =>
-                                                              s.firstOrNull);
-                                                      var confirmDialogResponse =
-                                                          await showDialog<
-                                                                  bool>(
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (alertDialogContext) {
-                                                                  return AlertDialog(
-                                                                    title: Text(
-                                                                        'Confirm Dialog'),
-                                                                    content: Text(
-                                                                        'Please Double Check your Data if everything is Ok. Click Confirm else Click Cancel'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed: () => Navigator.pop(
-                                                                            alertDialogContext,
-                                                                            false),
-                                                                        child: Text(
-                                                                            'Cancel'),
-                                                                      ),
-                                                                      TextButton(
-                                                                        onPressed: () => Navigator.pop(
-                                                                            alertDialogContext,
-                                                                            true),
-                                                                        child: Text(
-                                                                            'Confirm'),
-                                                                      ),
-                                                                    ],
-                                                                  );
-                                                                },
-                                                              ) ??
-                                                              false;
-                                                      if (confirmDialogResponse) {
-                                                        var investmentDataRecordReference =
-                                                            InvestmentDataRecord
-                                                                .collection
-                                                                .doc();
-                                                        firestoreBatch.set(
-                                                            investmentDataRecordReference,
-                                                            createInvestmentDataRecordData(
-                                                              amount: double
-                                                                  .tryParse(_model
-                                                                      .amountTextController
-                                                                      .text),
-                                                              investorEvaluation:
-                                                                  double.tryParse(
-                                                                      _model
-                                                                          .evaluationTextController
-                                                                          .text),
-                                                              profitRatio: double
-                                                                  .tryParse(_model
-                                                                      .profitRatioTextController
-                                                                      .text),
-                                                              investorRef: _model
-                                                                  .investorDoc
-                                                                  ?.reference,
-                                                              transactionType:
-                                                                  () {
-                                                                if (_model
-                                                                        .transctionTypeValue ==
-                                                                    'Deposite') {
-                                                                  return TransactionType
-                                                                      .DEPOSIT;
-                                                                } else if (_model
-                                                                        .transctionTypeValue ==
-                                                                    'Profit') {
-                                                                  return TransactionType
-                                                                      .PROFIT;
-                                                                } else {
-                                                                  return TransactionType
-                                                                      .COMMISSION;
-                                                                }
-                                                              }(),
-                                                              investmentId:
-                                                                  random_data
-                                                                      .randomString(
-                                                                10,
-                                                                15,
-                                                                true,
-                                                                true,
-                                                                true,
-                                                              ),
-                                                              duration: _model
-                                                                  .durationOptionsValue,
-                                                              points: double
-                                                                  .tryParse(_model
-                                                                      .pointsTextController
-                                                                      .text),
-                                                              investorId: _model
-                                                                  .investorDoc
-                                                                  ?.uid,
-                                                              createdDate: _model
-                                                                  .datePicked,
-                                                              balance: double
-                                                                  .tryParse(_model
-                                                                      .balanceTextController
-                                                                      .text),
-                                                            ));
-                                                        _model.createdInvesmntdata =
-                                                            InvestmentDataRecord
-                                                                .getDocumentFromData(
-                                                                    createInvestmentDataRecordData(
-                                                                      amount: double.tryParse(_model
-                                                                          .amountTextController
-                                                                          .text),
-                                                                      investorEvaluation: double.tryParse(_model
-                                                                          .evaluationTextController
-                                                                          .text),
-                                                                      profitRatio: double.tryParse(_model
-                                                                          .profitRatioTextController
-                                                                          .text),
-                                                                      investorRef: _model
-                                                                          .investorDoc
-                                                                          ?.reference,
-                                                                      transactionType:
-                                                                          () {
-                                                                        if (_model.transctionTypeValue ==
-                                                                            'Deposite') {
-                                                                          return TransactionType
-                                                                              .DEPOSIT;
-                                                                        } else if (_model.transctionTypeValue ==
-                                                                            'Profit') {
-                                                                          return TransactionType
-                                                                              .PROFIT;
-                                                                        } else {
-                                                                          return TransactionType
-                                                                              .COMMISSION;
-                                                                        }
-                                                                      }(),
-                                                                      investmentId:
-                                                                          random_data
-                                                                              .randomString(
-                                                                        10,
-                                                                        15,
-                                                                        true,
-                                                                        true,
-                                                                        true,
-                                                                      ),
-                                                                      duration:
-                                                                          _model
-                                                                              .durationOptionsValue,
-                                                                      points: double.tryParse(_model
-                                                                          .pointsTextController
-                                                                          .text),
-                                                                      investorId: _model
-                                                                          .investorDoc
-                                                                          ?.uid,
-                                                                      createdDate:
-                                                                          _model
-                                                                              .datePicked,
-                                                                      balance: double.tryParse(_model
-                                                                          .balanceTextController
-                                                                          .text),
+                                    if (valueOrDefault<bool>(
+                                      _model.selectedbulk == true,
+                                      false,
+                                    ))
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.0, 0.0),
+                                        child: FFButtonWidget(
+                                          onPressed: ((_model
+                                                              .evaluationTextController
+                                                              .text ==
+                                                          null ||
+                                                      _model.evaluationTextController.text ==
+                                                          '') &&
+                                                  (_model.pointsTextController.text == null ||
+                                                      _model.pointsTextController.text ==
+                                                          '') &&
+                                                  (_model.investorDropdownValue == null ||
+                                                      _model.investorDropdownValue ==
+                                                          '') &&
+                                                  (_model.amountTextController.text == null ||
+                                                      _model.amountTextController.text ==
+                                                          '') &&
+                                                  (_model.datePicked == null) &&
+                                                  (_model.profitRatioTextController.text ==
+                                                          null ||
+                                                      _model.profitRatioTextController
+                                                              .text ==
+                                                          '') &&
+                                                  (_model.transctionTypeValue ==
+                                                          null ||
+                                                      _model.transctionTypeValue ==
+                                                          '') &&
+                                                  (_model.durationOptionsValue ==
+                                                      null))
+                                              ? null
+                                              : () async {
+                                                  logFirebaseEvent(
+                                                      'COMPANY_ENTRY_CREATE_DATA_BTN_ON_TAP');
+                                                  final firestoreBatch =
+                                                      FirebaseFirestore.instance
+                                                          .batch();
+                                                  try {
+                                                    _model.investorDoc =
+                                                        await queryUsersRecordOnce(
+                                                      queryBuilder:
+                                                          (usersRecord) =>
+                                                              usersRecord.where(
+                                                        'uid',
+                                                        isEqualTo: _model
+                                                            .investorDropdownValue,
+                                                      ),
+                                                      singleRecord: true,
+                                                    ).then((s) =>
+                                                            s.firstOrNull);
+                                                    var confirmDialogResponse =
+                                                        await showDialog<bool>(
+                                                              context: context,
+                                                              builder:
+                                                                  (alertDialogContext) {
+                                                                return AlertDialog(
+                                                                  title: Text(
+                                                                      'Confirm Dialog'),
+                                                                  content: Text(
+                                                                      'Please Double Check your Data if everything is Ok. Click Confirm else Click Cancel'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed: () => Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                      child: Text(
+                                                                          'Cancel'),
                                                                     ),
-                                                                    investmentDataRecordReference);
+                                                                    TextButton(
+                                                                      onPressed: () => Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                      child: Text(
+                                                                          'Confirm'),
+                                                                    ),
+                                                                  ],
+                                                                );
+                                                              },
+                                                            ) ??
+                                                            false;
+                                                    if (confirmDialogResponse) {
+                                                      var investmentDataRecordReference =
+                                                          InvestmentDataRecord
+                                                              .collection
+                                                              .doc();
+                                                      firestoreBatch.set(
+                                                          investmentDataRecordReference,
+                                                          createInvestmentDataRecordData(
+                                                            amount: double
+                                                                .tryParse(_model
+                                                                    .amountTextController
+                                                                    .text),
+                                                            investorEvaluation:
+                                                                double.tryParse(
+                                                                    _model
+                                                                        .evaluationTextController
+                                                                        .text),
+                                                            profitRatio: double
+                                                                .tryParse(_model
+                                                                    .profitRatioTextController
+                                                                    .text),
+                                                            investorRef: _model
+                                                                .investorDoc
+                                                                ?.reference,
+                                                            transactionType:
+                                                                () {
+                                                              if (_model
+                                                                      .transctionTypeValue ==
+                                                                  'Deposite') {
+                                                                return TransactionType
+                                                                    .DEPOSIT;
+                                                              } else if (_model
+                                                                      .transctionTypeValue ==
+                                                                  'Profit') {
+                                                                return TransactionType
+                                                                    .PROFIT;
+                                                              } else {
+                                                                return TransactionType
+                                                                    .COMMISSION;
+                                                              }
+                                                            }(),
+                                                            investmentId:
+                                                                random_data
+                                                                    .randomString(
+                                                              10,
+                                                              15,
+                                                              true,
+                                                              true,
+                                                              true,
+                                                            ),
+                                                            duration: _model
+                                                                .durationOptionsValue,
+                                                            points: double
+                                                                .tryParse(_model
+                                                                    .pointsTextController
+                                                                    .text),
+                                                            investorId: _model
+                                                                .investorDoc
+                                                                ?.uid,
+                                                            createdDate: _model
+                                                                .datePicked,
+                                                            balance: double
+                                                                .tryParse(_model
+                                                                    .balanceTextController
+                                                                    .text),
+                                                          ));
+                                                      _model.createdInvesmntdata =
+                                                          InvestmentDataRecord
+                                                              .getDocumentFromData(
+                                                                  createInvestmentDataRecordData(
+                                                                    amount: double
+                                                                        .tryParse(_model
+                                                                            .amountTextController
+                                                                            .text),
+                                                                    investorEvaluation:
+                                                                        double.tryParse(_model
+                                                                            .evaluationTextController
+                                                                            .text),
+                                                                    profitRatio:
+                                                                        double.tryParse(_model
+                                                                            .profitRatioTextController
+                                                                            .text),
+                                                                    investorRef: _model
+                                                                        .investorDoc
+                                                                        ?.reference,
+                                                                    transactionType:
+                                                                        () {
+                                                                      if (_model
+                                                                              .transctionTypeValue ==
+                                                                          'Deposite') {
+                                                                        return TransactionType
+                                                                            .DEPOSIT;
+                                                                      } else if (_model
+                                                                              .transctionTypeValue ==
+                                                                          'Profit') {
+                                                                        return TransactionType
+                                                                            .PROFIT;
+                                                                      } else {
+                                                                        return TransactionType
+                                                                            .COMMISSION;
+                                                                      }
+                                                                    }(),
+                                                                    investmentId:
+                                                                        random_data
+                                                                            .randomString(
+                                                                      10,
+                                                                      15,
+                                                                      true,
+                                                                      true,
+                                                                      true,
+                                                                    ),
+                                                                    duration: _model
+                                                                        .durationOptionsValue,
+                                                                    points: double
+                                                                        .tryParse(_model
+                                                                            .pointsTextController
+                                                                            .text),
+                                                                    investorId: _model
+                                                                        .investorDoc
+                                                                        ?.uid,
+                                                                    createdDate:
+                                                                        _model
+                                                                            .datePicked,
+                                                                    balance: double
+                                                                        .tryParse(_model
+                                                                            .balanceTextController
+                                                                            .text),
+                                                                  ),
+                                                                  investmentDataRecordReference);
 
-                                                        firestoreBatch.update(
-                                                            _model
-                                                                .createdInvesmntdata!
-                                                                .reference,
-                                                            createInvestmentDataRecordData(
-                                                              investmentRef: _model
-                                                                  .createdInvesmntdata
-                                                                  ?.reference,
-                                                            ));
+                                                      firestoreBatch.update(
+                                                          _model
+                                                              .createdInvesmntdata!
+                                                              .reference,
+                                                          createInvestmentDataRecordData(
+                                                            investmentRef: _model
+                                                                .createdInvesmntdata
+                                                                ?.reference,
+                                                          ));
 
-                                                        firestoreBatch.update(
-                                                            _model.investorDoc!
-                                                                .reference,
-                                                            {
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'balance': FieldValue.increment(
-                                                                      double.parse(_model
-                                                                          .amountTextController
-                                                                          .text)),
-                                                                  'points': FieldValue.increment(
-                                                                      int.parse(_model
-                                                                          .pointsTextController
-                                                                          .text)),
-                                                                },
-                                                              ),
-                                                            });
+                                                      firestoreBatch.update(
+                                                          _model.investorDoc!
+                                                              .reference,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'balance': FieldValue.increment(
+                                                                    double.parse(_model
+                                                                        .amountTextController
+                                                                        .text)),
+                                                                'points': FieldValue.increment(
+                                                                    int.parse(_model
+                                                                        .pointsTextController
+                                                                        .text)),
+                                                              },
+                                                            ),
+                                                          });
 
-                                                        context.goNamed(
-                                                            'Main_Home');
+                                                      context
+                                                          .goNamed('Main_Home');
 
-                                                        firestoreBatch.set(
-                                                            LogRecord.collection
-                                                                .doc(),
-                                                            createLogRecordData(
-                                                              logUserRef:
-                                                                  currentUserReference,
-                                                              logType: LogType
-                                                                  .CREATE_INVESTMENT_DATA,
-                                                              logTime:
-                                                                  getCurrentTimestamp,
-                                                              logUserName:
-                                                                  currentUserDisplayName,
-                                                              logUserId:
-                                                                  currentUserUid,
-                                                            ));
-                                                      }
-                                                    } finally {
-                                                      await firestoreBatch
-                                                          .commit();
+                                                      firestoreBatch.set(
+                                                          LogRecord.collection
+                                                              .doc(),
+                                                          createLogRecordData(
+                                                            logUserRef:
+                                                                currentUserReference,
+                                                            logType: LogType
+                                                                .CREATE_INVESTMENT_DATA,
+                                                            logTime:
+                                                                getCurrentTimestamp,
+                                                            logUserName:
+                                                                currentUserDisplayName,
+                                                            logUserId:
+                                                                currentUserUid,
+                                                          ));
                                                     }
+                                                  } finally {
+                                                    await firestoreBatch
+                                                        .commit();
+                                                  }
 
-                                                    setState(() {});
-                                                  },
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          'iy8k83ai' /* Create  Data */,
-                                        ),
-                                        options: FFButtonOptions(
-                                          width: 200.0,
-                                          height: 50.0,
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 0.0, 24.0, 0.0),
-                                          iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: Color(0xFF304DAF),
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Inter',
-                                                    color: Colors.white,
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                          elevation: 3.0,
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1.0,
+                                                  setState(() {});
+                                                },
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'iy8k83ai' /* Create  Data */,
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                          disabledColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .error,
-                                          disabledTextColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary,
+                                          options: FFButtonOptions(
+                                            width: 200.0,
+                                            height: 50.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    24.0, 0.0, 24.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: Color(0xFF304DAF),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Inter',
+                                                      color: Colors.white,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            elevation: 3.0,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                            disabledColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .error,
+                                            disabledTextColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
                                         ),
                                       ),
-                                    ),
                                   ].divide(SizedBox(height: 25.0)),
                                 ),
                               ),

@@ -1778,7 +1778,7 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    '8k5leo4e' /* Email */,
+                                                                    '8k5leo4e' /* Balance */,
                                                                   ),
                                                                   textAlign:
                                                                       TextAlign
@@ -1939,7 +1939,8 @@ class _MainCustomerListWidgetState extends State<MainCustomerListWidget>
                                                               ),
                                                               Text(
                                                                 userDetailItem
-                                                                    .email,
+                                                                    .balance
+                                                                    .toString(),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium

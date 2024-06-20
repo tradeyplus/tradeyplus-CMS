@@ -52,7 +52,9 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
 
     _model.lastnameFocusNode ??= FocusNode();
 
-    _model.addressFocusNode ??= FocusNode();
+    _model.addressFocusNode1 ??= FocusNode();
+
+    _model.addressFocusNode2 ??= FocusNode();
 
     _model.emailFocusNode ??= FocusNode();
 
@@ -1259,7 +1261,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       Text(
                                                                         FFLocalizations.of(context)
                                                                             .getText(
-                                                                          '8f12y1kw' /* Address */,
+                                                                          '8f12y1kw' /* Balance */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyLarge
@@ -1273,20 +1275,20 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       ),
                                                                       TextFormField(
                                                                         controller:
-                                                                            _model.addressTextController ??=
+                                                                            _model.addressTextController1 ??=
                                                                                 TextEditingController(
                                                                           text:
                                                                               valueOrDefault<String>(
-                                                                            containerUsersRecord.address,
+                                                                            containerUsersRecord.balance.toString(),
                                                                             '0',
                                                                           ),
                                                                         ),
                                                                         focusNode:
-                                                                            _model.addressFocusNode,
+                                                                            _model.addressFocusNode1,
                                                                         onChanged:
                                                                             (_) =>
                                                                                 EasyDebounce.debounce(
-                                                                          '_model.addressTextController',
+                                                                          '_model.addressTextController1',
                                                                           Duration(
                                                                               milliseconds: 100),
                                                                           () =>
@@ -1369,7 +1371,137 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                         validator: _model
-                                                                            .addressTextControllerValidator
+                                                                            .addressTextController1Validator
+                                                                            .asValidator(context),
+                                                                      ),
+                                                                    ].divide(SizedBox(
+                                                                        height:
+                                                                            16.0)),
+                                                                  ),
+                                                                ),
+                                                                Expanded(
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          'lw61q0su' /* Address */,
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: FlutterFlowTheme.of(context).accent1,
+                                                                              fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
+                                                                      ),
+                                                                      TextFormField(
+                                                                        controller:
+                                                                            _model.addressTextController2 ??=
+                                                                                TextEditingController(
+                                                                          text:
+                                                                              valueOrDefault<String>(
+                                                                            containerUsersRecord.address,
+                                                                            '0',
+                                                                          ),
+                                                                        ),
+                                                                        focusNode:
+                                                                            _model.addressFocusNode2,
+                                                                        onChanged:
+                                                                            (_) =>
+                                                                                EasyDebounce.debounce(
+                                                                          '_model.addressTextController2',
+                                                                          Duration(
+                                                                              milliseconds: 100),
+                                                                          () =>
+                                                                              setState(() {}),
+                                                                        ),
+                                                                        autofocus:
+                                                                            true,
+                                                                        obscureText:
+                                                                            false,
+                                                                        decoration:
+                                                                            InputDecoration(
+                                                                          labelStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                          hintText:
+                                                                              FFLocalizations.of(context).getText(
+                                                                            't2ou2bip' /* Address.... */,
+                                                                          ),
+                                                                          hintStyle: FlutterFlowTheme.of(context)
+                                                                              .labelLarge
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                                lineHeight: 1.5,
+                                                                              ),
+                                                                          enabledBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).border,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          focusedBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          errorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).error,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          focusedErrorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).error,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          filled:
+                                                                              true,
+                                                                          fillColor:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                        validator: _model
+                                                                            .addressTextController2Validator
                                                                             .asValidator(context),
                                                                       ),
                                                                     ].divide(SizedBox(
@@ -3117,8 +3249,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                       (_model.packageValue == null ||
                                                                           _model.packageValue ==
                                                                               '') ||
-                                                                      (_model.addressTextController.text == null ||
-                                                                          _model.addressTextController.text ==
+                                                                      (_model.addressTextController1.text == null ||
+                                                                          _model.addressTextController1.text ==
                                                                               '') ||
                                                                       (_model.emailTextController.text == null ||
                                                                           _model.emailTextController.text ==
@@ -3204,7 +3336,7 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                         address:
                                                                             valueOrDefault<String>(
                                                                           _model
-                                                                              .addressTextController
+                                                                              .addressTextController1
                                                                               .text,
                                                                           'N/A',
                                                                         ),
@@ -6871,6 +7003,8 @@ class _UserEntryWidgetState extends State<UserEntryWidget> {
                                                                             return 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60';
                                                                           }
                                                                         }(),
+                                                                        balance:
+                                                                            0.0,
                                                                       ));
 
                                                                   _model.out =

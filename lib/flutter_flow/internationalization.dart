@@ -672,7 +672,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': '',
     },
     '8k5leo4e': {
-      'en': 'Email',
+      'en': 'Balance',
       'bn': '',
       'hi': '',
       'ml': '',
@@ -1247,7 +1247,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': '',
     },
     '8f12y1kw': {
-      'en': 'Address',
+      'en': 'Balance',
       'bn': '',
       'hi': '',
       'ml': '',
@@ -1257,6 +1257,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': '',
     },
     'x7itvnhs': {
+      'en': 'Address....',
+      'bn': '',
+      'hi': '',
+      'ml': '',
+      'or': '',
+      'ta': '',
+      'te': '',
+      'ur': '',
+    },
+    'lw61q0su': {
+      'en': 'Address',
+      'bn': '',
+      'hi': '',
+      'ml': '',
+      'or': '',
+      'ta': '',
+      'te': '',
+      'ur': '',
+    },
+    't2ou2bip': {
       'en': 'Address....',
       'bn': '',
       'hi': '',
@@ -2900,132 +2920,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': '',
     },
   },
-  // Bulk_Data
-  {
-    '0u1p86hf': {
-      'en': 'Customers',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-    'pg5qe7su': {
-      'en': 'Our Users',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-    'eu7wfaki': {
-      'en': 'Search Order',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-    '5gwpxwdw': {
-      'en': 'Create Users',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-    'hwdrl5ck': {
-      'en': 'Transaction Type',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-    'vwgj8gjb': {
-      'en': 'Amount',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-    'mi4n20ov': {
-      'en': 'Point',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-    'my4eruky': {
-      'en': 'Balance',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-    'cvh4slli': {
-      'en': 'InvestorID',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-    'yxnt9yy8': {
-      'en': 'Edit',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-    'gjk990kr': {
-      'en': 'Create Users',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-    '6qx357rx': {
-      'en': 'Home',
-      'bn': '',
-      'hi': '',
-      'ml': '',
-      'or': '',
-      'ta': '',
-      'te': '',
-      'ur': '',
-    },
-  },
   // ListUserNLog
   {
-    '0kyywvfm': {
+    'ads3b2ch': {
+      'en': 'Dashboard',
+      'bn': '',
+      'hi': '',
+      'ml': '',
+      'or': '',
+      'ta': '',
+      'te': '',
+      'ur': '',
+    },
+    '2al1pt49': {
       'en': 'Log List',
       'bn': '',
       'hi': '',
@@ -3035,7 +2942,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'fwhqxlb7': {
+    'jq5rfrsi': {
       'en': 'Log Activity',
       'bn': '',
       'hi': '',
@@ -3045,7 +2952,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'pa4upme9': {
+    'mkmmxsct': {
       'en': 'Below is the list of all Log.',
       'bn': '',
       'hi': '',
@@ -3055,7 +2962,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'vy49suw6': {
+    '5eqvp4h0': {
       'en': 'All',
       'bn': '',
       'hi': '',
@@ -3065,7 +2972,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '1gvcsl3j': {
+    'vq92leic': {
       'en': 'All',
       'bn': '',
       'hi': '',
@@ -3075,7 +2982,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'e2mdsak5': {
+    'r838tvzb': {
       'en': 'UPDATE_USER',
       'bn': '',
       'hi': '',
@@ -3085,7 +2992,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '30v1s10h': {
+    'bg0b0f2a': {
       'en': 'LOGIN',
       'bn': '',
       'hi': '',
@@ -3095,7 +3002,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'oou86oat': {
+    'a0wici1w': {
       'en': 'CREATE_INVESTMENT_DATA',
       'bn': '',
       'hi': '',
@@ -3105,7 +3012,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'qo672yzp': {
+    'qmavjw31': {
       'en': 'LOGOUT',
       'bn': '',
       'hi': '',
@@ -3115,7 +3022,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'l5qf22ye': {
+    'pllcurzq': {
       'en': 'EDIT_PROFILE',
       'bn': '',
       'hi': '',
@@ -3125,7 +3032,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'g14bey1l': {
+    'aeth0z8r': {
       'en': 'UPDATE_USER',
       'bn': '',
       'hi': '',
@@ -3135,7 +3042,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'tnmwzhxw': {
+    'syqyzu74': {
       'en': 'All',
       'bn': '',
       'hi': '',
@@ -3145,7 +3052,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '3g7zxecs': {
+    'wfyzvmx5': {
       'en': 'All',
       'bn': '',
       'hi': '',
@@ -3155,7 +3062,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'qdc0vnhz': {
+    '0jdsmw72': {
       'en': 'Search all User...',
       'bn': '',
       'hi': '',
@@ -3165,7 +3072,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'lf3hued6': {
+    '5m5z1oad': {
       'en': 'User List',
       'bn': '',
       'hi': '',
@@ -3175,7 +3082,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    '6mn2u3du': {
+    'h48srg0f': {
       'en': 'Investment Data',
       'bn': '',
       'hi': '',
@@ -3185,7 +3092,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'byjsdplw': {
+    'v5hqyut6': {
       'en': 'This is the summary of Users',
       'bn': '',
       'hi': '',
@@ -3195,8 +3102,78 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
       'ur': '',
     },
-    'bb3w2qk8': {
+    '3x6pnnff': {
       'en': 'Search all User...',
+      'bn': '',
+      'hi': '',
+      'ml': '',
+      'or': '',
+      'ta': '',
+      'te': '',
+      'ur': '',
+    },
+    'rb792g0o': {
+      'en': 'Investment List',
+      'bn': '',
+      'hi': '',
+      'ml': '',
+      'or': '',
+      'ta': '',
+      'te': '',
+      'ur': '',
+    },
+    'qo1zdq7e': {
+      'en': 'Investment list',
+      'bn': '',
+      'hi': '',
+      'ml': '',
+      'or': '',
+      'ta': '',
+      'te': '',
+      'ur': '',
+    },
+    'jlfxipdn': {
+      'en': 'Type of Transaction',
+      'bn': '',
+      'hi': '',
+      'ml': '',
+      'or': '',
+      'ta': '',
+      'te': '',
+      'ur': '',
+    },
+    '3hkcqute': {
+      'en': 'Amount',
+      'bn': '',
+      'hi': '',
+      'ml': '',
+      'or': '',
+      'ta': '',
+      'te': '',
+      'ur': '',
+    },
+    's2oc8nh5': {
+      'en': 'Duration',
+      'bn': '',
+      'hi': '',
+      'ml': '',
+      'or': '',
+      'ta': '',
+      'te': '',
+      'ur': '',
+    },
+    '7sqwdhxc': {
+      'en': 'Created Date',
+      'bn': '',
+      'hi': '',
+      'ml': '',
+      'or': '',
+      'ta': '',
+      'te': '',
+      'ur': '',
+    },
+    '6o3z0nl1': {
+      'en': 'Investor',
       'bn': '',
       'hi': '',
       'ml': '',

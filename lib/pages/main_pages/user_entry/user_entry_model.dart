@@ -62,9 +62,13 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
   String? packageValue;
   FormFieldController<String>? packageValueController;
   // State field(s) for address widget.
-  FocusNode? addressFocusNode;
-  TextEditingController? addressTextController;
-  String? Function(BuildContext, String?)? addressTextControllerValidator;
+  FocusNode? addressFocusNode1;
+  TextEditingController? addressTextController1;
+  String? Function(BuildContext, String?)? addressTextController1Validator;
+  // State field(s) for address widget.
+  FocusNode? addressFocusNode2;
+  TextEditingController? addressTextController2;
+  String? Function(BuildContext, String?)? addressTextController2Validator;
   // State field(s) for email widget.
   FocusNode? emailFocusNode;
   TextEditingController? emailTextController;
@@ -280,8 +284,11 @@ class UserEntryModel extends FlutterFlowModel<UserEntryWidget> {
     lastnameFocusNode?.dispose();
     lastnameTextController?.dispose();
 
-    addressFocusNode?.dispose();
-    addressTextController?.dispose();
+    addressFocusNode1?.dispose();
+    addressTextController1?.dispose();
+
+    addressFocusNode2?.dispose();
+    addressTextController2?.dispose();
 
     emailFocusNode?.dispose();
     emailTextController?.dispose();
