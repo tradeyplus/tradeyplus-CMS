@@ -1,0 +1,24 @@
+2024/04/21-01:04:13.458 412c Reusing MANIFEST C:\Users\panha\AppData\Local\Temp\flutter_tools.546f33ba\flutter_tools_chrome_device.7cb559b9\Default\IndexedDB\http_localhost_61755.indexeddb.leveldb/MANIFEST-000001
+2024/04/21-01:04:13.458 412c Recovering log #16
+2024/04/21-01:04:13.459 412c Reusing old log C:\Users\panha\AppData\Local\Temp\flutter_tools.546f33ba\flutter_tools_chrome_device.7cb559b9\Default\IndexedDB\http_localhost_61755.indexeddb.leveldb/000016.log 
+2024/04/21-01:04:13.465 412c Level-0 table #21: started
+2024/04/21-01:04:13.467 412c Level-0 table #21: 2214 bytes OK
+2024/04/21-01:04:13.469 412c Delete type=0 #16
+2024/04/21-01:04:13.469 412c Manual compaction at level-0 from '\x00\x08\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x09\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/04/21-01:04:16.184 412c Level-0 table #23: started
+2024/04/21-01:04:16.189 412c Level-0 table #23: 3222 bytes OK
+2024/04/21-01:04:16.190 412c Delete type=0 #20
+2024/04/21-01:04:16.191 2510 Manual compaction at level-0 from '\x00\x09\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0a\x00\x00\x00' @ 0 : 0; will stop at '\x00\x09\x00\x00\x05' @ 374 : 1
+2024/04/21-01:04:16.191 2510 Compacting 1@0 + 1@1 files
+2024/04/21-01:04:16.193 2510 Generated table #24@0: 37 keys, 3331 bytes
+2024/04/21-01:04:16.193 2510 Compacted 1@0 + 1@1 files => 3331 bytes
+2024/04/21-01:04:16.195 2510 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/04/21-01:04:16.195 2510 Delete type=2 #23
+2024/04/21-01:04:16.195 2510 Manual compaction at level-0 from '\x00\x09\x00\x00\x05' @ 374 : 1 .. '\x00\x0a\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/04/21-01:04:55.090 412c Compacting 1@1 + 1@2 files
+2024/04/21-01:04:55.097 412c Generated table #25@1: 54 keys, 3801 bytes
+2024/04/21-01:04:55.098 412c Compacted 1@1 + 1@2 files => 3801 bytes
+2024/04/21-01:04:55.100 412c compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/04/21-01:04:55.101 412c Delete type=2 #18
+2024/04/21-01:04:55.101 412c Delete type=2 #21
+2024/04/21-01:04:55.101 412c Delete type=2 #24
