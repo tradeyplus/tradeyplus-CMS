@@ -207,7 +207,10 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                         return FlutterFlowDropDown<String>(
                           controller: _model.dropDownValueController ??=
                               FormFieldController<String>(null),
-                          options: dropDownUsersRecordList
+                          options: List<String>.from(dropDownUsersRecordList
+                              .map((e) => e.uid)
+                              .toList()),
+                          optionLabels: dropDownUsersRecordList
                               .map((e) => e.displayName)
                               .toList(),
                           onChanged: (val) =>
@@ -220,7 +223,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                   kBreakpointSmall
                               ? 35.0
                               : 50.0,
-                          maxHeight: 150.0,
+                          maxHeight: 1.0,
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
@@ -235,7 +238,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                 fontWeight: FontWeight.bold,
                               ),
                           hintText: FFLocalizations.of(context).getText(
-                            'e59dl8b7' /* Month */,
+                            'e59dl8b7' /* Choose User */,
                           ),
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
@@ -349,138 +352,178 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 0.0),
                                     child: FFButtonWidget(
-                                      onPressed: () async {
-                                        logFirebaseEvent(
-                                            'UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
-                                        final selectedFiles = await selectFiles(
-                                          multiFile: false,
-                                        );
-                                        if (selectedFiles != null) {
-                                          setState(() =>
-                                              _model.isDataUploading = true);
-                                          var selectedUploadedFiles =
-                                              <FFUploadedFile>[];
+                                      onPressed: (_model.dropDownValue ==
+                                                  null ||
+                                              _model.dropDownValue == '')
+                                          ? null
+                                          : () async {
+                                              logFirebaseEvent(
+                                                  'UPLOAD_PAGE_COMP_BROWSE_FILE_BTN_ON_TAP');
+                                              final selectedFiles =
+                                                  await selectFiles(
+                                                multiFile: false,
+                                              );
+                                              if (selectedFiles != null) {
+                                                setState(() => _model
+                                                    .isDataUploading = true);
+                                                var selectedUploadedFiles =
+                                                    <FFUploadedFile>[];
 
-                                          try {
-                                            selectedUploadedFiles =
-                                                selectedFiles
-                                                    .map((m) => FFUploadedFile(
-                                                          name: m.storagePath
-                                                              .split('/')
-                                                              .last,
-                                                          bytes: m.bytes,
-                                                        ))
-                                                    .toList();
-                                          } finally {
-                                            _model.isDataUploading = false;
-                                          }
-                                          if (selectedUploadedFiles.length ==
-                                              selectedFiles.length) {
-                                            setState(() {
-                                              _model.uploadedLocalFile =
-                                                  selectedUploadedFiles.first;
-                                            });
-                                          } else {
-                                            setState(() {});
-                                            return;
-                                          }
-                                        }
+                                                try {
+                                                  selectedUploadedFiles =
+                                                      selectedFiles
+                                                          .map((m) =>
+                                                              FFUploadedFile(
+                                                                name: m
+                                                                    .storagePath
+                                                                    .split('/')
+                                                                    .last,
+                                                                bytes: m.bytes,
+                                                              ))
+                                                          .toList();
+                                                } finally {
+                                                  _model.isDataUploading =
+                                                      false;
+                                                }
+                                                if (selectedUploadedFiles
+                                                        .length ==
+                                                    selectedFiles.length) {
+                                                  setState(() {
+                                                    _model.uploadedLocalFile =
+                                                        selectedUploadedFiles
+                                                            .first;
+                                                  });
+                                                } else {
+                                                  setState(() {});
+                                                  return;
+                                                }
+                                              }
 
-                                        _model.userRef =
-                                            await queryUsersRecordOnce(
-                                          queryBuilder: (usersRecord) =>
-                                              usersRecord.where(
-                                            'uid',
-                                            isEqualTo: _model.dropDownValue,
-                                          ),
-                                          singleRecord: true,
-                                        ).then((s) => s.firstOrNull);
-
-                                        var investmentDataRecordReference =
-                                            InvestmentDataRecord.collection
-                                                .doc();
-                                        await investmentDataRecordReference
-                                            .set(createInvestmentDataRecordData(
-                                          amount: 0.0,
-                                          investorEvaluation: 0.0,
-                                          profitRatio: 5.0,
-                                          investorRef:
-                                              _model.userRef?.reference,
-                                          transactionType:
-                                              TransactionType.PROFIT,
-                                          investmentId:
-                                              random_data.randomString(
-                                            10,
-                                            15,
-                                            true,
-                                            true,
-                                            false,
-                                          ),
-                                          duration: 0,
-                                          points: 0.0,
-                                          investorId: random_data.randomString(
-                                            10,
-                                            15,
-                                            true,
-                                            true,
-                                            true,
-                                          ),
-                                          createdDate: getCurrentTimestamp,
-                                        ));
-                                        _model.investmentData = InvestmentDataRecord
-                                            .getDocumentFromData(
-                                                createInvestmentDataRecordData(
-                                                  amount: 0.0,
-                                                  investorEvaluation: 0.0,
-                                                  profitRatio: 5.0,
-                                                  investorRef:
-                                                      _model.userRef?.reference,
-                                                  transactionType:
-                                                      TransactionType.PROFIT,
-                                                  investmentId:
-                                                      random_data.randomString(
-                                                    10,
-                                                    15,
-                                                    true,
-                                                    true,
-                                                    false,
-                                                  ),
-                                                  duration: 0,
-                                                  points: 0.0,
-                                                  investorId:
-                                                      random_data.randomString(
-                                                    10,
-                                                    15,
-                                                    true,
-                                                    true,
-                                                    true,
-                                                  ),
-                                                  createdDate:
-                                                      getCurrentTimestamp,
+                                              _model.userRef =
+                                                  await queryUsersRecordOnce(
+                                                queryBuilder: (usersRecord) =>
+                                                    usersRecord.where(
+                                                  'uid',
+                                                  isEqualTo:
+                                                      _model.dropDownValue,
                                                 ),
-                                                investmentDataRecordReference);
+                                                singleRecord: true,
+                                              ).then((s) => s.firstOrNull);
 
-                                        await _model.investmentData!.reference
-                                            .update(
-                                                createInvestmentDataRecordData(
-                                          investmentRef:
-                                              _model.investmentData?.reference,
-                                        ));
+                                              var investmentDataRecordReference =
+                                                  InvestmentDataRecord
+                                                      .collection
+                                                      .doc();
+                                              await investmentDataRecordReference
+                                                  .set(
+                                                      createInvestmentDataRecordData(
+                                                amount: 0.0,
+                                                investorEvaluation: 0.0,
+                                                profitRatio: 5.0,
+                                                investorRef:
+                                                    _model.userRef?.reference,
+                                                transactionType:
+                                                    TransactionType.PROFIT,
+                                                investmentId:
+                                                    random_data.randomString(
+                                                  10,
+                                                  15,
+                                                  true,
+                                                  true,
+                                                  false,
+                                                ),
+                                                duration: 0,
+                                                points: 0.0,
+                                                investorId:
+                                                    random_data.randomString(
+                                                  10,
+                                                  15,
+                                                  true,
+                                                  true,
+                                                  true,
+                                                ),
+                                                createdDate:
+                                                    getCurrentTimestamp,
+                                              ));
+                                              _model.investmentData =
+                                                  InvestmentDataRecord
+                                                      .getDocumentFromData(
+                                                          createInvestmentDataRecordData(
+                                                            amount: 0.0,
+                                                            investorEvaluation:
+                                                                0.0,
+                                                            profitRatio: 5.0,
+                                                            investorRef: _model
+                                                                .userRef
+                                                                ?.reference,
+                                                            transactionType:
+                                                                TransactionType
+                                                                    .PROFIT,
+                                                            investmentId:
+                                                                random_data
+                                                                    .randomString(
+                                                              10,
+                                                              15,
+                                                              true,
+                                                              true,
+                                                              false,
+                                                            ),
+                                                            duration: 0,
+                                                            points: 0.0,
+                                                            investorId:
+                                                                random_data
+                                                                    .randomString(
+                                                              10,
+                                                              15,
+                                                              true,
+                                                              true,
+                                                              true,
+                                                            ),
+                                                            createdDate:
+                                                                getCurrentTimestamp,
+                                                          ),
+                                                          investmentDataRecordReference);
 
-                                        await LogRecord.collection
-                                            .doc()
-                                            .set(createLogRecordData(
-                                              logUserRef: currentUserReference,
-                                              logType: LogType
-                                                  .CREATE_INVESTMENT_DATA,
-                                              logTime: getCurrentTimestamp,
-                                              logUserName:
-                                                  currentUserDisplayName,
-                                              logUserId: currentUserUid,
-                                            ));
+                                              await _model
+                                                  .investmentData!.reference
+                                                  .update(
+                                                      createInvestmentDataRecordData(
+                                                investmentRef: _model
+                                                    .investmentData?.reference,
+                                              ));
 
-                                        setState(() {});
-                                      },
+                                              await _model.userRef!.reference
+                                                  .update({
+                                                ...mapToFirestore(
+                                                  {
+                                                    'balance':
+                                                        FieldValue.increment(
+                                                            _model.userRef!
+                                                                .balance),
+                                                    'points':
+                                                        FieldValue.increment(
+                                                            _model.userRef!
+                                                                .points),
+                                                  },
+                                                ),
+                                              });
+
+                                              await LogRecord.collection
+                                                  .doc()
+                                                  .set(createLogRecordData(
+                                                    logUserRef:
+                                                        currentUserReference,
+                                                    logType: LogType
+                                                        .CREATE_INVESTMENT_DATA,
+                                                    logTime:
+                                                        getCurrentTimestamp,
+                                                    logUserName:
+                                                        currentUserDisplayName,
+                                                    logUserId: currentUserUid,
+                                                  ));
+
+                                              setState(() {});
+                                            },
                                       text: FFLocalizations.of(context).getText(
                                         'yvm9kbwv' /* Browse File */,
                                       ),
@@ -505,6 +548,11 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(16.0),
+                                        disabledColor:
+                                            FlutterFlowTheme.of(context).error,
+                                        disabledTextColor:
+                                            FlutterFlowTheme.of(context)
+                                                .falling,
                                       ),
                                     ),
                                   ),

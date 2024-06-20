@@ -1,4 +1,4 @@
-import '/components/modals/modal_sections/user_details_main/user_details_main_widget.dart';
+import '/components/used_com/user_details_main/user_details_main_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';

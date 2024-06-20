@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/used_com/profile/profile_widget.dart';
+import '/components/profile/profile_widget.dart';
 import '/components/used_com/web_nav/web_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:math';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'main_home_widget.dart' show MainHomeWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';

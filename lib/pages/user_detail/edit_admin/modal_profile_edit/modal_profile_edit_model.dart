@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:math';
 import 'modal_profile_edit_widget.dart' show ModalProfileEditWidget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -32,12 +33,12 @@ class ModalProfileEditModel extends FlutterFlowModel<ModalProfileEditWidget> {
 
   // State field(s) for yourName widget.
   FocusNode? yourNameFocusNode;
-  TextEditingController? yourNameController;
-  String? Function(BuildContext, String?)? yourNameControllerValidator;
+  TextEditingController? yourNameTextController;
+  String? Function(BuildContext, String?)? yourNameTextControllerValidator;
   // State field(s) for note widget.
   FocusNode? noteFocusNode;
-  TextEditingController? noteController;
-  String? Function(BuildContext, String?)? noteControllerValidator;
+  TextEditingController? noteTextController;
+  String? Function(BuildContext, String?)? noteTextControllerValidator;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
@@ -48,9 +49,9 @@ class ModalProfileEditModel extends FlutterFlowModel<ModalProfileEditWidget> {
   @override
   void dispose() {
     yourNameFocusNode?.dispose();
-    yourNameController?.dispose();
+    yourNameTextController?.dispose();
 
     noteFocusNode?.dispose();
-    noteController?.dispose();
+    noteTextController?.dispose();
   }
 }

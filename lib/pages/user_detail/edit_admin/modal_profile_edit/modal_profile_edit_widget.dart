@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -35,28 +36,7 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
     with TickerProviderStateMixin {
   late ModalProfileEditModel _model;
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 300.ms),
-        MoveEffect(
-          curve: Curves.bounceOut,
-          delay: 300.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 300.ms,
-          duration: 400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -73,6 +53,28 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
 
     _model.noteFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 300.ms),
+          MoveEffect(
+            curve: Curves.bounceOut,
+            delay: 300.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 300.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -338,7 +340,7 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 16.0, 16.0, 0.0),
                               child: TextFormField(
-                                controller: _model.yourNameController ??=
+                                controller: _model.yourNameTextController ??=
                                     TextEditingController(
                                   text: containerUsersRecord.displayName,
                                 ),
@@ -405,10 +407,10 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                       fontFamily: 'Inter',
                                       letterSpacing: 0.0,
                                     ),
-                                minLines: null,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primary,
-                                validator: _model.yourNameControllerValidator
+                                validator: _model
+                                    .yourNameTextControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -416,7 +418,7 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 16.0, 16.0, 0.0),
                               child: TextFormField(
-                                controller: _model.noteController ??=
+                                controller: _model.noteTextController ??=
                                     TextEditingController(
                                   text: containerUsersRecord.note,
                                 ),
@@ -487,7 +489,7 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                 minLines: 3,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primary,
-                                validator: _model.noteControllerValidator
+                                validator: _model.noteTextControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -713,8 +715,8 @@ class _ModalProfileEditWidgetState extends State<ModalProfileEditWidget>
                                     await containerUsersRecord.reference
                                         .update(createUsersRecordData(
                                       displayName:
-                                          _model.yourNameController.text,
-                                      note: _model.noteController.text,
+                                          _model.yourNameTextController.text,
+                                      note: _model.noteTextController.text,
                                       photoUrl:
                                           _model.uploadedFileUrl != null &&
                                                   _model.uploadedFileUrl != ''

@@ -44,23 +44,26 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'Company_Entry'});
-    _model.evaluationController ??= TextEditingController();
+    _model.evaluationTextController ??= TextEditingController();
     _model.evaluationFocusNode ??= FocusNode();
 
-    _model.pointsController ??= TextEditingController();
+    _model.balanceTextController ??= TextEditingController();
+    _model.balanceFocusNode ??= FocusNode();
+
+    _model.pointsTextController ??= TextEditingController();
     _model.pointsFocusNode ??= FocusNode();
 
-    _model.amountController ??= TextEditingController();
+    _model.amountTextController ??= TextEditingController();
     _model.amountFocusNode ??= FocusNode();
 
-    _model.dateController ??= TextEditingController();
+    _model.dateTextController ??= TextEditingController();
     _model.dateFocusNode ??= FocusNode();
 
-    _model.profitRatioController ??= TextEditingController();
+    _model.profitRatioTextController ??= TextEditingController();
     _model.profitRatioFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.dateController?.text = dateTimeFormat(
+          _model.dateTextController?.text = dateTimeFormat(
             'd/M/y',
             _model.datePicked,
             locale: FFLocalizations.of(context).languageCode,
@@ -202,9 +205,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                       onTap: () async {
                                         logFirebaseEvent(
                                             'COMPANY_ENTRY_Container_ei4snp6d_ON_TAP');
-                                        setState(() {
-                                          _model.selectedbulk = true;
-                                        });
+                                        _model.selectedbulk = true;
+                                        setState(() {});
                                       },
                                       child: Container(
                                         width:
@@ -281,9 +283,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                       onTap: () async {
                                         logFirebaseEvent(
                                             'COMPANY_ENTRY_Container_t1ujt340_ON_TAP');
-                                        setState(() {
-                                          _model.selectedbulk = false;
-                                        });
+                                        _model.selectedbulk = false;
+                                        setState(() {});
                                       },
                                       child: Container(
                                         width:
@@ -631,13 +632,13 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                       child:
                                                                           TextFormField(
                                                                         controller:
-                                                                            _model.evaluationController,
+                                                                            _model.evaluationTextController,
                                                                         focusNode:
                                                                             _model.evaluationFocusNode,
                                                                         onChanged:
                                                                             (_) =>
                                                                                 EasyDebounce.debounce(
-                                                                          '_model.evaluationController',
+                                                                          '_model.evaluationTextController',
                                                                           Duration(
                                                                               milliseconds: 100),
                                                                           () =>
@@ -718,12 +719,153 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                               fontFamily: 'Inter',
                                                                               letterSpacing: 0.0,
                                                                             ),
-                                                                        minLines:
-                                                                            null,
                                                                         keyboardType:
                                                                             TextInputType.number,
                                                                         validator: _model
-                                                                            .evaluationControllerValidator
+                                                                            .evaluationTextControllerValidator
+                                                                            .asValidator(context),
+                                                                        inputFormatters: [
+                                                                          FilteringTextInputFormatter.allow(
+                                                                              RegExp('[0-9]'))
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ].divide(SizedBox(
+                                                                      height:
+                                                                          16.0)),
+                                                                ),
+                                                              ),
+                                                              Expanded(
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'rej1df0d' /* Balance */,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).accent3,
+                                                                            fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall
+                                                                                ? 12.0
+                                                                                : 16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            _model.balanceTextController,
+                                                                        focusNode:
+                                                                            _model.balanceFocusNode,
+                                                                        onChanged:
+                                                                            (_) =>
+                                                                                EasyDebounce.debounce(
+                                                                          '_model.balanceTextController',
+                                                                          Duration(
+                                                                              milliseconds: 100),
+                                                                          () =>
+                                                                              setState(() {}),
+                                                                        ),
+                                                                        autofocus:
+                                                                            true,
+                                                                        obscureText:
+                                                                            false,
+                                                                        decoration:
+                                                                            InputDecoration(
+                                                                          labelStyle: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                          hintText:
+                                                                              FFLocalizations.of(context).getText(
+                                                                            'ftudbown' /* 100 */,
+                                                                          ),
+                                                                          hintStyle: FlutterFlowTheme.of(context)
+                                                                              .labelLarge
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                          enabledBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0x00000000),
+                                                                              width: 2.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          focusedBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                              width: 2.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          errorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).error,
+                                                                              width: 2.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          focusedErrorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).error,
+                                                                              width: 2.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          filled:
+                                                                              true,
+                                                                          fillColor:
+                                                                              Color(0xFFEDF1F7),
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                        keyboardType:
+                                                                            TextInputType.number,
+                                                                        validator: _model
+                                                                            .balanceTextControllerValidator
                                                                             .asValidator(context),
                                                                         inputFormatters: [
                                                                           FilteringTextInputFormatter.allow(
@@ -797,10 +939,10 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                 AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 TextFormField(
-                                                                              controller: _model.pointsController,
+                                                                              controller: _model.pointsTextController,
                                                                               focusNode: _model.pointsFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
-                                                                                '_model.pointsController',
+                                                                                '_model.pointsTextController',
                                                                                 Duration(milliseconds: 100),
                                                                                 () => setState(() {}),
                                                                               ),
@@ -857,9 +999,8 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                     fontFamily: 'Inter',
                                                                                     letterSpacing: 0.0,
                                                                                   ),
-                                                                              minLines: null,
                                                                               keyboardType: TextInputType.number,
-                                                                              validator: _model.pointsControllerValidator.asValidator(context),
+                                                                              validator: _model.pointsTextControllerValidator.asValidator(context),
                                                                               inputFormatters: [
                                                                                 FilteringTextInputFormatter.allow(RegExp('[0-9]'))
                                                                               ],
@@ -1056,14 +1197,14 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                     TextFormField(
                                                                       controller:
                                                                           _model
-                                                                              .amountController,
+                                                                              .amountTextController,
                                                                       focusNode:
                                                                           _model
                                                                               .amountFocusNode,
                                                                       onChanged:
                                                                           (_) =>
                                                                               EasyDebounce.debounce(
-                                                                        '_model.amountController',
+                                                                        '_model.amountTextController',
                                                                         Duration(
                                                                             milliseconds:
                                                                                 100),
@@ -1159,8 +1300,6 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
-                                                                      minLines:
-                                                                          null,
                                                                       maxLength:
                                                                           8,
                                                                       maxLengthEnforcement:
@@ -1176,7 +1315,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                           decimal:
                                                                               true),
                                                                       validator: _model
-                                                                          .amountControllerValidator
+                                                                          .amountTextControllerValidator
                                                                           .asValidator(
                                                                               context),
                                                                       inputFormatters: [
@@ -1236,12 +1375,12 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                       children: [
                                                                         TextFormField(
                                                                           controller:
-                                                                              _model.dateController,
+                                                                              _model.dateTextController,
                                                                           focusNode:
                                                                               _model.dateFocusNode,
                                                                           onChanged: (_) =>
                                                                               EasyDebounce.debounce(
-                                                                            '_model.dateController',
+                                                                            '_model.dateTextController',
                                                                             Duration(milliseconds: 100),
                                                                             () =>
                                                                                 setState(() {}),
@@ -1307,8 +1446,6 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                 fontFamily: 'Inter',
                                                                                 letterSpacing: 0.0,
                                                                               ),
-                                                                          minLines:
-                                                                              null,
                                                                           maxLength:
                                                                               2,
                                                                           buildCounter: (context, {required currentLength, required isFocused, maxLength}) =>
@@ -1316,7 +1453,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                           keyboardType:
                                                                               TextInputType.datetime,
                                                                           validator: _model
-                                                                              .dateControllerValidator
+                                                                              .dateTextControllerValidator
                                                                               .asValidator(context),
                                                                           inputFormatters: [
                                                                             _model.dateMask
@@ -1373,7 +1510,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                               });
                                                                             }
                                                                             setState(() {
-                                                                              _model.dateController?.text = valueOrDefault<String>(
+                                                                              _model.dateTextController?.text = valueOrDefault<String>(
                                                                                 dateTimeFormat(
                                                                                   'd/M/y',
                                                                                   _model.datePicked,
@@ -1381,6 +1518,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                                 ),
                                                                                 'DD/MM/YY',
                                                                               );
+                                                                              _model.dateTextController?.selection = TextSelection.collapsed(offset: _model.dateTextController!.text.length);
                                                                             });
                                                                           },
                                                                           child:
@@ -1476,13 +1614,13 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                       child:
                                                                           TextFormField(
                                                                         controller:
-                                                                            _model.profitRatioController,
+                                                                            _model.profitRatioTextController,
                                                                         focusNode:
                                                                             _model.profitRatioFocusNode,
                                                                         onChanged:
                                                                             (_) =>
                                                                                 EasyDebounce.debounce(
-                                                                          '_model.profitRatioController',
+                                                                          '_model.profitRatioTextController',
                                                                           Duration(
                                                                               milliseconds: 100),
                                                                           () =>
@@ -1566,8 +1704,6 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                               fontSize: MediaQuery.sizeOf(context).width < kBreakpointSmall ? 12.0 : 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
-                                                                        minLines:
-                                                                            null,
                                                                         maxLength:
                                                                             2,
                                                                         buildCounter: (context,
@@ -1580,7 +1716,7 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                                                             decimal:
                                                                                 true),
                                                                         validator: _model
-                                                                            .profitRatioControllerValidator
+                                                                            .profitRatioTextControllerValidator
                                                                             .asValidator(context),
                                                                         inputFormatters: [
                                                                           _model
@@ -1876,233 +2012,313 @@ class _CompanyEntryWidgetState extends State<CompanyEntryWidget> {
                                         ),
                                       ),
                                     ),
-                                    Align(
-                                      alignment: AlignmentDirectional(1.0, 0.0),
-                                      child: FFButtonWidget(
-                                        onPressed: ((_model.evaluationController.text ==
-                                                        null ||
-                                                    _model.evaluationController
-                                                            .text ==
-                                                        '') &&
-                                                (_model.pointsController.text ==
-                                                        null ||
-                                                    _model.pointsController.text ==
-                                                        '') &&
-                                                (_model.investorDropdownValue ==
-                                                        null ||
-                                                    _model.investorDropdownValue ==
-                                                        '') &&
-                                                (_model.amountController
-                                                            .text ==
-                                                        null ||
-                                                    _model.amountController.text ==
-                                                        '') &&
-                                                (_model.datePicked == null) &&
-                                                (_model.profitRatioController
-                                                            .text ==
-                                                        null ||
-                                                    _model.profitRatioController
-                                                            .text ==
-                                                        '') &&
-                                                (_model.transctionTypeValue ==
-                                                        null ||
-                                                    _model.transctionTypeValue ==
-                                                        '') &&
-                                                (_model.durationOptionsValue ==
-                                                    null))
-                                            ? null
-                                            : () async {
-                                                logFirebaseEvent(
-                                                    'COMPANY_ENTRY_CREATE_DATA_BTN_ON_TAP');
-                                                _model.investorDoc =
-                                                    await queryUsersRecordOnce(
-                                                  queryBuilder: (usersRecord) =>
-                                                      usersRecord.where(
-                                                    'uid',
-                                                    isEqualTo: _model
-                                                        .investorDropdownValue,
-                                                  ),
-                                                  singleRecord: true,
-                                                ).then((s) => s.firstOrNull);
-
-                                                var investmentDataRecordReference =
-                                                    InvestmentDataRecord
-                                                        .collection
-                                                        .doc();
-                                                await investmentDataRecordReference
-                                                    .set(
-                                                        createInvestmentDataRecordData(
-                                                  amount: double.tryParse(_model
-                                                      .amountController.text),
-                                                  investorEvaluation:
-                                                      double.tryParse(_model
-                                                          .evaluationController
-                                                          .text),
-                                                  profitRatio: double.tryParse(
-                                                      _model
-                                                          .profitRatioController
-                                                          .text),
-                                                  investorRef: _model
-                                                      .investorDoc?.reference,
-                                                  transactionType: () {
-                                                    if (_model
-                                                            .transctionTypeValue ==
-                                                        'Deposite') {
-                                                      return TransactionType
-                                                          .DEPOSIT;
-                                                    } else if (_model
-                                                            .transctionTypeValue ==
-                                                        'Profit') {
-                                                      return TransactionType
-                                                          .PROFIT;
-                                                    } else {
-                                                      return TransactionType
-                                                          .COMMISSION;
-                                                    }
-                                                  }(),
-                                                  investmentId:
-                                                      random_data.randomString(
-                                                    10,
-                                                    15,
-                                                    true,
-                                                    true,
-                                                    true,
-                                                  ),
-                                                  duration: _model
-                                                      .durationOptionsValue,
-                                                  points: double.tryParse(_model
-                                                      .pointsController.text),
-                                                  investorId:
-                                                      _model.investorDoc?.uid,
-                                                  createdDate:
-                                                      _model.datePicked,
-                                                ));
-                                                _model.createdInvesmntdata =
-                                                    InvestmentDataRecord
-                                                        .getDocumentFromData(
-                                                            createInvestmentDataRecordData(
-                                                              amount: double
-                                                                  .tryParse(_model
-                                                                      .amountController
-                                                                      .text),
-                                                              investorEvaluation:
-                                                                  double.tryParse(
-                                                                      _model
-                                                                          .evaluationController
-                                                                          .text),
-                                                              profitRatio: double
-                                                                  .tryParse(_model
-                                                                      .profitRatioController
-                                                                      .text),
-                                                              investorRef: _model
-                                                                  .investorDoc
-                                                                  ?.reference,
-                                                              transactionType:
-                                                                  () {
-                                                                if (_model
-                                                                        .transctionTypeValue ==
-                                                                    'Deposite') {
-                                                                  return TransactionType
-                                                                      .DEPOSIT;
-                                                                } else if (_model
-                                                                        .transctionTypeValue ==
-                                                                    'Profit') {
-                                                                  return TransactionType
-                                                                      .PROFIT;
-                                                                } else {
-                                                                  return TransactionType
-                                                                      .COMMISSION;
-                                                                }
-                                                              }(),
-                                                              investmentId:
-                                                                  random_data
-                                                                      .randomString(
-                                                                10,
-                                                                15,
-                                                                true,
-                                                                true,
-                                                                true,
-                                                              ),
-                                                              duration: _model
-                                                                  .durationOptionsValue,
-                                                              points: double
-                                                                  .tryParse(_model
-                                                                      .pointsController
-                                                                      .text),
-                                                              investorId: _model
-                                                                  .investorDoc
-                                                                  ?.uid,
-                                                              createdDate: _model
-                                                                  .datePicked,
+                                    if (valueOrDefault<bool>(
+                                      _model.selectedbulk == true,
+                                      false,
+                                    ))
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.0, 0.0),
+                                        child: FFButtonWidget(
+                                          onPressed: ((_model
+                                                              .evaluationTextController
+                                                              .text ==
+                                                          null ||
+                                                      _model.evaluationTextController.text ==
+                                                          '') &&
+                                                  (_model.pointsTextController.text == null ||
+                                                      _model.pointsTextController.text ==
+                                                          '') &&
+                                                  (_model.investorDropdownValue == null ||
+                                                      _model.investorDropdownValue ==
+                                                          '') &&
+                                                  (_model.amountTextController.text == null ||
+                                                      _model.amountTextController.text ==
+                                                          '') &&
+                                                  (_model.datePicked == null) &&
+                                                  (_model.profitRatioTextController.text ==
+                                                          null ||
+                                                      _model.profitRatioTextController
+                                                              .text ==
+                                                          '') &&
+                                                  (_model.transctionTypeValue ==
+                                                          null ||
+                                                      _model.transctionTypeValue ==
+                                                          '') &&
+                                                  (_model.durationOptionsValue ==
+                                                      null))
+                                              ? null
+                                              : () async {
+                                                  logFirebaseEvent(
+                                                      'COMPANY_ENTRY_CREATE_DATA_BTN_ON_TAP');
+                                                  final firestoreBatch =
+                                                      FirebaseFirestore.instance
+                                                          .batch();
+                                                  try {
+                                                    _model.investorDoc =
+                                                        await queryUsersRecordOnce(
+                                                      queryBuilder:
+                                                          (usersRecord) =>
+                                                              usersRecord.where(
+                                                        'uid',
+                                                        isEqualTo: _model
+                                                            .investorDropdownValue,
+                                                      ),
+                                                      singleRecord: true,
+                                                    ).then((s) =>
+                                                            s.firstOrNull);
+                                                    var confirmDialogResponse =
+                                                        await showDialog<bool>(
+                                                              context: context,
+                                                              builder:
+                                                                  (alertDialogContext) {
+                                                                return AlertDialog(
+                                                                  title: Text(
+                                                                      'Confirm Dialog'),
+                                                                  content: Text(
+                                                                      'Please Double Check your Data if everything is Ok. Click Confirm else Click Cancel'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed: () => Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                      child: Text(
+                                                                          'Cancel'),
+                                                                    ),
+                                                                    TextButton(
+                                                                      onPressed: () => Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                      child: Text(
+                                                                          'Confirm'),
+                                                                    ),
+                                                                  ],
+                                                                );
+                                                              },
+                                                            ) ??
+                                                            false;
+                                                    if (confirmDialogResponse) {
+                                                      var investmentDataRecordReference =
+                                                          InvestmentDataRecord
+                                                              .collection
+                                                              .doc();
+                                                      firestoreBatch.set(
+                                                          investmentDataRecordReference,
+                                                          createInvestmentDataRecordData(
+                                                            amount: double
+                                                                .tryParse(_model
+                                                                    .amountTextController
+                                                                    .text),
+                                                            investorEvaluation:
+                                                                double.tryParse(
+                                                                    _model
+                                                                        .evaluationTextController
+                                                                        .text),
+                                                            profitRatio: double
+                                                                .tryParse(_model
+                                                                    .profitRatioTextController
+                                                                    .text),
+                                                            investorRef: _model
+                                                                .investorDoc
+                                                                ?.reference,
+                                                            transactionType:
+                                                                () {
+                                                              if (_model
+                                                                      .transctionTypeValue ==
+                                                                  'Deposite') {
+                                                                return TransactionType
+                                                                    .DEPOSIT;
+                                                              } else if (_model
+                                                                      .transctionTypeValue ==
+                                                                  'Profit') {
+                                                                return TransactionType
+                                                                    .PROFIT;
+                                                              } else {
+                                                                return TransactionType
+                                                                    .COMMISSION;
+                                                              }
+                                                            }(),
+                                                            investmentId:
+                                                                random_data
+                                                                    .randomString(
+                                                              10,
+                                                              15,
+                                                              true,
+                                                              true,
+                                                              true,
                                                             ),
-                                                            investmentDataRecordReference);
+                                                            duration: _model
+                                                                .durationOptionsValue,
+                                                            points: double
+                                                                .tryParse(_model
+                                                                    .pointsTextController
+                                                                    .text),
+                                                            investorId: _model
+                                                                .investorDoc
+                                                                ?.uid,
+                                                            createdDate: _model
+                                                                .datePicked,
+                                                            balance: double
+                                                                .tryParse(_model
+                                                                    .balanceTextController
+                                                                    .text),
+                                                          ));
+                                                      _model.createdInvesmntdata =
+                                                          InvestmentDataRecord
+                                                              .getDocumentFromData(
+                                                                  createInvestmentDataRecordData(
+                                                                    amount: double
+                                                                        .tryParse(_model
+                                                                            .amountTextController
+                                                                            .text),
+                                                                    investorEvaluation:
+                                                                        double.tryParse(_model
+                                                                            .evaluationTextController
+                                                                            .text),
+                                                                    profitRatio:
+                                                                        double.tryParse(_model
+                                                                            .profitRatioTextController
+                                                                            .text),
+                                                                    investorRef: _model
+                                                                        .investorDoc
+                                                                        ?.reference,
+                                                                    transactionType:
+                                                                        () {
+                                                                      if (_model
+                                                                              .transctionTypeValue ==
+                                                                          'Deposite') {
+                                                                        return TransactionType
+                                                                            .DEPOSIT;
+                                                                      } else if (_model
+                                                                              .transctionTypeValue ==
+                                                                          'Profit') {
+                                                                        return TransactionType
+                                                                            .PROFIT;
+                                                                      } else {
+                                                                        return TransactionType
+                                                                            .COMMISSION;
+                                                                      }
+                                                                    }(),
+                                                                    investmentId:
+                                                                        random_data
+                                                                            .randomString(
+                                                                      10,
+                                                                      15,
+                                                                      true,
+                                                                      true,
+                                                                      true,
+                                                                    ),
+                                                                    duration: _model
+                                                                        .durationOptionsValue,
+                                                                    points: double
+                                                                        .tryParse(_model
+                                                                            .pointsTextController
+                                                                            .text),
+                                                                    investorId: _model
+                                                                        .investorDoc
+                                                                        ?.uid,
+                                                                    createdDate:
+                                                                        _model
+                                                                            .datePicked,
+                                                                    balance: double
+                                                                        .tryParse(_model
+                                                                            .balanceTextController
+                                                                            .text),
+                                                                  ),
+                                                                  investmentDataRecordReference);
 
-                                                await _model
-                                                    .createdInvesmntdata!
-                                                    .reference
-                                                    .update(
-                                                        createInvestmentDataRecordData(
-                                                  investmentRef: _model
-                                                      .createdInvesmntdata
-                                                      ?.reference,
-                                                ));
+                                                      firestoreBatch.update(
+                                                          _model
+                                                              .createdInvesmntdata!
+                                                              .reference,
+                                                          createInvestmentDataRecordData(
+                                                            investmentRef: _model
+                                                                .createdInvesmntdata
+                                                                ?.reference,
+                                                          ));
 
-                                                context.goNamed('Main_Home');
+                                                      firestoreBatch.update(
+                                                          _model.investorDoc!
+                                                              .reference,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'balance': FieldValue.increment(
+                                                                    double.parse(_model
+                                                                        .amountTextController
+                                                                        .text)),
+                                                                'points': FieldValue.increment(
+                                                                    int.parse(_model
+                                                                        .pointsTextController
+                                                                        .text)),
+                                                              },
+                                                            ),
+                                                          });
 
-                                                await LogRecord.collection
-                                                    .doc()
-                                                    .set(createLogRecordData(
-                                                      logUserRef:
-                                                          currentUserReference,
-                                                      logType: LogType
-                                                          .CREATE_INVESTMENT_DATA,
-                                                      logTime:
-                                                          getCurrentTimestamp,
-                                                      logUserName:
-                                                          currentUserDisplayName,
-                                                      logUserId: currentUserUid,
-                                                    ));
+                                                      context
+                                                          .goNamed('Main_Home');
 
-                                                setState(() {});
-                                              },
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          'iy8k83ai' /* Create  Data */,
-                                        ),
-                                        options: FFButtonOptions(
-                                          width: 200.0,
-                                          height: 50.0,
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 0.0, 24.0, 0.0),
-                                          iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: Color(0xFF304DAF),
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Inter',
-                                                    color: Colors.white,
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                          elevation: 3.0,
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1.0,
+                                                      firestoreBatch.set(
+                                                          LogRecord.collection
+                                                              .doc(),
+                                                          createLogRecordData(
+                                                            logUserRef:
+                                                                currentUserReference,
+                                                            logType: LogType
+                                                                .CREATE_INVESTMENT_DATA,
+                                                            logTime:
+                                                                getCurrentTimestamp,
+                                                            logUserName:
+                                                                currentUserDisplayName,
+                                                            logUserId:
+                                                                currentUserUid,
+                                                          ));
+                                                    }
+                                                  } finally {
+                                                    await firestoreBatch
+                                                        .commit();
+                                                  }
+
+                                                  setState(() {});
+                                                },
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'iy8k83ai' /* Create  Data */,
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                          disabledColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .error,
-                                          disabledTextColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary,
+                                          options: FFButtonOptions(
+                                            width: 200.0,
+                                            height: 50.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    24.0, 0.0, 24.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: Color(0xFF304DAF),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Inter',
+                                                      color: Colors.white,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            elevation: 3.0,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                            disabledColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .error,
+                                            disabledTextColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
                                         ),
                                       ),
-                                    ),
                                   ].divide(SizedBox(height: 25.0)),
                                 ),
                               ),
